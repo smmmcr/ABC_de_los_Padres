@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>abc</title>
+	<!-- Note: running this exported project from disk may not work exactly like preview, since browsers block some features on the file:// protocol.  Once you've uploaded it to a server, it should work OK. -->
+		<meta name="HandheldFriendly" content="true" />
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
+<!--	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />-->
+
+
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	 <link rel="stylesheet" href="style.css">
+	<script src="jquery-1.7.1.min.js"></script>
+</head>  
+<body> 
+	<!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+	<div id="contenedorgeneral">
+		<div class="header">
+			<img src="img/hederPrincipal.png" />
+		</div>
+		<div class="contenidoGeneral">
+			<!--menu de inicio-->
+			
+			<div id="pagInicio">
+				<ul class="menuPrincipal">
+					<li><a href="#!" onclick="nuevoContenido(1);"><img src="img/btnInfoSemanal.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(2);"><img src="img/btnTemasSemanales.png" /></a></li>	
+					<li><a href="#!" ><img src="img/btnTemasDeEmbarazo.png" /></a></li>	
+					<li><a href="#!" ><img src="img/btnDescuentosABC.png" /></a></li>	
+					<li><a href="#!" ><img src="img/btnJuegos.png" /></a></li>	
+				</ul>
+			</div>			
+			<div id="pagInfoSemanal">			
+					<p>Si estoy Embarazada:</p>
+				<div id="divCiclo">
+					<input type="text" name="cicloEm" id="cicloEm"/>	
+					<p> Semana del ciclo de embarazo</p>					
+				</div>
+					<p>Si mi niño ya nacio:</p>
+					<div id="nacido">
+					<p id="nombrep">Nombre del niño:</p>
+					<p id="sexop">Sexo:</p>
+					<input type="text" name="nombreNinno" id="nombreNinno"/>	
+					<select name="sexo" id="sexo"></select>						
+					<p id="diap">Día:</p>
+					<p id="mesp">Mes:</p>
+					<p id="annop">Año:</p>
+					<select name="dia" id="dia"></select>	
+					<select name="mes" id="mes"></select>	
+					<select name="anno" id="anno"></select>	
+					<input type="button" name="enviar" id="enviar"/>	
+					<input type="button" name="facebook" id="facebook"/>	
+					<input type="button" name="volver" onclick="volver()" id="volver"/>	
+					
+					</div>
+			</div>
+			<div id="TemasSemanales">
+				
+				
+			</div>
+		</div>
+	</div>
+	
+<script>
+var contenidoInicial;
+$(document).ready(function(){
+contenidoInicial=$("#contenidoGeneral").html();
+});
+function nuevoContenido(id){
+	switch(id){
+		case 1:
+			$(".header").html("<img src='img/headerInfoSemanall.png' />");
+			$("#pagInfoSemanal").show();
+			$("#pagInicio").hide();
+		break;
+		case 2:
+			
+		break;
+		case 3:
+			
+		break;
+		case 4:
+			
+		break;
+		case 5:
+			
+		break;
+	
+	}
+}
+function volver(){
+$(".header").html("<img src='img/hederPrincipal.png' />");
+$("#pagInfoSemanal").hide();
+$("#pagInicio").show();
+}
+</script>
+</body> 
+</html> 
