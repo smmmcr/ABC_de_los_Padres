@@ -11,7 +11,7 @@ font-size:arial;
 p{
 color: rgb(247, 11, 11);
 font-weight: bold;
-font-size: 2.4em;
+font-size: 133.4%;
 }
 input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
@@ -84,7 +84,7 @@ float: left;
 #divCiclo p{
 color: #90A83D;
 font-weight: bold;
-font-size: 2.0em;
+font-size: 130%;
 float: left;
 width: 44%;
 margin-left: 21px;
@@ -93,11 +93,13 @@ margin-top: 10px;
 #nacido{
 background: rgba(255, 255, 255, 0.72);
 width: 100%;
-min-height: 310px;
+position: fixed;
+height: auto;
+/*min-height: 310px;*/
 }
 #nacido p{
 color:#0080B9;
-font-size: 1.8em;
+font-size: 134%;
 float: left;
 text-align: center;
 margin-top: 15px;
@@ -106,35 +108,35 @@ margin-top: 15px;
 #nacido input[type="text"]{
 width: 55%;
 height: 35%;
-min-height: 34px;
+/*min-height: 34px;*/
 float: left;
 border-color: rgb(255, 0, 0);
 }
 #nombrep{
 width: 56%;
-min-height: 26px;
+/*min-height: 26px;*/
 float: left;
 }
 #sexop{
 width: 44%;
 height: 35%;
-min-height: 26px;
+/*min-height: 26px;*/
 float: left;
 }
 #sexo{
 width: 38%;
 height: 35%;
-min-height: 49px;
+/*min-height: 49px;*/
 float: left;
 margin-left: 1%;
-margin-bottom: 27px;
+margin-bottom: 1%;
 border-color: rgb(255, 0, 0);
 }
 #dia,#mes,#anno,#diap,#mesp,#annop{
 width: 32%;
 }
 #dia,#mes,#anno{
-min-height: 52px;
+/*min-height: 52px;*/
 height: 70%;
 border: 8px solid #90A83D;
 }
@@ -245,12 +247,15 @@ width: 99%;
 }
 #TemasEmbarazo .volver{
 margin-left: 74%;
+margin-right: 2%;
 }
 #Descuentos .volver{
 margin-left: 84%;
+
 }
 #juegos .volver{
 margin-left: 85%;
+margin-right: 2%;
 }
 #listaDescuentos{
 border: 8px solid rgba(30, 83, 163, 0.72);
