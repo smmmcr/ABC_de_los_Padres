@@ -12,6 +12,7 @@ p{
 color: rgb(247, 11, 11);
 font-weight: bold;
 font-size: 133.4%;
+position: relative;
 }
 input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
@@ -95,7 +96,9 @@ background: rgba(255, 255, 255, 0.72);
 width: 100%;
 position: fixed;
 height: auto;
-/*min-height: 310px;*/
+margin-top: 2%;
+float: left;
+
 }
 #nacido p{
 color:#0080B9;
@@ -258,11 +261,10 @@ margin-left: 85%;
 margin-right: 2%;
 }
 #listaDescuentos{
-border: 8px solid rgba(30, 83, 163, 0.72);
+border: 8px solid rgb(255, 0, 0);
 border-radius: 7px;
 width: 93%;
 margin-left: 3.1%;
-min-height: 389px;
 height: 100%;
 background: rgba(255, 249, 249, 0.78);
 overflow: hidden;
