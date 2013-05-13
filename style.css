@@ -155,7 +155,6 @@ min-height: 51px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
-float:left;
 }
 #facebook{
 background: url(img/btnfacebook.png);
@@ -165,7 +164,6 @@ min-height: 51px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
-float:left;
 }
 .volver{
 background: url(img/btnvolver.png);
@@ -175,7 +173,6 @@ min-height: 35px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
-float:left;
 margin-top: 31px;
 }
 #contenidoTemaSemana{
