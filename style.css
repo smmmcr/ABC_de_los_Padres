@@ -284,3 +284,7 @@ font-family: arial;
 float: left;
 margin-top: 11%;
 }
+.botones{
+position:relative;
+width:100%;
+}
