@@ -11,7 +11,7 @@
 		<gap:platform name="blackberry" project="widgets"/>
 	</gap:platforms>	
 
-	<icon src="abclogo.png" width="128" height="128" gap:role="default" />	
+	<icon src="icon_128.png" width="128" height="128" gap:role="default" />	
 	<preference name="permissions" value="none"/>
 	<access origin="*" />
 	

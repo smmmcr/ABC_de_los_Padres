@@ -25,7 +25,6 @@
 		</div>
 		<div class="contenidoGeneral">
 			<!--menu de inicio-->
-			
 			<div id="pagInicio">
 				<ul class="menuPrincipal">
 					<li><a href="#!" onclick="nuevoContenido(1);"><img src="img/btnInfoSemanal.png" /></a></li>	
@@ -65,19 +64,7 @@
 			<div id="TemasSemanales">
 				<h3 id="encabeza">Tema de esta Semana</h3>
 				<p id='contenidoTemaSemana'>
-				Estilos de Aprendizaje
-				Dummy text of the printing and typesetting industry. 
-				has been the industry's standard dummy text ever 
-				since the 1500s, when an unknown printer took a galley 
-				of type and scrambled it to make a type specimen book. 
-				It has survived not only five centuries, but also the leap 
-				into electronic typesetting, remaining essentially 
-				unchanged.  It was popularised in the 1960s with the 
-				release of Letraset sheets containing Lorem Ipsum 
-				passages, and more recently with desktop publishing.
-				Contrary to popular belief, is not simply random text. 
-				It has roots in a piece of classical Latin literature from 
-				45 BC, making it over 2000 years old. Richard McClintock, 
+				
 				</p>
 				<input type="text" id="comentario"/>
 				<input type="button" id="comentar"/>
@@ -146,6 +133,10 @@ function nuevoContenido(id){
 			$("#Descuentos").hide();
 			$("#juegos").hide();
 			$("#TemasSemanales").show();
+				uri="https://movilmultimediasa.com/abcMobil/post.php";
+	$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+		$("#contenidoTemaSemana").html(json_data);
+	});
 		break;
 		case 3:
 			$(".header").html("<img src='img/headerTemasEmbarazo.png' />");
