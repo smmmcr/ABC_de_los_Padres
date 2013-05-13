@@ -30,9 +30,9 @@
 				<ul class="menuPrincipal">
 					<li><a href="#!" onclick="nuevoContenido(1);"><img src="img/btnInfoSemanal.png" /></a></li>	
 					<li><a href="#!" onclick="nuevoContenido(2);"><img src="img/btnTemasSemanales.png" /></a></li>	
-					<li><a href="#!" ><img src="img/btnTemasDeEmbarazo.png" /></a></li>	
-					<li><a href="#!" ><img src="img/btnDescuentosABC.png" /></a></li>	
-					<li><a href="#!" ><img src="img/btnJuegos.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(3);"><img src="img/btnTemasDeEmbarazo.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(4);"><img src="img/btnDescuentosABC.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(5);"><img src="img/btnJuegos.png" /></a></li>	
 				</ul>
 			</div>			
 			<div id="pagInfoSemanal">			
@@ -46,7 +46,10 @@
 					<p id="nombrep">Nombre del niño:</p>
 					<p id="sexop">Sexo:</p>
 					<input type="text" name="nombreNinno" id="nombreNinno"/>	
-					<select name="sexo" id="sexo"></select>						
+					<select name="sexo" id="sexo">
+					<option value="1">M</option>
+					<option value="2">F</option>
+					</select>						
 					<p id="diap">Día:</p>
 					<p id="mesp">Mes:</p>
 					<p id="annop">Año:</p>
@@ -55,13 +58,53 @@
 					<select name="anno" id="anno"></select>	
 					<input type="button" name="enviar" id="enviar"/>	
 					<input type="button" name="facebook" id="facebook"/>	
-					<input type="button" name="volver" onclick="volver()" id="volver"/>	
+					<input type="button" name="volver" onclick="volver()" class="volver"/>	
 					
 					</div>
 			</div>
 			<div id="TemasSemanales">
+				<h3 id="encabeza">Tema de esta Semana</h3>
+				<p id='contenidoTemaSemana'>
+				Estilos de Aprendizaje
+				Dummy text of the printing and typesetting industry. 
+				has been the industry's standard dummy text ever 
+				since the 1500s, when an unknown printer took a galley 
+				of type and scrambled it to make a type specimen book. 
+				It has survived not only five centuries, but also the leap 
+				into electronic typesetting, remaining essentially 
+				unchanged.  It was popularised in the 1960s with the 
+				release of Letraset sheets containing Lorem Ipsum 
+				passages, and more recently with desktop publishing.
+				Contrary to popular belief, is not simply random text. 
+				It has roots in a piece of classical Latin literature from 
+				45 BC, making it over 2000 years old. Richard McClintock, 
+				</p>
+				<input type="text" id="comentario"/>
+				<input type="button" id="comentar"/>
+				<input type="button" id="incluir"/>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+			</div>
+			<div id="TemasEmbarazo">
+				<ul id="listaAcTemasEmba">
+					<li><a href="#!" onclick="irEvento(1);"><img src="img/btnCalculador.png"/></a> </li>
+					<li><a href="#!" onclick="irEvento(2);"><img src="img/btnEjercicios.png"/></a> </li>
+					<li><a href="#!" onclick="irEvento(3);"><img src="img/btnSeleccNombre.png"/></a> </li>
+				</ul>
+				<div id="eventoEmba">
+				</div>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+			</div>
+			<div id="Descuentos">
+				<ul id="listaDescuentos">
 				
+				</ul>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+			</div>
+			<div id="juegos">
+				<ul id="listaJuegos">
 				
+				</ul>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
 			</div>
 		</div>
 	</div>
@@ -75,20 +118,61 @@ function nuevoContenido(id){
 	switch(id){
 		case 1:
 			$(".header").html("<img src='img/headerInfoSemanall.png' />");
-			$("#pagInfoSemanal").show();
 			$("#pagInicio").hide();
+			$("#TemasSemanales").hide();
+			$("#Descuentos").hide();
+			$("#juegos").hide();
+			$("#TemasSemanales").hide();
+			$("#pagInfoSemanal").show();
+			$("#dia").html();
+			$("#mes").html();
+			$("#anno").html();
+			for(i=1;i<=31;i++){
+				$("#dia").append('<option value="'+i+'">'+i+'</option>');
+			}
+			meses=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+			for(i=0;i<12;i++){
+				$("#mes").append('<option value="'+(i-1)+'">'+meses[i]+'</option>');
+			}
+			for(i=2004;i<2020;i++){
+				$("#anno").append('<option value="'+(i)+'">'+i+'</option>');
+			}		
 		break;
 		case 2:
-			
+			$(".header").html("<img src='img/headerTemaSemanall.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#Descuentos").hide();
+			$("#juegos").hide();
+			$("#TemasSemanales").show();
 		break;
 		case 3:
-			
+			$(".header").html("<img src='img/headerTemasEmbarazo.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#Descuentos").hide();
+			$("#juegos").hide();
+			$("#TemasEmbarazo").show();
 		break;
 		case 4:
-			
+			$(".header").html("<img src='img/headerJuegos.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#TemasEmbarazo").hide();
+			$("#juegos").hide();
+			$("#Descuentos").show();
 		break;
 		case 5:
-			
+			$(".header").html("<img src='img/headerJuegos.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#TemasEmbarazo").hide();
+			$("#Descuentos").hide();
+			$("#juegos").show();
 		break;
 	
 	}
@@ -96,6 +180,10 @@ function nuevoContenido(id){
 function volver(){
 $(".header").html("<img src='img/hederPrincipal.png' />");
 $("#pagInfoSemanal").hide();
+$("#TemasSemanales").hide();
+$("#TemasEmbarazo").hide();
+$("#Descuentos").hide();
+$("#juegos").hide();
 $("#pagInicio").show();
 }
 </script>

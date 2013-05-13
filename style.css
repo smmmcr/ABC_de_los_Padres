@@ -133,10 +133,9 @@ min-height: 52px;
 height: 70%;
 border: 8px solid #90A83D;
 }
-#enviar,#facebook,#volver{
+#enviar,#facebook,.volver{
 margin-left:3%;
 margin-top: 23px;
-
 }
 #enviar{
 background: url(img/btnenviar.png);
@@ -158,14 +157,118 @@ border: none;
 background-repeat: no-repeat;
 float:left;
 }
-#volver{
+.volver{
 background: url(img/btnvolver.png);
 width: 14%;
 height: 49%;
-min-height: 27px;
+min-height: 35px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
 float:left;
 margin-top: 31px;
+}
+#contenidoTemaSemana{
+border: 8px solid rgb(32, 102, 228);
+border-radius: 7px;
+width: 93%;
+margin-left: 3.1%;
+max-height: 389px;
+height: 100%;
+background: rgba(255, 249, 249, 0.78);
+overflow: hidden;
+overflow-y: scroll;
+color: #000;
+font-size: 1.3em;
+font-family: arial;
+}
+#comentar,#incluir{
+margin-left:3%;
+margin-top: 23px;
+}
+#comentar{
+background: url(img/btncomentarl.png);
+width: 30%;
+height: 49%;
+min-height: 51px;
+background-size: 100%;
+border: none;
+background-repeat: no-repeat;
+float:left;
+}
+#incluir{
+background: url(img/btncomentarl.png);
+width: 30%;
+height: 49%;
+min-height: 51px;
+background-size: 100%;
+border: none;
+background-repeat: no-repeat;
+float:left;
+}
+#comentario{
+float: left;
+margin-top: 29px;
+margin-left: 3%;
+width: 93%;
+height: 29%;
+max-height: 40px;
+border:8px solid #90A83D!important;
+}
+#TemasSemanales #encabeza{
+margin-left: 3%;
+font-family: Arial;
+color: #fff;
+margin-top: 15px;
+float: left;
+}
+#eventoEmba, #TemasSemanales, #TemasEmbarazo, #Descuentos, #juegos{
+display:none;
+}
+#listaAcTemasEmba{
+border: 8px solid rgb(228, 32, 204);
+border-radius: 7px;
+float: left;
+background: rgba(255, 255, 255, 0.79);
+margin-left: 16%;
+margin-top: 23px;
+margin-right: 12%;
+width: 70%;
+}
+#listaAcTemasEmba li, #listaAcTemasEmba img{
+width: 99%;
+}
+#TemasEmbarazo .volver{
+margin-left: 74%;
+}
+#juegos .volver{
+margin-left: 85%;
+}
+#listaDescuentos{
+border: 8px solid rgba(30, 83, 163, 0.72);
+border-radius: 7px;
+width: 93%;
+margin-left: 3.1%;
+min-height: 389px;
+height: 100%;
+background: rgba(255, 249, 249, 0.78);
+overflow: hidden;
+overflow-y: scroll;
+font-family: arial;
+float: left;
+margin-top: 11%;
+}
+#listaJuegos{
+border: 8px solid rgb(255, 0, 0);
+border-radius: 7px;
+width: 93%;
+margin-left: 3.1%;
+min-height: 389px;
+height: 100%;
+background: rgba(255, 249, 249, 0.78);
+overflow: hidden;
+overflow-y: scroll;
+font-family: arial;
+float: left;
+margin-top: 11%;
 }
