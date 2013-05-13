@@ -166,14 +166,13 @@ border: none;
 background-repeat: no-repeat;
 }
 .volver{
-background: url(img/btnvolver.png);
-width: 14%;
+background: url(img/btnfacebook.png);
+width: 30%;
 height: 49%;
-min-height: 35px;
+min-height: 51px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
-margin-top: 31px;
 }
 #contenidoTemaSemana{
 border: 8px solid rgb(32, 102, 228);
