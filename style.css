@@ -148,7 +148,7 @@ margin-left:3%;
 margin-top: 23px;
 }
 #enviar{
-background: url(img/btnenviar.png);
+background: url(img/btnEnviar.png);
 width: 30%;
 height: 49%;
 min-height: 51px;
@@ -166,13 +166,14 @@ border: none;
 background-repeat: no-repeat;
 }
 .volver{
-background: url(img/btnfacebook.png);
-width: 30%;
+background: url(img/btnVolver.png);
+width: 14%;
 height: 49%;
-min-height: 51px;
+min-height: 35px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
+margin-top: 31px;
 }
 #contenidoTemaSemana{
 border: 8px solid rgb(32, 102, 228);
