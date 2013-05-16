@@ -13,8 +13,11 @@
 
 
     <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	<script src="jquery.mobile-1.3.1.min.js"></script>
+	<script src="jquery-1.9.1.js"></script>
 	 <link rel="stylesheet" href="style.css">
-	<script src="jquery-1.7.1.min.js"></script>
+	 <link rel="stylesheet" href="jquery.mobile-1.3.1.css">
+	 <link rel="stylesheet" href="jquery.mobile.structure-1.3.1.css">
 </head>  
 <body> 
 	<!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
@@ -252,14 +255,14 @@ $("#eventoEmba1").show();
 	
 	
 }
-function generoN(id){			
+function generoN(id){
 $("#eventoEmba2").hide();
 $("#eventoEmba1").hide();
 $("#ninno, #ninna").hide();
 uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
 			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
 				$(".listaDeNombreBB ul").html("");
-				if(id==2){				
+				if(id==2){
 				$(".listaDeNombreBB ul").attr("class","ninoNombres");			
 				}else{
 				$(".listaDeNombreBB ul").removeAttr("class");			
@@ -279,6 +282,7 @@ $(".listaDeNombreBB ul").html("");
 $("#Descuentos").hide();
 $(".listaDeNombreBB").hide();
 $("#juegos").hide();
+$("#ninno, #ninna").hide();
 $("#pagInicio").show();
 }
 </script>
