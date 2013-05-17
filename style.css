@@ -399,5 +399,99 @@ color: #fff;
 width: 30%;
 float: left;
 margin-left: 16%;
+}
+.listaDescuentos{
+width: 80%;
+overflow: hidden;
+overflow-y: scroll;
+height: 394px;
+margin-left: 10%;
+border: solid rgb(46, 52, 192);
+border-radius: 17px;
+background: rgba(255, 255, 255, 0.75);
+font-family: Arial;
+font-weight: bold;
+color: #fff;
+}
 
+.listaDescuentos .cambioColor{
+width: 97%;
+height: 143px;
+border-radius: 8px;
+margin-left: 2%;
+margin-top: 5%;
+background: rgba(32, 125, 243, 0.58);
+}
+.listaDescuentos .colorNormal{
+width: 97%;
+height: 143px;
+border-radius: 8px;
+margin-left: 2%;
+margin-top: 5%;
+background: rgba(247, 139, 229, 0.97);
+}
+.listaDescuentos p{
+color: rgb(88, 69, 69);
+font-weight: bold;
+font-size: 78.4%;
+position: relative;
+}
+.listaDescuentos img{
+width: 30%;
+margin-left: 4%;
+margin-top: 2%;
+float: left;
+}
+.listaDescuentos h3 ,.listaDescuentos p{
+float: left;
+width: 60%;
+max-height: 44px;
+margin-left: 5%;
+}
+.listaJuegos{
+width: 80%;
+overflow: hidden;
+overflow-y: scroll;
+height: 394px;
+margin-left: 10%;
+border: 12px solid rgb(255, 3, 13);
+border-radius: 17px;
+background: rgba(255, 255, 255, 0.75);
+font-family: Arial;
+font-weight: bold;
+color: #fff;
+}
+.listaJuegos .cambioColor{
+width: 97%;
+height: 143px;
+border-radius: 8px;
+margin-left: 2%;
+margin-top: 5%;
+background: rgba(32, 125, 243, 0.58);
+}
+.listaJuegos .colorNormal{
+width: 97%;
+height: 143px;
+border-radius: 8px;
+margin-left: 2%;
+margin-top: 5%;
+background: rgba(247, 139, 229, 0.97);
+}
+.listaJuegos img{
+width: 30%;
+margin-left: 4%;
+margin-top: 2%;
+float: left;
+}
+.listaJuegos h3 , .listaJuegos p{
+float: left;
+width: 60%;
+max-height: 44px;
+margin-left: 5%;
+}
+.listaJuegos p{
+color: rgb(88, 69, 69);
+font-weight: bold;
+font-size: 78.4%;
+position: relative;
 }
