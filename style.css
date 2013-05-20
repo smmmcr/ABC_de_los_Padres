@@ -495,3 +495,15 @@ font-weight: bold;
 font-size: 78.4%;
 position: relative;
 }
+#contenedorCarga{
+display: block;
+background: #000;
+width: 100%;
+height: 100%;
+position: absolute;
+z-index: 999;
+}
+#contenedorCarga img{
+margin-left: 29%;
+margin-top: 53%;
+}
