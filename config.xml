@@ -16,6 +16,7 @@
 	<access origin="*" />
 	
 	<feature name="http://api.phonegap.com/1.0/network"/>	<preference name="orientation" value="portrait" />
+	<plugin name="Notification" value="org.apache.cordova.Notification"/>
 	<preference name="fullscreen" value="true" />
 	<preference name="target-device" value="universal" />
 

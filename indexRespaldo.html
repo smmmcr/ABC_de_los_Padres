@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>abc</title>
+	<!-- Note: running this exported project from disk may not work exactly like preview, since browsers block some features on the file:// protocol.  Once you've uploaded it to a server, it should work OK. -->
+		<meta name="HandheldFriendly" content="true" />
+	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
+<!--	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />-->
+
+
+    <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	<script src="jquery-1.9.1.js"></script>
+	<!--<script src="jquery.mobile-1.3.1.js"></script>-->
+	 <link rel="stylesheet" href="style.css">
+	 <!--<link rel="stylesheet" href="jquery.mobile-1.3.1.css">
+	 <link rel="stylesheet" href="jquery.mobile.structure-1.3.1.css">-->
+</head>  
+<body> 
+	<!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
+    This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
+	<div id="contenedorgen">
+	</div>
+	<div id="contenedorgeneral">
+		<div class="header">
+			<img src="img/hederPrincipal.png" />
+		</div>
+		<div class="contenidoGeneral">
+			<!--menu de inicio-->
+			<div id="pagInicio">
+				<ul class="menuPrincipal">
+					<li><a href="#!" onclick="nuevoContenido(1);"><img src="img/btnInfoSemanal.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(2);"><img src="img/btnTemasSemanales.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(3);"><img src="img/btnTemasDeEmbarazo.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(4);"><img src="img/btnDescuentosABC.png" /></a></li>	
+					<li><a href="#!" onclick="nuevoContenido(5);"><img src="img/btnJuegos.png" /></a></li>	
+				</ul>
+			</div>			
+			<div id="pagInfoSemanal">			
+					<p>Si estoy Embarazada:</p>
+				<div id="divCiclo">
+					<input type="text" name="cicloEm" id="cicloEm"/>	
+					<p> Semana del ciclo de embarazo</p>					
+				</div>
+					<p>Si mi niño ya nacio:</p>
+					<div id="nacido">
+					<p id="nombrep">Nombre del niño:</p>
+					<p id="sexop">Sexo:</p>
+					<input type="text" name="nombreNinno" id="nombreNinno"/>	
+					<select name="sexo" id="sexo">
+					<option value="1">M</option>
+					<option value="2">F</option>
+					</select>						
+					<p id="diap">Día:</p>
+					<p id="mesp">Mes:</p>
+					<p id="annop">Año:</p>
+					<select name="dia" id="dia"></select>	
+					<select name="mes" id="mes"></select>	
+					<select name="anno" id="anno"></select>	
+					<div class="botones">
+						<!--<input type="button" name="enviar" id="enviar" onclick="volver()"  />	-->
+						<input type="button" name="enviar" id="enviar" onclick="volver()" />	
+						<input type="button" name="facebook" id="facebook" />	
+						<input type="button" name="volver" class="volver"  onclick="volver()"/>	
+						<!--<input type="button" name="volver" onclick="volver()" class="volver" />	-->
+					</div>
+					</div>
+			</div>
+			<div id="TemasSemanales">
+				<h3 id="encabeza">Tema de esta Semana</h3>
+				<p id='contenidoTemaSemana'>
+				
+				</p>
+				<input type="text" id="comentario"/>
+				<input type="button" id="comentar"/>
+				<input type="button" id="incluir"/>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+			</div>
+			<div id="TemasEmbarazo">
+				<ul id="listaAcTemasEmba">
+					<li><a href="#!" onclick="irEvento(1);"><img src="img/btnCalculador.png"/></a> </li>
+					<li><a href="#!" onclick="irEvento(2);"><img src="img/btnEjercicios.png"/></a> </li>
+					<li><a href="#!" onclick="irEvento(3);"><img src="img/btnSeleccNombre.png"/></a> </li>
+				</ul>
+				<div id="eventoEmba1">
+				<h3>Fecha del último periodo</h3>
+				<p id="diap">Día:</p>
+					<p id="mesp">Mes:</p>
+					<p id="annop">Año:</p>
+					<select name="dia" id="dia"></select>	
+					<select name="mes" id="mes"></select>	
+					<select name="anno" id="anno"></select>	
+				<input type="button" name="calcular" id="calcular" onclick="calcular()"/>
+				<p id="textoNacido">El bebe nacer&aacute; el :</p>
+				<p id="resultadoPar"></p>
+				</div>
+				<div id="eventoEmba2">
+				
+				</div>
+				<div id="eventoEmba3">
+					<div id="ninno">
+					<img src="img/caritaDeNinno.png" alt="carita_de_nino" />
+						<input type="button" name="ninno" onclick="generoN(2)" value="Nombres de Niño" class="ninno"/>
+					</div>
+					<div id="ninna">
+					<img src="img/caritaDeNinna.png" alt="carita_de_nina" />
+						<input type="button" name="ninna" onclick="generoN(1)" value="Nombres de Niña" class="ninna"/>
+					</div>
+					<div class="listaDeNombreBB">
+						<ul>
+						</ul>
+					</div>
+				</div>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+			</div>
+			<div id="Descuentos">
+				<ul class="listaDescuentos">
+				
+				</ul>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+			</div>
+			<div id="juegos">
+				<ul class="listaJuegos">
+				
+				</ul>
+				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+			</div>
+		</div>
+	</div>
+	
+<script>
+var contenidoInicial;
+var meses=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+$(document).ready(function(){
+contenidoInicial=$("#contenidoGeneral").html();
+});
+function nuevoContenido(id){
+	switch(id){
+		case 1:
+			for(i=1;i<=31;i++){
+				$("#dia").append('<option value="'+i+'">'+i+'</option>');
+			}
+			for(i=0;i<12;i++){
+				$("#mes").append('<option value="'+(i-1)+'">'+meses[i]+'</option>');
+			}
+			for(i=2004;i<2020;i++){
+				$("#anno").append('<option value="'+(i)+'">'+i+'</option>');
+			}		
+			$(".header").html("<img src='img/headerInfoSemanall.png' />");
+			$("#pagInicio").hide();
+			$("#TemasSemanales").hide();
+			$("#Descuentos").hide();
+			$("#juegos").hide();
+			$("#TemasSemanales").hide();
+			$("#dia").html();
+			$("#mes").html();
+			$("#anno").html();
+			$("#pagInfoSemanal").show();
+		break;
+		case 2:
+			$(".header").html("<img src='img/headerTemaSemanall.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#Descuentos").hide();
+			$("#juegos").hide();
+			$("#TemasSemanales").show();
+			uri="https://movilmultimediasa.com/abcMobil/post.php?info=1";
+			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+				$("#contenidoTemaSemana").html(json_data);
+			});
+		break;
+		case 3:
+			$(".header").html("<img src='img/headerTemasEmbarazo.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#Descuentos").hide();
+			$("#juegos").hide();
+			$("#TemasEmbarazo").show();
+			$("#listaAcTemasEmba").show();
+			$("#eventoEmba1").hide();
+		break;
+		case 4:
+			$(".header").html("<img src='img/headerDescuentos.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#TemasEmbarazo").hide();
+			$("#juegos").hide();
+			$("#Descuentos").show();
+			descuentos();
+		break;
+		case 5:
+			$(".header").html("<img src='img/headerJuegos.png' />");
+			$("#pagInicio").hide();
+			$("#pagInfoSemanal").hide();
+			$("#TemasSemanales").hide();
+			$("#TemasEmbarazo").hide();
+			$("#Descuentos").hide();
+			$("#juegos").show();
+			juegos();
+		break;
+	
+	}
+}
+function irEvento(id){
+switch(id){
+	case 1: 
+	$("#listaAcTemasEmba").hide();
+	$("#textoNacido").hide();
+	$("#dia").html();
+	$("#mes").html();
+	$("#anno").html();
+		for(i=1;i<=31;i++){
+			$("#eventoEmba1 #dia").append('<option value="'+i+'">'+i+'</option>');
+		}			
+		for(i=0;i<12;i++){
+			$("#eventoEmba1 #mes").append('<option value="'+(i-1)+'">'+meses[i]+'</option>');
+		}
+		for(i=2004;i<2020;i++){
+			$("#eventoEmba1 #anno").append('<option value="'+(i)+'">'+i+'</option>');
+		}
+	$("#eventoEmba1").show();
+	break;
+	case 3:
+		$("#listaAcTemasEmba").hide();
+		$("#textoNacido").hide();
+		$("#eventoEmba1").hide();
+		$(".listaDeNombreBB").hide();
+		$("#eventoEmba3").show();
+		$("#ninno, #ninna").show();
+	break;
+			
+}
+
+}
+function calcular(){
+$("#listaAcTemasEmba").hide();
+$("#textoNacido").show();
+$("#eventoEmba1").show();
+	Dia=$("#eventoEmba1 #dia").val();
+	Mes=$("#eventoEmba1 #mes").val();
+	anno=$("#eventoEmba1 #anno").val();
+	annoParto=parseInt(anno);
+	mesde_parto="";
+	if(Mes>2){
+	mesde_parto=meses[Mes-3];
+	annoParto=(parseInt(anno)+1);
+	}else{
+	mesde_parto=meses[parseInt(Mes)+9];
+	}
+	fechaNacimiento=(parseInt(Dia)+7)+" de "+mesde_parto+" del "+annoParto;
+	$("#eventoEmba1 #resultadoPar").html(fechaNacimiento);
+	$("#eventoEmba1 #resultadoPar").show();
+	
+	
+}
+function generoN(id){
+$("#eventoEmba2").hide();
+$("#eventoEmba1").hide();
+$("#ninno, #ninna").hide();
+uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
+			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+				$(".listaDeNombreBB ul").html("");
+				if(id==2){
+				$(".listaDeNombreBB ul").attr("class","ninoNombres");			
+				}else{
+				$(".listaDeNombreBB ul").removeAttr("class");			
+				}
+				for(index in json_data){
+				$(".listaDeNombreBB ul").append("<li>"+json_data[index].nombre+"</li>");					
+				}
+			});
+$(".listaDeNombreBB").show();
+}
+function descuentos(){
+$("#eventoEmba2").hide();
+$("#eventoEmba1").hide();
+$("#ninno, #ninna").hide();
+uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
+			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+				$(".listaDescuentos").html("");
+				cont=1;
+				for(index in json_data){
+				color="colorNormal";
+				if((cont%2)!=0){
+				color="cambioColor";
+				}
+				$(".listaDescuentos").append("<li class='"+color+"'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+json_data[index].img+"'/>"+
+				"<h3>"+json_data[index].tituloPromo+"</h3>"+
+				"<p>Aplica desde: "+json_data[index].desde+"</p>"+
+				"<p>Hasta: "+json_data[index].hasta+"</p>"+
+				"<p>Descripci&oacute;n: "+json_data[index].descripcion+"</p>"+
+				"</li>");					
+				cont++;
+				}
+			});
+$(".listaDeNombreBB").show();
+}
+function juegos(){
+uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
+			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+				$(".listaJuegos").html("");
+				cont=1;
+				for(index in json_data){
+				color="colorNormal";
+				if((cont%2)!=0){
+				color="cambioColor";
+				}
+				$(".listaJuegos").append("<li class='"+color+"'></li>");	
+				/*$(".listaJuegos").append("<li class='"+color+"'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+json_data[index].img+"'/>"+
+				"<h3>"+json_data[index].tituloPromo+"</h3>"+
+				"<p>Aplica desde: "+json_data[index].desde+"</p>"+
+				"<p>Hasta: "+json_data[index].hasta+"</p>"+
+				"<p>Descripci&oacute;n: "+json_data[index].descripcion+"</p>"+
+				"</li>");*/					
+				cont++;
+				}
+			});
+$(".listaJuegos").show();
+}
+function inicio(){
+	
+
+}
+function volver(){
+$(".header").html("<img src='img/hederPrincipal.png' />");
+$("#pagInfoSemanal").hide();
+$("#TemasSemanales").hide();
+$("#TemasEmbarazo").hide();
+$(".listaDeNombreBB ul").html("");
+$("#Descuentos").hide();
+$(".listaDeNombreBB").hide();
+$("#juegos").hide();
+$("#ninno, #ninna").hide();
+$(".listaJuegos").hide();
+$("#pagInicio").show();
+}
+</script>
+</body> 
+</html> 
