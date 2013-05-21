@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>abc</title>
 	<!-- Note: running this exported project from disk may not work exactly like preview, since browsers block some features on the file:// protocol.  Once you've uploaded it to a server, it should work OK. -->
-		<meta name="HandheldFriendly" content="true" />
+	<meta name="HandheldFriendly" content="true" />
 	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
 <!--	<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -13,11 +13,11 @@
 
 
     <!-- All margins and padding must be zero for the canvas to fill the screen. -->
+	 <link rel="stylesheet" href="style.css">
 	<script src="jquery-1.9.1.js"></script>
 	<script src="jquery.mobile-1.3.1.js"></script>
-	 <link rel="stylesheet" href="style.css">
-	 <!--<link rel="stylesheet" href="jquery.mobile-1.3.1.css">
-	 <link rel="stylesheet" href="jquery.mobile.structure-1.3.1.css">-->
+	 <link rel="stylesheet" href="jquery.mobile-1.3.1.css">
+	<link rel="stylesheet" href="jquery.mobile.structure-1.3.1.css">
 </head>  
 <body> 
 	<!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
@@ -48,26 +48,62 @@
 				</div>
 					<p>Si mi niño ya nacio:</p>
 					<div id="nacido">
-					<p id="nombrep">Nombre del niño:</p>
-					<p id="sexop">Sexo:</p>
-					<input type="text" name="nombreNinno" id="nombreNinno"/>	
-					<select name="sexo" id="sexo">
-					<option value="1">M</option>
-					<option value="2">F</option>
-					</select>						
-					<p id="diap">Día:</p>
-					<p id="mesp">Mes:</p>
-					<p id="annop">Año:</p>
-					<select name="dia" id="dia"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>
-					<select name="mes" id="mes"><option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option></select>
-					<select name="anno" id="anno"><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option></select>
-					<div class="botones">
-						<!--<input type="button" name="enviar" id="enviar" onclick="volver()"  />	-->
-						<input type="button" name="enviar" id="enviar" onclick="volver()" />	
-						<input type="button" name="facebook" id="facebook" />	
-						<input type="button" name="volver" class="volver"  onclick="volver()"/>	
-						<!--<input type="button" name="volver" onclick="volver()" class="volver" />	-->
-					</div>
+						<div id="divnombreNinno">
+							<p id="nombrep">Nombre del niño:</p>
+							<p id="sexop">Sexo:</p>
+							<input type="text" name="nombreNinno" id="nombreNinno"/>	
+							<select name="sexo" id="sexo">
+							<option value="1">M</option>
+							<option value="2">F</option>
+							</select>
+						</div>
+						<div id="fechasDeNacimientoNinno">					
+						<p id="diap">Día:</p>
+						<p id="mesp">Mes:</p>
+						<p id="annop">Año:</p>
+						<select name="dia" id="dia">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+						<option value="21">21</option>
+						<option value="22">22</option>
+						<option value="23">23</option>
+						<option value="24">24</option>
+						<option value="25">25</option>
+						<option value="26">26</option>
+						<option value="27">27</option>
+						<option value="28">28</option>
+						<option value="29">29</option>
+						<option value="30">30</option>
+						<option value="31">31</option>
+						</select>
+						<select name="mes" id="mes"><option value="1">Enero</option><option value="2">Febrero</option><option value="3">Marzo</option><option value="4">Abril</option><option value="5">Mayo</option><option value="6">Junio</option><option value="7">Julio</option><option value="8">Agosto</option><option value="9">Septiembre</option><option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option></select>
+						<select name="anno" id="anno"><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option></select>
+						</div>
+						<div class="botones">
+							<!--<input type="button" name="enviar" id="enviar" onclick="volver()"  />	-->
+							<input type="button" name="enviar" id="enviar" />	
+							<input type="button" name="facebook" id="facebook" />	
+							<input type="button" name="volver" class="volver"  onclick="volver()"/>	
+							<!--<input type="button" name="volver" onclick="volver()" class="volver" />	-->
+						</div>
 					</div>
 			</div>
 			<div id="TemasSemanales">
@@ -75,10 +111,12 @@
 				<p id='contenidoTemaSemana'>
 				
 				</p>
-				<input type="text" id="comentario"/>
-				<input type="button" id="comentar"/>
-				<input type="button" id="incluir"/>
-				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+					<input type="text" id="comentario"/>
+				<div id="botonesTEmas">
+					<input type="button" id="comentar"/>
+					<input type="button" id="incluir"/>
+					<input type="button" name="volver" onclick="volver()" class="volver"/>					
+				</div>
 			</div>
 			<div id="TemasEmbarazo">
 				<ul id="listaAcTemasEmba">
@@ -102,26 +140,30 @@
 				
 				</div>
 				<div id="eventoEmba3">
-					<div id="ninno">
+					<div id="ninno" onclick="generoN(2)">
 					<img src="img/caritaDeNinno.png" alt="carita_de_nino" />
-						<input type="button" name="ninno" onclick="generoN(2)" value="Nombres de Niño" class="ninno"/>
+						<span> Nombres de Niño </span>
 					</div>
-					<div id="ninna">
+					<div id="ninna"  onclick="generoN(1)">
 					<img src="img/caritaDeNinna.png" alt="carita_de_nina" />
-						<input type="button" name="ninna" onclick="generoN(1)" value="Nombres de Niña" class="ninna"/>
+						<span> Nombres de Niña </span>
 					</div>
 					<div class="listaDeNombreBB">
 						<ul>
 						</ul>
 					</div>
 				</div>
-				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+				<div id="botonesTemasEmba">
+					<input type="button" name="volver" onclick="volver()" class="volver"/>					
+				</div>
 			</div>
 			<div id="Descuentos">
 				<ul class="listaDescuentos">
 				
 				</ul>
+				<div id="botonesDescuentos">
 				<input type="button" name="volver" onclick="volver()" class="volver"/>					
+				</div>
 			</div>
 			<div id="juegos">
 				<ul class="listaJuegos">
@@ -157,9 +199,9 @@ function nuevoContenido(id){
 			$("#Descuentos").hide();
 			$("#juegos").hide();
 			$("#TemasSemanales").hide();
-			$("#dia").html();
+			/*$("#dia").html();
 			$("#mes").html();
-			$("#anno").html();
+			$("#anno").html();*/
 			$("#pagInfoSemanal").show();
 		break;
 		case 2:
@@ -214,7 +256,7 @@ switch(id){
 	case 1: 
 	$("#listaAcTemasEmba").hide();
 	$("#textoNacido").hide();
-	$("#dia").html();
+	/*$("#dia").html();
 	$("#mes").html();
 	$("#anno").html();
 /*	 meses=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");

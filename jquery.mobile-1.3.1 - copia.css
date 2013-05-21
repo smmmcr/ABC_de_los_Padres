@@ -327,7 +327,7 @@
 }
 .ui-body-c,
 .ui-overlay-c {
-	/*border: 1px solid 		#aaa /*{c-body-border}*/;
+	border: 1px solid 		#aaa /*{c-body-border}*/;
 	color: 					#333 /*{c-body-color}*/;
 	text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #fff /*{c-body-shadow-color}*/;
 	background: 			#f9f9f9 /*{c-body-background-color}*/;
@@ -366,11 +366,17 @@
 	color: #2489ce /*{c-body-link-active}*/;
 }
 .ui-btn-up-c {
-	border: 1px solid #ccc /*{c-bup-border}*/;
-font-weight: bold;
-color: #222 /*{c-bup-color}*/;
-text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #fff /*{c-bup-shadow-color}*/;
-background-image: linear-gradient( rgb(255, 255, 255) /*{c-bup-background-start}*/, rgba(255, 255, 255, 0) /*{c-bup-background-end}*/);
+	border: 1px solid 		#ccc /*{c-bup-border}*/;
+	background: 			#eee /*{c-bup-background-color}*/;
+	font-weight: bold;
+	color: 					#222 /*{c-bup-color}*/;
+	text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #fff /*{c-bup-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff /*{c-bup-background-start}*/), to( #f1f1f1 /*{c-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/);
 }
 .ui-btn-up-c:visited,
 .ui-btn-up-c a.ui-link-inherit {
@@ -979,12 +985,13 @@ a.ui-link-inherit {
 }
 /* Button corner class
 -----------------------------------------------------------------------------------------------------------*/
-/*.ui-btn-corner-all {
-/*	-webkit-border-radius: 				1em /*{global-radii-buttons};*/
-/*	border-radius: 						1em /*{global-radii-buttons};*/
-/*}*/
+.ui-btn-corner-all {
+	-webkit-border-radius: 				1em /*{global-radii-buttons}*/;
+	border-radius: 						1em /*{global-radii-buttons}*/;
+}
 /* radius clip workaround for cleaning up corner trapping */
-.ui-corner-all, .ui-btn-corner-all {
+.ui-corner-all,
+.ui-btn-corner-all {
 	-webkit-background-clip: padding;
 	background-clip: padding-box;
 }
@@ -1003,11 +1010,11 @@ a.ui-link-inherit {
 	-webkit-box-shadow: 0 0 12px 		rgba(0,0,0,.6);
 	box-shadow: 0 0 12px 				rgba(0,0,0,.6);
 }
-/*.ui-shadow {
+.ui-shadow {
 	-moz-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 			rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
-/*	-webkit-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
-/*	box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.2) /*{global-box-shadow-color}*/
-/* }*/
+	-webkit-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+	box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.2) /*{global-box-shadow-color}*/
+}
 .ui-bar-a .ui-shadow,
 .ui-bar-b .ui-shadow ,
 .ui-bar-c .ui-shadow  {
@@ -2020,7 +2027,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-navbar li .ui-btn .ui-btn-inner { padding-top: .7em; padding-bottom: .8em }
 .ui-navbar li .ui-btn-icon-top .ui-btn-inner { padding-top: 30px; }
 .ui-navbar li .ui-btn-icon-bottom .ui-btn-inner { padding-bottom: 30px; }
-.ui-btn { display: block; text-align: center; cursor:pointer; position: relative; padding: 0; }
+.ui-btn { display: block; text-align: center; cursor:pointer; position: relative; margin: .5em 0; padding: 0; }
 .ui-mini { margin-top: .25em; margin-bottom: .25em; }
 .ui-btn-left, .ui-btn-right, .ui-input-clear, .ui-btn-inline,
 .ui-grid-a .ui-btn, .ui-grid-b .ui-btn, .ui-grid-c .ui-btn, .ui-grid-d .ui-btn, .ui-grid-e .ui-btn, .ui-grid-solo .ui-btn { margin-right: 5px; margin-left: 5px; }
@@ -3356,131 +3363,4 @@ div.ui-slider-switch.ui-mini {
 	.ui-responsive-panel .ui-panel-dismiss-display-push {
 		display: none;
 	}	
-}
-.botones .ui-btn{ 
-float: left;
-width: 27%;
-margin-left: 4%;
-margin-top: 12%;
-}
-.botones div:first-child {
-background: url(img/btnEnviar.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-}
-.botones :nth-child(2){
-background: url(img/btnfacebook.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-}
-.botones :nth-child(3){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-margin-top: 62px;
-}
-.botones :nth-child(3) .volver{
-width: 100%;
-min-height: 63%;
-}
-#botonesTEmas{ 
-float: left;
-width: 93%;
-margin-left: 5%;
-margin-top: 3%;
-}
-#botonesTEmas div{ 
-float: left;
-width: 23%;
-margin-left: 5%;
-}
-#botonesTEmas div:first-child {
-background: url(img/btncomentarl.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float:left;
-}
-#botonesTEmas :nth-child(2){
-background: url(img/btnincluir.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float:left;
-}
-#botonesTEmas :nth-child(3){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-
-}
-#botonesTEmas :nth-child(3) .volver{
-width: 100%;
-min-height: 63%;
-}
-#botonesTemasEmba {
-float: left;
-width: 100%;
-}
-#botonesTemasEmba div:nth-child(1){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float: right;
-margin-right: 11%;
-}
-#botonesTemasEmba :nth-child(1) .volver{
-width: 100%;
-min-height: 63%;
-}
-#ninno span, #ninna span{
-margin-left: 23%;
-font-weight: bold;
-}
-#botonesDescuentos{ 
-float: left;
-width: 93%;
-margin-left: 5%;
-margin-top: 3%;
-}
-#botonesDescuentos div:nth-child(1){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float: right;
-margin-right: 11%;
-}
-#botonesDescuentos :nth-child(1) .volver{
-width: 100%;
-min-height: 63%;
 }

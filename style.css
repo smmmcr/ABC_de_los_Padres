@@ -74,7 +74,7 @@ min-height: 106px;
 #cicloEm{
 width: 20%;
 height: 42%;
-min-height: 46px;
+min-height: 40px;
 border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 margin-top: 18px;
@@ -111,31 +111,37 @@ margin-top: 15px;
 #nacido input[type="text"]{
 width: 55%;
 height: 35%;
-/*min-height: 34px;*/
 float: left;
 border-color: rgb(255, 0, 0);
+margin-right: 1%;
+min-height: 34px;
+border: 10px solid rgb(233, 19, 19);
+margin-left: 6%;
 }
 #nombrep{
-width: 56%;
+width: 35%;
 /*min-height: 26px;*/
 float: left;
 }
+#divnombreNinno p{
+margin-left: 19%;
+}
 #sexop{
-width: 44%;
+width: 25%;
 height: 35%;
 /*min-height: 26px;*/
 float: left;
 }
 #sexo{
-width: 38%;
-height: 35%;
+/*width: 38%;*/
+/*height: 35%;*/
 /*min-height: 49px;*/
 float: left;
 margin-left: 1%;
 margin-bottom: 1%;
 border-color: rgb(255, 0, 0);
 }
-#dia,#mes,#anno,#diap,#mesp,#annop{
+#diap,#mesp,#annop{
 width: 32%;
 }
 #dia,#mes,#anno{
@@ -143,37 +149,17 @@ width: 32%;
 height: 70%;
 border: 8px solid #90A83D;
 }
-#enviar,#facebook,.volver{
-margin-left:3%;
-margin-top: 23px;
+
+
+#fechasDeNacimientoNinno{
+margin-top: 7%;
+float: left;
+width: 100%;
 }
-#enviar{
-background: url(img/btnEnviar.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-}
-#facebook{
-background: url(img/btnfacebook.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-}
-.volver{
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-margin-top: 31px;
+#divnombreNinno{
+margin-top: 1%;
+float: left;
+width: 100%;
 }
 #contenidoTemaSemana{
 border: 8px solid rgb(32, 102, 228);
@@ -188,30 +174,6 @@ overflow-y: scroll;
 color: #000;
 font-size: 1.3em;
 font-family: arial;
-}
-#comentar,#incluir{
-margin-left:3%;
-margin-top: 23px;
-}
-#comentar{
-background: url(img/btncomentarl.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float:left;
-}
-#incluir{
-background: url(img/btnincluir.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float:left;
 }
 #comentario{
 float: left;
@@ -245,14 +207,7 @@ width: 70%;
 #listaAcTemasEmba li, #listaAcTemasEmba img{
 width: 99%;
 }
-#TemasEmbarazo .volver{
-margin-left: 74%;
-margin-right: 2%;
-}
-#Descuentos .volver{
-margin-left: 84%;
 
-}
 #juegos .volver{
 margin-left: 85%;
 margin-right: 2%;
@@ -287,6 +242,7 @@ margin-top: 11%;
 .botones{
 position:relative;
 width:100%;
+float: left;
 }
 #calcular{
 background: url(img/calcular.png);
