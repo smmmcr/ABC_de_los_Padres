@@ -14,17 +14,9 @@
 /* A
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-a {
-	border: 1px solid 		#333 /*{a-bar-border}*/;
-	background: 			#111 /*{a-bar-background-color}*/;
-	color: 					#fff /*{a-bar-color}*/;
-	font-weight: bold;
-	text-shadow: 0 /*{a-bar-shadow-x}*/ -1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #000 /*{a-bar-shadow-color}*/;
-	background-image: -webkit-gradient(linear, left top, left bottom, from( #3c3c3c /*{a-bar-background-start}*/), to( #111 /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
-	background-image: -webkit-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
-	background-image:    -moz-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* FF3.6 */
-	background-image:     -ms-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* IE10 */
-	background-image:      -o-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Opera 11.10+ */
-	background-image:         linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/);
+	
+	color: #fff /*{a-bar-color}*/;
+font-weight: bold;
 }
 .ui-bar-a,
 .ui-bar-a input,
@@ -325,7 +317,7 @@
 .ui-bar-c button {
 	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
-.ui-body-c,
+/**.ui-body-c,*/
 .ui-overlay-c {
 	/*border: 1px solid 		#aaa /*{c-body-border}*/;
 	color: 					#333 /*{c-body-color}*/;
@@ -366,11 +358,11 @@
 	color: #2489ce /*{c-body-link-active}*/;
 }
 .ui-btn-up-c {
-	border: 1px solid #ccc /*{c-bup-border}*/;
+border: 1px solid #ccc /*{c-bup-border}*/;
 font-weight: bold;
 color: #222 /*{c-bup-color}*/;
 text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #fff /*{c-bup-shadow-color}*/;
-background-image: linear-gradient( rgb(255, 255, 255) /*{c-bup-background-start}*/, rgba(255, 255, 255, 0) /*{c-bup-background-end}*/);
+background-image: linear-gradient( rgb(255, 255, 255) /*{c-bup-background-start}*/, rgb(209, 204, 204) /*{c-bup-background-end}*/);
 }
 .ui-btn-up-c:visited,
 .ui-btn-up-c a.ui-link-inherit {
@@ -3483,4 +3475,25 @@ margin-right: 11%;
 #botonesDescuentos :nth-child(1) .volver{
 width: 100%;
 min-height: 63%;
+}
+#eventoEmba1 .ui-select {
+display: block;
+position: relative;
+width: 27%;
+float: left;
+margin-left: 2%;
+border: 6px solid #90A83D;
+border-radius: 10px;
+}
+#divBtncalcular div:nth-child(1){
+background: url(img/calcular.png);
+width: 30%;
+height: 49%;
+min-height: 51px;
+background-size: 100%;
+border: none;
+background-repeat: no-repeat;
+float:left;
+margin-top: 7%;
+margin-left: 33%;
 }
