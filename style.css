@@ -132,23 +132,25 @@ height: 35%;
 /*min-height: 26px;*/
 float: left;
 }
-#sexo{
+/*#sexo{
 /*width: 38%;*/
 /*height: 35%;*/
 /*min-height: 49px;*/
-float: left;
+/*float: left;
 margin-left: 1%;
 margin-bottom: 1%;
 border-color: rgb(255, 0, 0);
-}
+}*/
 #diap,#mesp,#annop{
 width: 32%;
 }
+/*
 #dia,#mes,#anno{
 /*min-height: 52px;*/
+/*
 height: 70%;
 border: 8px solid #90A83D;
-}
+}*/
 
 
 #fechasDeNacimientoNinno{
