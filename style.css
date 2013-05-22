@@ -411,6 +411,7 @@ border-radius: 8px;
 margin-left: 2%;
 margin-top: 5%;
 background: rgba(247, 139, 229, 0.97);
+position: relative;
 }
 .listaDescuentos p{
 color: rgb(88, 69, 69);
