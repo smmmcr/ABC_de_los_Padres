@@ -3497,7 +3497,9 @@ float:left;
 margin-top: 7%;
 margin-left: 33%;
 }
-#selecDivGen { display: block;
+#selecDivGen { 
+}
+.combobox{ display: block;
 position: relative;
 width: 22%;
 float: left;
