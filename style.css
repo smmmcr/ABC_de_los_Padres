@@ -155,11 +155,13 @@ border: 8px solid #90A83D;
 margin-top: 1%;
 float: left;
 width: 100%;
+position: relative;
 }
 #divnombreNinno{
 margin-top: 1%;
 float: left;
 width: 100%;
+position: relative;
 }
 #contenidoTemaSemana{
 border: 8px solid rgb(32, 102, 228);
