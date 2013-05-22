@@ -1389,15 +1389,8 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 @media all and (min-width: 28em){
 	.ui-field-contain, .ui-mobile fieldset.ui-field-contain { border-width: 0; padding: 0; margin: 1em 0; }
 }
-.ui-select { display: block;
-position: relative;
-width: 22%;
-float: left;
-margin-left: 8%;
-border: 8px solid #90A83D;
-border-radius: 10px;
-height: 50px;
-}
+.ui-select { display: block;}
+
 .ui-select select { position: absolute; left: -9999px; top: -9999px; }
 .ui-select .ui-btn { opacity: 1;height: 95%; }
 .ui-field-contain .ui-select .ui-btn { margin: 0; }
