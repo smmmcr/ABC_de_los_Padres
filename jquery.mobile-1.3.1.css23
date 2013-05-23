@@ -14,9 +14,17 @@
 /* A
 -----------------------------------------------------------------------------------------------------------*/
 .ui-bar-a {
-	
-	color: #fff /*{a-bar-color}*/;
-font-weight: bold;
+	border: 1px solid 		#333 /*{a-bar-border}*/;
+	background: 			#111 /*{a-bar-background-color}*/;
+	color: 					#fff /*{a-bar-color}*/;
+	font-weight: bold;
+	text-shadow: 0 /*{a-bar-shadow-x}*/ -1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #000 /*{a-bar-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #3c3c3c /*{a-bar-background-start}*/), to( #111 /*{a-bar-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #3c3c3c /*{a-bar-background-start}*/, #111 /*{a-bar-background-end}*/);
 }
 .ui-bar-a,
 .ui-bar-a input,
@@ -317,9 +325,9 @@ font-weight: bold;
 .ui-bar-c button {
 	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
-/**.ui-body-c,*/
+.ui-body-c,
 .ui-overlay-c {
-	/*border: 1px solid 		#aaa /*{c-body-border}*/;
+	border: 1px solid 		#aaa /*{c-body-border}*/;
 	color: 					#333 /*{c-body-color}*/;
 	text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #fff /*{c-body-shadow-color}*/;
 	background: 			#f9f9f9 /*{c-body-background-color}*/;
@@ -358,11 +366,17 @@ font-weight: bold;
 	color: #2489ce /*{c-body-link-active}*/;
 }
 .ui-btn-up-c {
-border: 1px solid #ccc /*{c-bup-border}*/;
-font-weight: bold;
-color: #222 /*{c-bup-color}*/;
-text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #fff /*{c-bup-shadow-color}*/;
-background-image: linear-gradient( rgb(255, 255, 255) /*{c-bup-background-start}*/, rgb(209, 204, 204) /*{c-bup-background-end}*/);
+	border: 1px solid 		#ccc /*{c-bup-border}*/;
+	background: 			#eee /*{c-bup-background-color}*/;
+	font-weight: bold;
+	color: 					#222 /*{c-bup-color}*/;
+	text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #fff /*{c-bup-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff /*{c-bup-background-start}*/), to( #f1f1f1 /*{c-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/);
 }
 .ui-btn-up-c:visited,
 .ui-btn-up-c a.ui-link-inherit {
@@ -971,12 +985,13 @@ a.ui-link-inherit {
 }
 /* Button corner class
 -----------------------------------------------------------------------------------------------------------*/
-/*.ui-btn-corner-all {
-/*	-webkit-border-radius: 				1em /*{global-radii-buttons};*/
-/*	border-radius: 						1em /*{global-radii-buttons};*/
-/*}*/
+.ui-btn-corner-all {
+	-webkit-border-radius: 				1em /*{global-radii-buttons}*/;
+	border-radius: 						1em /*{global-radii-buttons}*/;
+}
 /* radius clip workaround for cleaning up corner trapping */
-.ui-corner-all, .ui-btn-corner-all {
+.ui-corner-all,
+.ui-btn-corner-all {
 	-webkit-background-clip: padding;
 	background-clip: padding-box;
 }
@@ -995,11 +1010,11 @@ a.ui-link-inherit {
 	-webkit-box-shadow: 0 0 12px 		rgba(0,0,0,.6);
 	box-shadow: 0 0 12px 				rgba(0,0,0,.6);
 }
-/*.ui-shadow {
+.ui-shadow {
 	-moz-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 			rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
-/*	-webkit-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
-/*	box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.2) /*{global-box-shadow-color}*/
-/* }*/
+	-webkit-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.2) /*{global-box-shadow-color}*/;
+	box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.2) /*{global-box-shadow-color}*/
+}
 .ui-bar-a .ui-shadow,
 .ui-bar-b .ui-shadow ,
 .ui-bar-c .ui-shadow  {
@@ -2012,7 +2027,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-navbar li .ui-btn .ui-btn-inner { padding-top: .7em; padding-bottom: .8em }
 .ui-navbar li .ui-btn-icon-top .ui-btn-inner { padding-top: 30px; }
 .ui-navbar li .ui-btn-icon-bottom .ui-btn-inner { padding-bottom: 30px; }
-.ui-btn { display: block; text-align: center; cursor:pointer; position: relative; padding: 0; }
+.ui-btn { display: block; text-align: center; cursor:pointer; position: relative; margin: .5em 0; padding: 0; }
 .ui-mini { margin-top: .25em; margin-bottom: .25em; }
 .ui-btn-left, .ui-btn-right, .ui-input-clear, .ui-btn-inline,
 .ui-grid-a .ui-btn, .ui-grid-b .ui-btn, .ui-grid-c .ui-btn, .ui-grid-d .ui-btn, .ui-grid-e .ui-btn, .ui-grid-solo .ui-btn { margin-right: 5px; margin-left: 5px; }
@@ -2431,12 +2446,11 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 	.ui-field-contain, .ui-mobile fieldset.ui-field-contain { border-width: 0; padding: 0; margin: 1em 0; }
 }
 .ui-select { display: block; position: relative; }
-.ui-select select { /*position: absolute; /*left: -9999px; top: -9999px; */}
+.ui-select select { position: absolute; left: -9999px; top: -9999px; }
 .ui-select .ui-btn { opacity: 1; }
 .ui-field-contain .ui-select .ui-btn { margin: 0; }
 /* Fixes #2588: When Windows Phone 7.5 (Mango) tries to calculate a numeric opacity for a select (including "inherit") without explicitly specifying an opacity on the parent to give it context, a bug appears where clicking elsewhere on the page after opening the select will open the select again. */
-.ui-select .ui-btn select { cursor: pointer; -webkit-appearance: none; /*left: 70px;
-top: 129px;*/ width: 100%; min-height: 1.5em; min-height: 100%; height: 3em; max-height: 100%; filter: Alpha(Opacity=0); opacity: 0; z-index: 2; }
+.ui-select .ui-btn select { cursor: pointer; -webkit-appearance: none; left: 0; top:0; width: 100%; min-height: 1.5em; min-height: 100%; height: 3em; max-height: 100%; filter: Alpha(Opacity=0); opacity: 0; z-index: 2; }
 .ui-select .ui-disabled { opacity: .3; }
 /* Display none because of issues with IE/WP's filter alpha opacity */
 .ui-select .ui-disabled select { display: none; }
@@ -3350,165 +3364,3 @@ div.ui-slider-switch.ui-mini {
 		display: none;
 	}	
 }
-.botones .ui-btn{ 
-float: left;
-width: 27%;
-margin-left: 4%;
-margin-top: 12%;
-}
-.botones div:first-child {
-background: url(img/btnEnviar.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-}
-.botones :nth-child(2){
-background: url(img/btnfacebook.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-}
-.botones :nth-child(3){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-margin-top: 62px;
-}
-.botones :nth-child(3) .volver{
-width: 100%;
-min-height: 63%;
-}
-#botonesTEmas{ 
-float: left;
-width: 93%;
-margin-left: 5%;
-margin-top: 3%;
-}
-#botonesTEmas div{ 
-float: left;
-width: 23%;
-margin-left: 5%;
-}
-#botonesTEmas div:first-child {
-background: url(img/btncomentarl.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float:left;
-}
-#botonesTEmas :nth-child(2){
-background: url(img/btnincluir.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float:left;
-}
-#botonesTEmas :nth-child(3){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-
-}
-#botonesTEmas :nth-child(3) .volver{
-width: 100%;
-min-height: 63%;
-}
-#botonesTemasEmba {
-float: left;
-width: 100%;
-}
-#botonesTemasEmba div:nth-child(1){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float: right;
-margin-right: 11%;
-}
-#botonesTemasEmba :nth-child(1) .volver{
-width: 100%;
-min-height: 63%;
-}
-#ninno span, #ninna span{
-margin-left: 23%;
-font-weight: bold;
-}
-#botonesDescuentos{ 
-float: left;
-width: 93%;
-margin-left: 5%;
-margin-top: 3%;
-}
-#botonesDescuentos div:nth-child(1){
-background: url(img/btnVolver.png);
-width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float: right;
-margin-right: 11%;
-}
-#botonesDescuentos :nth-child(1) .volver{
-width: 100%;
-min-height: 63%;
-}
-#eventoEmba1 .ui-select {
-display: block;
-position: relative;
-width: 27%;
-float: left;
-margin-left: 2%;
-border: 6px solid #90A83D;
-border-radius: 10px;
-}
-#divBtncalcular div:nth-child(1){
-background: url(img/calcular.png);
-width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
-border: none;
-background-repeat: no-repeat;
-float:left;
-margin-top: 7%;
-margin-left: 33%;
-}
-#selecDivGen { 
-}
-.combobox{ display: block;
-position: relative;
-width: 22%;
-float: left;
-margin-left: 8%;
-border: 8px solid #90A83D;
-border-radius: 10px;
-
-}
-.combobox select{
-position: absolute!important;
-display: inline-block!important;}
