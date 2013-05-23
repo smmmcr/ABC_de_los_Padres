@@ -3501,8 +3501,7 @@ margin-left: 33%;
 }
 #selecDivGen { 
 }
-/*
-.combobox{ display: block;
+/*.combobox{ display: block;
 position: relative;
 width: 22%;
 float: left;
@@ -3510,7 +3509,9 @@ margin-left: 8%;
 border: 8px solid #90A83D;
 border-radius: 10px;
 
-}
+}*/
 .combobox select{
-position: absolute!important;
-display: inline-block!important;}*/
+width: 362px;
+z-index: 3;
+border:none;
+}
