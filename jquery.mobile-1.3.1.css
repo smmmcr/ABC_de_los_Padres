@@ -3477,7 +3477,7 @@ margin-right: 11%;
 width: 100%;
 min-height: 63%;
 }
-#eventoEmba1 .ui-select {
+/*#eventoEmba1 .ui-select {
 display: block;
 position: relative;
 width: 27%;
@@ -3485,7 +3485,7 @@ float: left;
 margin-left: 2%;
 border: 6px solid #90A83D;
 border-radius: 10px;
-}
+}*/
 #divBtncalcular div:nth-child(1){
 background: url(img/calcular.png);
 width: 30%;
