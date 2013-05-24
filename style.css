@@ -498,3 +498,5 @@ margin-top: 53%;
 .listaDeNombreBB{
 position: relative;
 }
+#eventoEmba1 .ui-select .ui-btn select { cursor: pointer; -webkit-appearance: none; top: 387px!important;
+left: 0px!important; width: 100%; min-height: 1.5em; min-height: 100%; height: 3em; max-height: 100%; filter: Alpha(Opacity=0); opacity: 0; z-index: 2; }
