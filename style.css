@@ -424,15 +424,24 @@ font-weight: bold;
 font-size: 78.4%;
 
 }
-.listaDescuentos img{
+.listaDescuentos .imgPromo{
 width: 30%;
 margin-left: 4%;
 margin-top: 2%;
 float: left;
+height: 85%;
+}
+.listaDescuentos .textoDesc{
+float: left;
+width: 65%;
+}
+.listaDescuentos img{
+width: 100%;
+height: 100%;
 }
 .listaDescuentos h3 ,.listaDescuentos p{
 float: left;
-width: 60%;
+width: 90%;
 max-height: 44px;
 margin-left: 5%;
 }
