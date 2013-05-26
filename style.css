@@ -18,7 +18,7 @@ input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 }
-#pagInicio, #pagInfoSemanal,#TemasSemanales,#TemasEmbarazo,#Descuentos,#juegos{
+#pagInicio, #pagInfoSemanal,#TemasSemanales,#TemasEmbarazo,#Descuentos,#juegos,#eventoEmba1,#eventoEmba2,#eventoEmba3,#listaDeNombreBB1,#listaDeNombreBB2{
 width: 100%;
 height: 100%;
 /*position: relative;*/
@@ -194,9 +194,7 @@ color: #fff;
 margin-top: 15px;
 float: left;
 }
-#listaDeNombreBB{
-display:none;
-}
+
 #listaAcTemasEmba{
 border: 8px solid rgb(228, 32, 204);
 border-radius: 7px;
@@ -248,8 +246,7 @@ width:100%;
 float: left;
 }
 
-#eventoEmba1{
-display: none;
+#contenidoDiaNacimiento{
 font-family: Arial;
 float: left;
 position: relative;
@@ -397,21 +394,21 @@ font-weight: bold;
 color: #fff;
 }
 
-.listaDescuentos .cambioColor{
+#contenidoNombreNinno{
 width: 97%;
 height: 143px;
 border-radius: 8px;
 margin-left: 2%;
-margin-top: 5%;
+margin-top: 38%;
 background: rgba(32, 125, 243, 0.58);
 position: relative;
 }
-.listaDescuentos .colorNormal{
+#contenidoNombresNina{
 width: 97%;
 height: 143px;
 border-radius: 8px;
 margin-left: 2%;
-margin-top: 5%;
+margin-top: 38%;
 background: rgba(247, 139, 229, 0.97);
 position: relative;
 }
