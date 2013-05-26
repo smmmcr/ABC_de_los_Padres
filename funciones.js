@@ -1,12 +1,32 @@
 var contenidoInicial;
-
+/*
 $(document).ready(function(){
 contenidoInicial=$("#contenidoGeneral").html();
-$("#contenedorCarga").hide();
 /*$('select').selectmenu({ nativeMenu: "false" });*/
+/*});*/
+
+$(document).on('pageinit', function(){
+	$("#contenedorCarga").hide();
 });
+$("#TemasSemanales").on('pageinit', function(){
+	uri="https://movilmultimediasa.com/abcMobil/post.php?info=1";
+			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+				$("#contenidoTemaSemana p").html(json_data);
+			});
+			scrollActiv("wrapper2","scroller2","no-padding2");
+});
+$("#listaDeNombreBB1").on('pageinit', function(){
+generoN(2,$("#listaDeNombreBB1 ul"),"wrapper6","scroller6","no-padding2");
 
-
+});
+$("#listaDeNombreBB2").on('pageinit', function(){
+generoN(1,$("#listaDeNombreBB2 ul"),"wrapper3","scroller3","no-padding3");
+});
+$("#Descuentos").on('pageinit', function(){
+descuentos();
+			scrollActiv("wrapper1","scroller1","no-padding1");
+});
+	
 function nuevoContenido(id){
 	switch(id){
 		case 1:
@@ -39,11 +59,7 @@ function nuevoContenido(id){
 			$("#Descuentos").hide();
 			$("#juegos").hide();
 			$("#TemasSemanales").show();
-			uri="https://movilmultimediasa.com/abcMobil/post.php?info=1";
-			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				$("#contenidoTemaSemana p").html(json_data);
-			});
-			scrollActiv("wrapper2","scroller2","no-padding2");
+			
 		break;
 		case 3:
 			$(".header").html("<img src='img/headerTemasEmbarazo.png' />");
@@ -64,8 +80,7 @@ function nuevoContenido(id){
 			$("#TemasEmbarazo").hide();
 			$("#juegos").hide();
 			$("#Descuentos").show();
-			descuentos();
-			scrollActiv("wrapper1","scroller1","no-padding1");
+			
 		break;
 		case 5:
 			$(".header").html("<img src='img/headerJuegos.png' />");
@@ -134,24 +149,17 @@ $("#eventoEmba1").show();
 	
 	
 }
-function generoN(id){
-$("#eventoEmba2").hide();
-$("#eventoEmba1").hide();
-$("#ninno, #ninna").hide();
+function generoN(id,objetos,wrapper,scroller,pad){
 uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
 			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				$(".listaDeNombreBB ul").html("");
-				if(id==2){
-				$(".listaDeNombreBB").attr("id","ninoNombres");			
-				}else{
-				$(".listaDeNombreBB").removeAttr("id");			
-				}
+
+				objetos.html("");
 				for(index in json_data){
-				$(".listaDeNombreBB ul").append("<li>"+json_data[index].nombre+"</li>");					
+				objetos.append("<li>"+json_data[index].nombre+"</li>");		
 				}
-				scrollActiv("wrapper","scroller","no-padding");
+scrollActiv(wrapper,scroller,pad);				
+				
 			});
-$(".listaDeNombreBB").show();
 }
 function descuentos(){
 			$("#eventoEmba2").hide();
