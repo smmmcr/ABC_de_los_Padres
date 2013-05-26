@@ -3444,9 +3444,6 @@ width: 100%;
 }
 #botonesTemasEmba div:nth-child(1){
 width: 14%;
-height: 49%;
-min-height: 35px;
-background-size: 100%;
 border: none;
 background-repeat: no-repeat;
 float: right;
@@ -3512,7 +3509,7 @@ border: 8px solid #90A83D;
 border-radius: 10px;
 
 }
-.combobox select{
+/*.combobox select{
 position: absolute!important;
-display: inline-block!important;}
+display: inline-block!important;}*/
 .ui-page { -webkit-backface-visibility: hidden; }
