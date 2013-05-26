@@ -3375,17 +3375,19 @@ background-size: 100%;
 border: none;
 background-repeat: no-repeat;
 }
-.botones :nth-child(3){
-background: url(img/btnVolver.png);
+.contVolver{
 width: 14%;
 height: 49%;
 min-height: 35px;
+max-height: 45px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
-margin-top: 62px;
+margin-top: 81px;
+float: left;
+margin-left: 5%;
 }
-.botones :nth-child(3) .volver{
+.contVolver .volver{
 width: 100%;
 min-height: 63%;
 }
@@ -3410,7 +3412,7 @@ border: none;
 background-repeat: no-repeat;
 float:left;
 }
-#botonesTEmas :nth-child(2){
+#botonesTEmas div:nth-child(2){
 background: url(img/btnincluir.png);
 width: 30%;
 height: 49%;
@@ -3421,14 +3423,13 @@ background-repeat: no-repeat;
 float:left;
 }
 #botonesTEmas :nth-child(3){
-background: url(img/btnVolver.png);
 width: 14%;
 height: 49%;
 min-height: 35px;
 background-size: 100%;
 border: none;
 background-repeat: no-repeat;
-
+margin-top: 0px;
 }
 #botonesTEmas :nth-child(3) .volver{
 width: 100%;

@@ -18,7 +18,7 @@ input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 }
-#contenedorgeneral{
+#pagInicio, #pagInfoSemanal,#TemasSemanales,#TemasEmbarazo,#Descuentos,#juegos{
 width: 100%;
 height: 100%;
 /*position: relative;*/
@@ -62,9 +62,6 @@ position: relative;
 }
 .menuPrincipal li, .menuPrincipal img{
 width: 100%;
-}
-#pagInfoSemanal{
-display:none;
 }
 #divCiclo{
 background: rgba(255, 255, 255, 0.72);
@@ -197,7 +194,7 @@ color: #fff;
 margin-top: 15px;
 float: left;
 }
-#resultadoPar,#eventoEmba2,#eventoEmba3, #TemasSemanales, #TemasEmbarazo, #Descuentos, #juegos,#listaDeNombreBB{
+#listaDeNombreBB{
 display:none;
 }
 #listaAcTemasEmba{
