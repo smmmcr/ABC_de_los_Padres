@@ -1,9 +1,12 @@
 var contenidoInicial;
+
 $(document).ready(function(){
 contenidoInicial=$("#contenidoGeneral").html();
 $("#contenedorCarga").hide();
 /*$('select').selectmenu({ nativeMenu: "false" });*/
 });
+
+
 function nuevoContenido(id){
 	switch(id){
 		case 1:
