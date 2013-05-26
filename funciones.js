@@ -162,9 +162,7 @@ scrollActiv(wrapper,scroller,pad);
 			});
 }
 function descuentos(){
-			$("#eventoEmba2").hide();
-			$("#eventoEmba1").hide();
-			$("#ninno, #ninna").hide();
+			
 			uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
 			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
 				$(".listaDescuentos").html("");

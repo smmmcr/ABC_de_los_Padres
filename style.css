@@ -46,6 +46,7 @@ position:absolute;
 float: left;
 left: 0px;
 padding: 0;
+width: 100%;
 }
 #fondo{
 width:100%;
@@ -255,10 +256,8 @@ float: left;
 font-family: Arial;
 float: left;
 position: relative;
-margin-top: 6%;
 margin-left: 1%;
 width: 90%;
-margin-right: 3%;
 border: 11px solid rgba(255, 10, 29, 0.81);
 border-radius: 12px;
 background: rgba(255, 255, 255, 0.75);
@@ -450,6 +449,7 @@ height: 85%;
 .listaDescuentos .textoDesc{
 float: left;
 width: 65%;
+position: relative;
 }
 .listaDescuentos img{
 width: 100%;
