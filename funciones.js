@@ -172,12 +172,12 @@ function descuentos(){
 				if((cont%2)!=0){
 				color="cambioColor";
 				}
-				$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+json_data[index].img+"'/></div><div class='textoDesc'>"+
+				$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+json_data[index].img+"'/><div class='textoDesc'>"+
 				"<h3>"+json_data[index].tituloPromo+"</h3>"+
 				"<p>Aplica desde: "+json_data[index].desde+"</p>"+
 				"<p>Hasta: "+json_data[index].hasta+"</p>"+
 				"<p>Descripci&oacute;n: "+json_data[index].descripcion+"</p>"+
-				"</div></li>");					
+				"</div></div></li>");					
 				cont++;
 				}
 			});

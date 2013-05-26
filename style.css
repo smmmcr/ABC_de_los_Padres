@@ -447,9 +447,9 @@ float: left;
 height: 85%;
 }
 .listaDescuentos .textoDesc{
+float: left;
 width: 65%;
-position: absolute;
-left: 176px;
+position: relative;
 }
 .listaDescuentos img{
 width: 100%;
