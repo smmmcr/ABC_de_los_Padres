@@ -3435,7 +3435,6 @@ margin-top: 0px;
 }
 #botonesTEmas :nth-child(3) .volver{
 width: 100%;
-min-height: 63%;
 }
 #botonesTemasEmba {
 float: left;
@@ -3450,7 +3449,6 @@ margin-right: 11%;
 }
 #botonesTemasEmba :nth-child(1) .volver{
 width: 100%;
-min-height: 63%;
 }
 #ninno span, #ninna span{
 margin-left: 23%;
@@ -3474,7 +3472,6 @@ margin-right: 11%;
 }
 #botonesDescuentos :nth-child(1) .volver{
 width: 100%;
-min-height: 63%;
 }
 /*#eventoEmba1 .ui-select {
 display: block;
