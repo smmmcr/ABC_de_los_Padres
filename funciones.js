@@ -1,4 +1,5 @@
 var contenidoInicial;
+var idtema;
 /*
 $(document).ready(function(){
 contenidoInicial=$("#contenidoGeneral").html();
@@ -12,7 +13,23 @@ $(document).on('pageinit', function(){
 $("#TemasSemanales").on('pageinit', function(){
 	uri="https://movilmultimediasa.com/abcMobil/post.php?info=1";
 			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				$("#contenidoTemaSemana p").html(json_data);
+				$("#contenidoTemaSemana p").html(json_data[0].InformacionDeSemana);
+				idtema=json_data[0].id;
+					$(".listacomentarios").html("");
+				cont=1;
+	uri="https://movilmultimediasa.com/abcMobil/post.php";
+			$.getJSON(uri + '?function=' + 'check' + '&comentario='+idtema+'&callback=?', function (json_data) {
+				for(index in json_data){
+				color="colorNormal";
+				if((cont%2)!=0){
+				color="cambioColor";
+				}
+				$(".listacomentarios").append("<li class='"+color+"'><div class='textoDesc'>"+
+				"<p>"+json_data[index].comentario+"</p>"+
+				"</div></li>");					
+				cont++;
+				}
+			});
 			});
 			scrollActiv("wrapper2","scroller2","no-padding2");
 });
@@ -129,9 +146,6 @@ switch(id){
 
 }
 function calcular(){
-$("#listaAcTemasEmba").hide();
-$("#textoNacido").show();
-$("#eventoEmba1").show();
  meses=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 	Dia=$("#eventoEmba1 #dia").val();
 	Mes=$("#eventoEmba1 #mes").val();
@@ -146,9 +160,7 @@ $("#eventoEmba1").show();
 	}
 	fechaNacimiento=(parseInt(Dia)+7)+" de "+mesde_parto+" del "+annoParto;
 	$("#eventoEmba1 #resultadoPar").html(fechaNacimiento);
-	$("#eventoEmba1 #resultadoPar").show();
-	
-	
+	$("#eventoEmba1 #resultadoPar").show();	
 }
 function generoN(id,objetos,wrapper,scroller,pad){
 uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
@@ -216,7 +228,7 @@ var comentarios1=$("#comentario").val();
 		type: "POST",
 		 crossDomain: true,
 		url:  "https://movilmultimediasa.com/abcMobil/post.php",  
-		data: {comen: comentarios1},
+		data: {comen: comentarios1,idtema:idtema},
 		success: function(data) {
 		alert("data")				
 		datos1=data;				
