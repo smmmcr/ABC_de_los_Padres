@@ -3405,14 +3405,13 @@ width: 23%;
 margin-left: 5%;
 }
 #botonesTEmas div:first-child {
-background: url(img/btncomentarl.png);
 width: 30%;
-height: 49%;
-min-height: 51px;
-background-size: 100%;
+height: 51px;
 border: none;
-background-repeat: no-repeat;
 float:left;
+}
+#botonesTEmas #comentar  img{
+width:100%;
 }
 #botonesTEmas div:nth-child(2){
 background: url(img/btnincluir.png);

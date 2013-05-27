@@ -7,7 +7,7 @@
 	<!-- Note: running this exported project from disk may not work exactly like preview, since browsers block some features on the file:// protocol.  Once you've uploaded it to a server, it should work OK. -->
 	<meta name="HandheldFriendly" content="true" />
 	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
+	<meta name="viewport"  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
 <!--	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />-->
     <!-- All margins and padding must be zero for the canvas to fill the screen. -->
@@ -110,20 +110,27 @@
 				</div>
 				<div id="contenidoGeneralTemaSemna" data-role="content" >
 					<h3 id="encabeza">Tema de esta Semana</h3>
+						<div id="textComentario" data-role="popup" >
+						<textarea cols="40" rows="8" name="comentario" id="comentario" ></textarea>
+						<div id="btnPublicar">
+						<input type="button" id="publicar" value="publicar" onclick="comentar()"/>
+						</div>
+						</div>
 					<div id='contenidoTemaSemana'>
 					<div id="wrapper2">
 						<div id="scroller2">
-						<ul>
-							<li><p  style="overflow: hidden;" id="no-padding2" >
+						<ul data-role="listview">
+							<li style="overflow: hidden;" id="no-padding2" ><p  >
 							
 							</p></li>
 							</ul>
 						</div>
 						</div>
 					</div>
-						<input type="text" id="comentario"/>
+					<div id="ComentariosGeneral">
+					</div>
 					<div id="botonesTEmas">
-						<input type="button" id="comentar"/>
+						<div id="comentar"><a href="#textComentario" data-rel="popup"><img src="img/btncomentarl.png" /></a></div>
 						<input type="button" id="incluir"/>
 						<div class="contVolver"><a href="#pagInicio"><img  src="img/btnVolver.png" class="volver" /></a></div>			
 					</div>
@@ -152,7 +159,7 @@
 					<div id="conteDescuentos">
 						<div id="wrapper1">
 							<div id="scroller1">
-								<ul class="listaDescuentos" data-role="listview"  data-filter-theme="a" data-theme="a" data-divider-theme="a"  style="overflow: hidden;" id="no-padding1">
+								<ul class="listaDescuentos" data-role="listview"  data-filter-theme="a" data-theme="a"  style="overflow: hidden;" id="no-padding1">
 								
 								</ul>
 							</div>

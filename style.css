@@ -190,9 +190,9 @@ margin-top: 29px;
 margin-left: 3%;
 width: 93%;
 height: 29%;
-max-height: 40px;
 border:8px solid #90A83D!important;
 }
+.ui-popup-container{top: 280.90625px!important;}
 #TemasSemanales #encabeza{
 margin-left: 3%;
 font-family: Arial;
@@ -200,7 +200,13 @@ color: #fff;
 margin-top: 15px;
 float: left;
 }
+#btnPublicar .ui-btn {
+width: 104px;
+height: 39px;
+float: left;
+margin-left:150px;
 
+}
 #listaAcTemasEmba{
 border: 8px solid rgb(228, 32, 204);
 border-radius: 7px;

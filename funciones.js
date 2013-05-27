@@ -7,6 +7,7 @@ contenidoInicial=$("#contenidoGeneral").html();
 
 $(document).on('pageinit', function(){
 	$("#contenedorCarga").hide();
+	$.mobile.allowCrossDomainPages = true;
 });
 $("#TemasSemanales").on('pageinit', function(){
 	uri="https://movilmultimediasa.com/abcMobil/post.php?info=1";
@@ -207,6 +208,20 @@ $(".listaJuegos").show();
 }
 function inicio(){
 	
+
+}
+function comentar(){
+var comentarios1=$("#comentario").val();
+	$.ajax({
+		type: "POST",
+		 crossDomain: true,
+		url:  "https://movilmultimediasa.com/abcMobil/post.php",  
+		data: {comen: comentarios1},
+		success: function(data) {
+		alert("data")				
+		datos1=data;				
+		}
+	});
 
 }
 function scrollActiv(div,clase,pad){
