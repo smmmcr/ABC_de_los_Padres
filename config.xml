@@ -13,9 +13,10 @@
 
 	<icon src="abclogo.png" width="128" height="128" gap:role="default" />	
 	<preference name="permissions" value="none"/>
+	<preference name="phonegap-version" value="2.7.0" />
 	<access origin="*" />
 	
-	<feature name="http://api.phonegap.com/1.0/network"/>	<preference name="orientation" value="portrait" />
+	<!--<feature name="http://api.phonegap.com/1.0/network"/>-->	<preference name="orientation" value="portrait" />
 	<plugin name="Notification" value="org.apache.cordova.Notification"/>
 	<preference name="fullscreen" value="true" />
 	<preference name="target-device" value="universal" />

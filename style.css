@@ -432,10 +432,11 @@ margin-top:11px;
 margin-left:31px;
 }
 #contenidoNombreNinno li, #contenidoNombresNina li{
-width: 45%!important;
+width: 76%!important;
 height: auto!important;
-float:left;
-margin-left:5%;
+float: left;
+margin-left: 5%;
+font-size: 96px;
 
 }
 
@@ -486,6 +487,7 @@ border-radius: 8px;
 margin-left: 2%;
 margin-top: 5%;
 background: rgba(32, 125, 243, 0.58);
+position: relative;
 float: left;
 }
 #Descuentos .colorNormal{
@@ -495,6 +497,7 @@ border-radius: 8px;
 margin-left: 2%;
 margin-top: 5%;
 background: rgba(247, 139, 229, 0.97);
+position: relative;
 float: left;
 }
 .listaJuegos .cambioColor{
@@ -545,4 +548,69 @@ margin-top: 53%;
 }
 .listaDeNombreBB{
 position: relative;
+}
+#headerinter, #headerinter1 {
+	display:none;
+	width:100%;
+	height:45px;
+	line-height:45px;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #fe96c9), color-stop(0.05, #d51875), color-stop(1, #7b0a2e));
+	padding:0;
+	color:#eee;
+	font-size:20px;
+	text-align:center;
+}
+#headerinter a, #headerinter1 a {
+	color:#f3f3f3;
+	text-decoration:none;
+	font-weight:bold;
+	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
+}
+#footerinter, #footerinter1 {
+	display:none;
+	width:100%;
+	height:48px;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0, #999), color-stop(0.02, #666), color-stop(1, #222));
+	padding:0;
+	border-top:1px solid #444;
+}
+#footerinter li, #footerinter1 li {
+	display:block;
+	float:left;
+}
+#footerinter li ,#footerinter1 li {
+	width:50%;
+	text-align:center;
+}
+#footerinter a.remove, #footerinter1 a.remove {
+	border-right:1px solid #333;
+}
+#footerinter a.add, #footerinter1 a.add {
+	border-left:1px solid #6a6a6a;
+}
+#footerinter a, #footerinter1 a {
+	display:block;
+	text-decoration:none;
+	font-size:12px;
+	color:#eee;
+	line-height:24px;
+	text-shadow:0 -1px 0 #000;
+}
+#footerinter span, #footerinter1 span {
+	display:block;
+	font-size:30px;
+	font-weight:bold;
+}
+#wrapper, #wrapper1 {
+	display:none;
+}
+#scroller,#scroller1 {
+/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+
+	float:left;
+	width:100%;
+	padding:0;
+
+/*	-webkit-box-shadow:0 0 8px #555;	/* Don't use box shadows, they slow down drastically CSS animations */
 }
