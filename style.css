@@ -436,10 +436,9 @@ width: 76%!important;
 height: auto!important;
 float: left;
 margin-left: 5%;
-font-size: 96px;
-
+font-size: 71px;
+text-align: center;
 }
-
 .listaDescuentos p{
 color: rgb(88, 69, 69);
 font-weight: bold;
@@ -549,7 +548,7 @@ margin-top: 53%;
 .listaDeNombreBB{
 position: relative;
 }
-#headerinter, #headerinter1 {
+#headerinter, #headerinter1 , #headerinter2 {
 	display:none;
 	width:100%;
 	height:45px;
@@ -560,13 +559,13 @@ position: relative;
 	font-size:20px;
 	text-align:center;
 }
-#headerinter a, #headerinter1 a {
+#headerinter a, #headerinter1 a, #headerinter2 a {
 	color:#f3f3f3;
 	text-decoration:none;
 	font-weight:bold;
 	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
 }
-#footerinter, #footerinter1 {
+#footerinter, #footerinter1, #footerinter2 {
 	display:none;
 	width:100%;
 	height:48px;
@@ -574,21 +573,21 @@ position: relative;
 	padding:0;
 	border-top:1px solid #444;
 }
-#footerinter li, #footerinter1 li {
+#footerinter li, #footerinter1 li, #footerinter2 li {
 	display:block;
 	float:left;
 }
-#footerinter li ,#footerinter1 li {
+#footerinter li ,#footerinter1 li,#footerinter2 li {
 	width:50%;
 	text-align:center;
 }
-#footerinter a.remove, #footerinter1 a.remove {
+#footerinter a.remove, #footerinter1 a.remove, #footerinter2 a.remove {
 	border-right:1px solid #333;
 }
-#footerinter a.add, #footerinter1 a.add {
+#footerinter a.add, #footerinter1 a.add, #footerinter2 a.add {
 	border-left:1px solid #6a6a6a;
 }
-#footerinter a, #footerinter1 a {
+#footerinter a, #footerinter1 a, #footerinter2 a {
 	display:block;
 	text-decoration:none;
 	font-size:12px;
@@ -596,15 +595,15 @@ position: relative;
 	line-height:24px;
 	text-shadow:0 -1px 0 #000;
 }
-#footerinter span, #footerinter1 span {
+#footerinter span, #footerinter1 span, #footerinter2 span {
 	display:block;
 	font-size:30px;
 	font-weight:bold;
 }
-#wrapper, #wrapper1 {
+#wr, #wrapper1, #wrapper2 {
 	display:none;
 }
-#scroller,#scroller1 {
+#scroller,#scrolle1,#scroller {
 /*	-webkit-touch-callout:none;*/
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
 

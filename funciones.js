@@ -57,19 +57,12 @@ $("#listaDeNombreBB1").on('pagecreate', function(){
                  .on('selectstart', false);
     };
 $("#listaDeNombreBB1 ul").disableSelection();
-$("#listaDeNombreBB1 ul").html("");;
+$("#listaDeNombreBB1 ul").html("");
 $("#listaDeNombreBB1 ul").append('<li id="wr"></li><li id="headerinter1"></li>');		
-if(generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1")){
-
-}
-$("#footerinter1").bind("pageload",function(){ loadedscroll('headerinter1','footerinter1','wr','scrolle1');
-
-
-});
+generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1");
+setTimeout(function(){loadedscroll('headerinter1','footerinter1','wr','scrolle1');},3000);
 });
 $("#listaDeNombreBB2").on('pagecreate', function(){
-generoN(1,$("#listaDeNombreBB2 ul"),"footerinter1");
-//loadedscroll();
  $.fn.disableSelection = function() {
         return this
                  .attr('unselectable', 'on')
@@ -77,7 +70,10 @@ generoN(1,$("#listaDeNombreBB2 ul"),"footerinter1");
                  .on('selectstart', false);
     };
 $("#listaDeNombreBB2 ul").disableSelection();
-loadedscroll('headerinter2','footerinter2','wrapper2','scroller2');
+$("#listaDeNombreBB2 ul").html("");
+$("#listaDeNombreBB2 ul").append('<li id="wr2"></li><li id="headerinter2"></li>');
+generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2");
+setTimeout(function(){loadedscroll('headerinter2','footerinter2','wr2','scrolle2');},3000);
 });
 $("#Descuentos").on('pagecreate', function(){
 descuentos();
