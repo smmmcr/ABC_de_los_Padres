@@ -60,7 +60,7 @@ $("#listaDeNombreBB1 ul").disableSelection();
 $("#listaDeNombreBB1 ul").html("");
 $("#listaDeNombreBB1 ul").append('<li id="wr"></li><li id="headerinter1"></li>');		
 generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1");
-$("#listaDeNombreBB1 ul").on('vclick',function(){loadedscroll('headerinter1','footerinter1','wr','scrolle1');});
+
 });
 $("#listaDeNombreBB2").on('pagecreate', function(){
  $.fn.disableSelection = function() {
@@ -73,7 +73,7 @@ $("#listaDeNombreBB2 ul").disableSelection();
 $("#listaDeNombreBB2 ul").html("");
 $("#listaDeNombreBB2 ul").append('<li id="wr2"></li><li id="headerinter2"></li>');
 generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2");
-$("#listaDeNombreBB2 ul").on('vclick',function(){loadedscroll('headerinter2','footerinter2','wr2','scrolle2');});
+$("#listaDeNombreBB2").on('vclick',function(){loadedscroll('headerinter2','footerinter2','wr2','scrolle2');});
 });
 $("#Descuentos").on('pagecreate', function(){
 descuentos();
@@ -102,6 +102,7 @@ uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
 				objetos.append("<li>"+json_data[index].nombre+"</li>");		
 				}
 				objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
+				loadedscroll('headerinter1','footerinter1','wr','scrolle1');
 			});
 			return true;
 
