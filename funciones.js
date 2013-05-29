@@ -59,7 +59,7 @@ $("#listaDeNombreBB1").on('pagecreate', function(){
 $("#listaDeNombreBB1 ul").disableSelection();
 $("#listaDeNombreBB1 ul").html("");
 $("#listaDeNombreBB1 ul").append('<li id="wr"></li><li id="headerinter1"></li>');		
-generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1");
+generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1",'headerinter1','wr','scrolle1');
 
 });
 $("#listaDeNombreBB2").on('pagecreate', function(){
@@ -72,8 +72,8 @@ $("#listaDeNombreBB2").on('pagecreate', function(){
 $("#listaDeNombreBB2 ul").disableSelection();
 $("#listaDeNombreBB2 ul").html("");
 $("#listaDeNombreBB2 ul").append('<li id="wr2"></li><li id="headerinter2"></li>');
-generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2");
-$("#listaDeNombreBB2").on('vclick',function(){loadedscroll('headerinter2','footerinter2','wr2','scrolle2');});
+generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2",'headerinter2','wr2','scrolle2');
+/*$("#listaDeNombreBB2").on('vclick',function(){loadedscroll('headerinter2','footerinter2','wr2','scrolle2');});*/
 });
 $("#Descuentos").on('pagecreate', function(){
 descuentos();
@@ -95,14 +95,14 @@ function calcular(){
 	$("#eventoEmba1 #resultadoPar").html(fechaNacimiento);
 	$("#eventoEmba1 #resultadoPar").show();	
 }
-function generoN(id,objetos,footerinter){		
+function generoN(id,objetos,footerinter,headerinter,wr,scrolle){		
 uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
 			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
 				for(index in json_data){
 				objetos.append("<li>"+json_data[index].nombre+"</li>");		
 				}
 				objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
-				loadedscroll('headerinter1','footerinter1','wr','scrolle1');
+				loadedscroll(headerinter,footerinter,wr,scrolle);
 			});
 			return true;
 
