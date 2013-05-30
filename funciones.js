@@ -28,6 +28,7 @@ function setHeight(headerinter,footerinter,wrapper) {
 		document.getElementById(wrapper).style.height = wrapperH + 'px';
 }
 $("#pagInfoSemanal").on('pagecreate', function(){
+$("#nacido").disable();
 /*	db.transaction(function(tx) {
     tx.executeSql('create table if not exists BBEMBARAZO(id, edad, semanas)');
    }, errorCB, successCB);*/

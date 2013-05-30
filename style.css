@@ -73,6 +73,7 @@ width: 100%;
 background: rgba(255, 255, 255, 0.72);
 width: 100%;
 min-height: 106px;
+padding-right: 3%;
 }
 #cicloEm{
 width: 20%;
@@ -101,7 +102,8 @@ width: 100%;
 height: auto;
 margin-top: 2%;
 float: left;
-
+padding-bottom: 5%;
+padding-right: 3%;
 }
 #nacido p{
 color:#0080B9;
