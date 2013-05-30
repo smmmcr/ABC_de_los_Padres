@@ -15,6 +15,16 @@ $(document).on('pagecreate', function(){
                  .on('selectstart', false);
     };
 });
+ document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {
+        var element = document.getElementById('deviceProperties');
+
+        element.innerHTML = 'Nombre del dispositivo: '  + device.name     + '<br />' + 
+                            'Versión Phonegap: '       + device.phonegap + '<br />' + 
+                            'Plataforma: '              + device.platform + '<br />' + 
+                            'UUID: '                + device.uuid     + '<br />' + 
+                            'Versión: '            + device.version  + '<br />';
+    }
 function loadedscroll(headerinter,footerinter,wrapper,scroller) {
 	setHeight(headerinter,footerinter,wrapper);
 	myScroll = new iScroll(scroller, {desktopCompatibility:true});
@@ -26,14 +36,25 @@ function setHeight(headerinter,footerinter,wrapper) {
 		document.getElementById(wrapper).style.height = wrapperH + 'px';
 }
 $("#TemasSemanales").on('pageinit', function(){
-	uri="https://movilmultimediasa.com/abcMobil/post.php?info=1";
+	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
+			$.fn.disableSelection = function() {
+			return this
+			.attr('unselectable', 'on')
+			.css('user-select', 'none')
+			.on('selectstart', false);
+			};
 			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				$("#contenidoTemaSemana p").html(json_data[0].InformacionDeSemana);
+				$("#contenidoTemaSemana ul").disableSelection();
+				$("#contenidoTemaSemana ul").html("");
+				$("#contenidoTemaSemana ul").append('<li id="wrtema"></li><li id="headerintertema"></li>');		
+				$("#contenidoTemaSemana ul").append("<li><h2>"+json_data[0].titulo+"</h2>"+json_data[0].texto+"</li>");				
+				$("#contenidoTemaSemana ul").append('<li></li><li></li><li id="footerintertema"></li>');
+				loadedscroll('headerintertema','footerintertema','wrtema','scrollertema');
+				/*	$(".listacomentarios").html("");
+				/*cont=1;
 				idtema=json_data[0].id;
-					$(".listacomentarios").html("");
-				cont=1;
-	uri="https://movilmultimediasa.com/abcMobil/post.php";
-			$.getJSON(uri + '?function=' + 'check' + '&comentario='+idtema+'&callback=?', function (json_data) {
+	/*uri="https://movilmultimediasa.com/abcMobil/post.php";
+		/*	$.getJSON(uri + '?function=' + 'check' + '&comentario='+idtema+'&callback=?', function (json_data) {
 				for(index in json_data){
 				color="colorNormal";
 				if((cont%2)!=0){
@@ -44,7 +65,7 @@ $("#TemasSemanales").on('pageinit', function(){
 				"</div></li>");					
 				cont++;
 				}
-			});
+			});*/
 			});
 		
 			//scrollActiv("wrapper2","scroller2","no-padding2");
