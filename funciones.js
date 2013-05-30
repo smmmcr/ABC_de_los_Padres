@@ -2,6 +2,7 @@ var contenidoInicial;
 var idtema;
 var myScroll;
 var a = 0;
+var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
@@ -15,16 +16,7 @@ $(document).on('pagecreate', function(){
                  .on('selectstart', false);
     };
 });
- document.addEventListener("deviceready", onDeviceReady, false);
-	function onDeviceReady() {
-        var element = document.getElementById('deviceProperties');
 
-        element.innerHTML = 'Nombre del dispositivo: '  + device.name     + '<br />' + 
-                            'Versión Phonegap: '       + device.phonegap + '<br />' + 
-                            'Plataforma: '              + device.platform + '<br />' + 
-                            'UUID: '                + device.uuid     + '<br />' + 
-                            'Versión: '            + device.version  + '<br />';
-    }
 function loadedscroll(headerinter,footerinter,wrapper,scroller) {
 	setHeight(headerinter,footerinter,wrapper);
 	myScroll = new iScroll(scroller, {desktopCompatibility:true});
@@ -34,6 +26,15 @@ function setHeight(headerinter,footerinter,wrapper) {
 		footerH = document.getElementById(footerinter).offsetHeight,
 		wrapperH = window.innerHeight - headerH - footerH;
 		document.getElementById(wrapper).style.height = wrapperH + 'px';
+}
+$("#pagInfoSemanal").on('pagecreate', function(){
+/*	db.transaction(function(tx) {
+    tx.executeSql('create table if not exists BBEMBARAZO(id, edad, semanas)');
+   }, errorCB, successCB);*/
+});
+function infonino(){
+/*if()
+ tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1, Marujita, 105)');*/
 }
 $("#TemasSemanales").on('pageinit', function(){
 	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
