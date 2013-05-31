@@ -619,3 +619,19 @@ padding: 0;
 margin-left: 3%;
 /*	-webkit-box-shadow:0 0 8px #555;	/* Don't use box shadows, they slow down drastically CSS animations */
 }
+.disable {
+display: block;
+width: 99%;
+height: 19%;
+z-index: 999;
+background: rgba(127, 177, 231, 0.53);
+position: absolute;
+}
+#nacido .disable {
+display: block;
+width: 100%;
+height:100%;
+z-index: 999;
+background: rgba(127, 177, 231, 0.53);
+position: absolute;
+}

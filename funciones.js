@@ -28,14 +28,41 @@ function setHeight(headerinter,footerinter,wrapper) {
 		document.getElementById(wrapper).style.height = wrapperH + 'px';
 }
 $("#pagInfoSemanal").on('pagecreate', function(){
-$("#nacido").disable();
+$("#divCiclo .disable").css("display","none"); 
+$("#nacido .disable").on( "vclick", function() { 
+	$("#nacido .disable").css("display","none"); 
+	$("#divCiclo input[type='text']").val(""); 
+	$("#divCiclo .disable").css("display","block"); 
+});
+$("#divCiclo .disable").on( "vclick", function() { 
+	$("#nacido .disable").css("display","block"); 
+	$("#divCiclo .disable").css("display","none"); 
+	$("#nacido input[type='text']").val(""); 
+});
 /*	db.transaction(function(tx) {
     tx.executeSql('create table if not exists BBEMBARAZO(id, edad, semanas)');
    }, errorCB, successCB);*/
 });
 function infonino(){
-/*if()
- tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1, Marujita, 105)');*/
+nacido=$("#nacido input[type='text']").val();
+embarazo=$("#divCiclo input[type='text']").val();
+Dia=$("#eventoEmba1 #dia").val();
+Mes=$("#eventoEmba1 #mes").val();
+anno=$("#eventoEmba1 #anno").val();
+Dia=parseInt(Dia);
+Mes=parseInt(Mes);
+anno=parseInt(anno);
+fecha = new Date('1989-08-12')
+hoy = new Date()
+ed = parseInt((hoy -fecha)/365/12);
+alert(ed);
+/*
+
+if(embarazo!=""){
+ tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1, 0, '+embarazo+')');
+}else if(nacido!=''){
+ tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1,'+nacido+',0)');
+}*/
 }
 $("#TemasSemanales").on('pageinit', function(){
 	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
