@@ -16,7 +16,16 @@ $(document).on('pagecreate', function(){
                  .on('selectstart', false);
     };
 });
+$('.link').on('tap', function() {
+    url = $(this).attr("rel");   
+	alert(url);
+    loadURL(url);
+});
 
+function loadURL(url){
+    navigator.app.loadUrl(url, { openExternal:true });
+    return false;
+} 
 function loadedscroll(headerinter,footerinter,wrapper,scroller) {
 	setHeight(headerinter,footerinter,wrapper);
 	myScroll = new iScroll(scroller, {desktopCompatibility:true});
@@ -64,7 +73,9 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
  }, null);
    });
 });
+			localStorage.infoSolicitada=0;
 $("#pagInfoSemanal").on('pagecreate', function(){
+//alert(localStorage.infoSolicitada);
 $("#divCiclo .disable").css("display","none"); 
 $("#nacido .disable").on( "vclick", function() { 
 	$("#nacido .disable").css("display","none"); 
@@ -82,6 +93,7 @@ $("#divCiclo .disable").on( "vclick", function() {
 	tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 		 if(results.rows.length>0){
 			$.mobile.changePage($("#infosolicitada"), "none");
+			localStorage.infoSolicitada=1;
 		 }  
 	 }, null);
    });
@@ -103,9 +115,6 @@ fecha=String(anno+'-'+Mes+'-'+Dia);
 alert(fecha);
 fecha = new Date(fecha);
 hoy = new Date()
-//ed = parseInt((hoy -fecha)/60000/60000/240000/365.25/12);
-//ed = parseInt((hoy -fecha)/12/30.5/24/60/60/1000)*12;
-//Me falta ajustar los meses por dias de diferencia
 ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
 ed = String(ed).split('.');
 edadNacido1=ed[0];
@@ -116,11 +125,7 @@ embarazoDtos=embarazo;
  }
 hoy = new Date()
  db.transaction(function(tx) {
-//tx.executeSql('DROP TABLE BBEMBARAZO ');
 tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIngreso) values (1,"'+edadNacido1+'","'+embarazoDtos+'","'+semapu+'","'+hoy+'")');
-// tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1,"12","8521")');
-// resultado=tx.executeSql('select * from BBEMBARAZO where id="1"'); 
- //alert(resultado);
    });
 }
 $("#TemasSemanales").on('pageinit', function(){
@@ -343,3 +348,48 @@ $("#ninno, #ninna").hide();
 $(".listaJuegos").hide();
 $("#pagInicio").show();
 }
+//* db.transaction(function(tx) {
+		/*		 tx.executeSql('create table if not exists descuentos(id,tituloPromo,desde,hasta,descripcion,img,version)');
+				 });
+			uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
+			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+				$(".listaDescuentos").html("");
+				cont=1;
+				$(".listaDescuentos").append('<li id="wrapper"></li><li id="headerinter"></li>');				
+				for(index in json_data){
+				 db.transaction(function(tx) {
+				 /*idAu=parseInt(index)+1;*/
+	/*			 alert(idAu);
+		/*		 tx.executeSql('insert into descuentos(id, tituloPromo, desde,semanasPubli,fechaIngreso) values ("'+idAu+'","'+json_data[index].tituloPromo+'","'+json_data[index].desde+'","'+json_data[index].hasta+'","'+json_data[index].descripcion+'","'+json_data[index].img+'","'+json_data[index].version+'")');
+				 });				
+				}
+				db.transaction(function(tx) {
+					tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
+					if(results.rows.length>0){
+					for(var i = 0; i < rs.rows.length; i++) {
+						color="colorNormal";
+						if((cont%2)!=0){
+						color="cambioColor";
+						}
+						$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows[i].img+"'/></div><div class='textoDesc'>"+
+						"<h3>"+results.rows[i].tituloPromo+"</h3>"+
+						"<p>Aplica desde: "+results.rows[i].desde+"</p>"+
+						"<p>Hasta: "+results.rows[i].hasta+"</p>"+
+						"<p>Descripci&oacute;n: "+results.rows[i].descripcion+"</p>"+
+						"</div></li>");	
+						$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows[i].img+"'/></div><div class='textoDesc'>"+
+						"<h3>"+results.rows[i].tituloPromo+"</h3>"+
+						"<p>Aplica desde: "+results.rows[i].desde+"</p>"+
+						"<p>Hasta: "+results.rows[i].hasta+"</p>"+
+						"<p>Descripci&oacute;n: "+results.rows[i].descripcion+"</p>"+
+						"</div></li>");					
+						cont++;
+						}			
+						}  
+						}, null);
+				});
+				$(".listaDescuentos").append('<li></li><li></li><li id="footerinter"></li>');
+		loadedscroll('headerinter','footerinter','wrapper','scroller');
+		$('.listaDescuentos').disableSelection();
+			});
+$(".listaDeNombreBB").show();*/

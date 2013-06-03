@@ -641,11 +641,13 @@ border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 width: 83%;
 margin-left: 3.1%;
-height: 105px;
+
 background: rgba(255, 249, 249, 0.78);
 overflow: hidden;
 -webkit-overflow-scrolling: touch;
 position: relative;
+font-size: 34px;
+height: 389px;
 }
 #imagenNacido{
 float:left;
