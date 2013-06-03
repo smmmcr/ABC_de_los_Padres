@@ -2,7 +2,6 @@ var contenidoInicial;
 var idtema;
 var myScroll;
 var a = 0;
-var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
@@ -39,30 +38,37 @@ $("#divCiclo .disable").on( "vclick", function() {
 	$("#divCiclo .disable").css("display","none"); 
 	$("#nacido input[type='text']").val(""); 
 });
-/*	db.transaction(function(tx) {
+var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
+
+	db.transaction(function(tx) {
     tx.executeSql('create table if not exists BBEMBARAZO(id, edad, semanas)');
-   }, errorCB, successCB);*/
+   }, errorCB, successCB);
+ resultado=tx.executeSql('select from BBEMBARAZO'); 
+ alert(resultado);
 });
 function infonino(){
 nacido=$("#nacido input[type='text']").val();
 embarazo=$("#divCiclo input[type='text']").val();
+if(nacido!=''){
 Dia=$("#eventoEmba1 #dia").val();
 Mes=$("#eventoEmba1 #mes").val();
 anno=$("#eventoEmba1 #anno").val();
 Dia=parseInt(Dia);
 Mes=parseInt(Mes);
 anno=parseInt(anno);
-fecha = new Date('1989-08-12')
+fecha = new Date(anno-Mes-Dia)
 hoy = new Date()
-ed = parseInt((hoy -fecha)/365/12);
-alert(ed);
-/*
-
-if(embarazo!=""){
+//ed = parseInt((hoy -fecha)/60000/60000/240000/365.25/12);
+//ed = parseInt((hoy -fecha)/12/30.5/24/60/60/1000)*12;
+//Me falta ajustar los meses por dias de diferencia
+ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
+ed = String(ed).split('.');
+//alert(ed[0]);
+//alert(ed);
+ tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1,'+ed+',0)');
+}else if(embarazo!=""){
  tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1, 0, '+embarazo+')');
-}else if(nacido!=''){
- tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1,'+nacido+',0)');
-}*/
+}
 }
 $("#TemasSemanales").on('pageinit', function(){
 	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
