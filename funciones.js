@@ -2,6 +2,7 @@ var contenidoInicial;
 var idtema;
 var myScroll;
 var a = 0;
+var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
@@ -26,6 +27,43 @@ function setHeight(headerinter,footerinter,wrapper) {
 		wrapperH = window.innerHeight - headerH - footerH;
 		document.getElementById(wrapper).style.height = wrapperH + 'px';
 }
+$("#infosolicitada").on('pagecreate', function(){
+ $.fn.disableSelection = function() {
+        return this
+                 .attr('unselectable', 'on')
+                 .css('user-select', 'none')
+                 .on('selectstart', false);
+    };
+db.transaction(function(tx) {
+//tx.executeSql('DROP TABLE BBEMBARAZO ');
+tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
+	 if(results.rows.length>0){
+	 var semanaPubli='';
+		if(results.rows.item(0).edad!="" ){
+		infoASoli='ninnoSemanas';
+			tiempo=results.rows.item(0).edad;
+			semanaPubli=results.rows.item(0).semanasPubli;
+		//hoy = new Date() sumar cada 30
+		}else if(results.rows.item(0).semanas!=""){
+			infoASoli='EmbarazoSemanal';
+			tiempo=results.rows.item(0).semanasEmba;
+		//hoy = new Date() sumar cada 7
+		 } 
+	 }  
+	$("#infosolicitada ul").disableSelection();
+	$("#infosolicitada ul").html("");
+	$("#infosolicitada ul").append('<li id="wr10"></li><li id="headerinter10"></li>');
+	 uri="https://movilmultimediasa.com/abcMobil/post.php?infoSolicitada="+infoASoli+"&tiempo="+tiempo+"&semanaPubli="+semanaPubli;
+			$.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
+				for(index in json_data){
+				$("#infosolicitada ul").append("<li>"+json_data[index].contenido+"</li>");		
+				}
+				$("#infosolicitada ul").append('<li></li><li></li><li id="footerinter10"></li>');
+				//loadedscroll('headerinter10','footerinter10','wr10','scrolle10');
+			});
+ }, null);
+   });
+});
 $("#pagInfoSemanal").on('pagecreate', function(){
 $("#divCiclo .disable").css("display","none"); 
 $("#nacido .disable").on( "vclick", function() { 
@@ -38,37 +76,52 @@ $("#divCiclo .disable").on( "vclick", function() {
 	$("#divCiclo .disable").css("display","none"); 
 	$("#nacido input[type='text']").val(""); 
 });
-var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
-
 	db.transaction(function(tx) {
-    tx.executeSql('create table if not exists BBEMBARAZO(id, edad, semanas)');
-   }, errorCB, successCB);
- resultado=tx.executeSql('select from BBEMBARAZO'); 
- alert(resultado);
+    tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso)');
+	//tx.executeSql('DROP TABLE BBEMBARAZO ');
+	tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
+		 if(results.rows.length>0){
+			$.mobile.changePage($("#infosolicitada"), "none");
+		 }  
+	 }, null);
+   });
 });
 function infonino(){
 nacido=$("#nacido input[type='text']").val();
 embarazo=$("#divCiclo input[type='text']").val();
+var edadNacido1='';
+var embarazoDtos='';
+var semapu='';
 if(nacido!=''){
-Dia=$("#eventoEmba1 #dia").val();
-Mes=$("#eventoEmba1 #mes").val();
-anno=$("#eventoEmba1 #anno").val();
-Dia=parseInt(Dia);
-Mes=parseInt(Mes);
-anno=parseInt(anno);
-fecha = new Date(anno-Mes-Dia)
+Dia=$("#fechasDeNacimientoNinno #dia").val();
+
+Mes=$("#fechasDeNacimientoNinno #mes").val();
+anno=$("#fechasDeNacimientoNinno #anno").val();
+
+
+fecha=String(anno+'-'+Mes+'-'+Dia);
+alert(fecha);
+fecha = new Date(fecha);
 hoy = new Date()
 //ed = parseInt((hoy -fecha)/60000/60000/240000/365.25/12);
 //ed = parseInt((hoy -fecha)/12/30.5/24/60/60/1000)*12;
 //Me falta ajustar los meses por dias de diferencia
 ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
 ed = String(ed).split('.');
-//alert(ed[0]);
-//alert(ed);
- tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1,'+ed+',0)');
+edadNacido1=ed[0];
+semapu='1';
+alert(edadNacido1);
 }else if(embarazo!=""){
- tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1, 0, '+embarazo+')');
-}
+embarazoDtos=embarazo;
+ }
+hoy = new Date()
+ db.transaction(function(tx) {
+//tx.executeSql('DROP TABLE BBEMBARAZO ');
+tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIngreso) values (1,"'+edadNacido1+'","'+embarazoDtos+'","'+semapu+'","'+hoy+'")');
+// tx.executeSql('insert into BBEMBARAZO(id, edad, semanas) values (1,"12","8521")');
+// resultado=tx.executeSql('select * from BBEMBARAZO where id="1"'); 
+ //alert(resultado);
+   });
 }
 $("#TemasSemanales").on('pageinit', function(){
 	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
@@ -134,6 +187,9 @@ generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2",'headerinter2','wr2','scrolle
 $("#Descuentos").on('pagecreate', function(){
 descuentos();
 });
+$("#eventoEmba1").on('pagecreate', function(){
+	$("#eventoEmba1 #imagenNacido").hide();
+});
 function calcular(){
  meses=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 	Dia=$("#eventoEmba1 #dia").val();
@@ -148,8 +204,13 @@ function calcular(){
 	mesde_parto=meses[parseInt(Mes)+9];
 	}
 	fechaNacimiento=(parseInt(Dia)+7)+" de "+mesde_parto+" del "+annoParto;
+	
+	$("#eventoEmba1 #imagenNacido").show('slow',function(){
+	
 	$("#eventoEmba1 #resultadoPar").html(fechaNacimiento);
 	$("#eventoEmba1 #resultadoPar").show();	
+	
+	});	
 }
 function generoN(id,objetos,footerinter,headerinter,wr,scrolle){		
 uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;

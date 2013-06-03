@@ -18,7 +18,7 @@ input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 }
-#pagInicio, #pagInfoSemanal,#TemasSemanales,#TemasEmbarazo,#Descuentos,#juegos,#eventoEmba1,#eventoEmba2,#eventoEmba3,#listaDeNombreBB1,#listaDeNombreBB2{
+#pagInicio, #pagInfoSemanal,#TemasSemanales,#TemasEmbarazo,#Descuentos,#juegos,#eventoEmba1,#eventoEmba2,#eventoEmba3,#listaDeNombreBB1,#listaDeNombreBB2,#infosolicitada{
 width: 100%;
 height: 100%;
 /*position: relative;*/
@@ -181,6 +181,7 @@ overflow: hidden;
 -webkit-overflow-scrolling: touch;
 position:relative;
 }
+
 #contenidoTemaSemana p{
 color: #000!important;
 font-size: 1.3em!important;
@@ -634,4 +635,29 @@ height:100%;
 z-index: 999;
 background: rgba(127, 177, 231, 0.53);
 position: absolute;
+}
+#infoSolicitadasemanal{
+border: 8px solid rgb(32, 102, 228);
+border-radius: 7px;
+width: 83%;
+margin-left: 3.1%;
+height: 105px;
+background: rgba(255, 249, 249, 0.78);
+overflow: hidden;
+-webkit-overflow-scrolling: touch;
+position: relative;
+}
+#imagenNacido{
+float:left;
+width: 50%;
+margin-left: 25%;
+}
+#imagenNacido img{
+width:100%;
+float:left;
+}
+#infoSolicitadasemanal p{
+color: #000!important;
+font-size: 1.3em!important;
+font-family: arial!important;
 }
