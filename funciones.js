@@ -128,6 +128,10 @@ tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIn
    $.mobile.changePage($("#infosolicitada"), "none");
 }
 $("#TemasSemanales").on('pageinit', function(){
+db.transaction(function(tx) {
+	//tx.executeSql('DROP TABLE descuentos ');
+	tx.executeSql('create table if not exists temaSeman(id,titulo,texto)');
+	});
 	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
 			$.fn.disableSelection = function() {
 			return this
@@ -142,25 +146,7 @@ $("#TemasSemanales").on('pageinit', function(){
 				$("#contenidoTemaSemana ul").append("<li><h2>"+json_data[0].titulo+"</h2>"+json_data[0].texto+"</li>");				
 				$("#contenidoTemaSemana ul").append('<li></li><li></li><li id="footerintertema"></li>');
 				loadedscroll('headerintertema','footerintertema','wrtema','scrollertema');
-				/*	$(".listacomentarios").html("");
-				/*cont=1;
-				idtema=json_data[0].id;
-	/*uri="https://movilmultimediasa.com/abcMobil/post.php";
-		/*	$.getJSON(uri + '?function=' + 'check' + '&comentario='+idtema+'&callback=?', function (json_data) {
-				for(index in json_data){
-				color="colorNormal";
-				if((cont%2)!=0){
-				color="cambioColor";
-				}
-				$(".listacomentarios").append("<li class='"+color+"'><div class='textoDesc'>"+
-				"<p>"+json_data[index].comentario+"</p>"+
-				"</div></li>");					
-				cont++;
-				}
-			});*/
 			});
-		
-			//scrollActiv("wrapper2","scroller2","no-padding2");
 });
 $("#listaDeNombreBB1").on('pagecreate', function(){
  $.fn.disableSelection = function() {
