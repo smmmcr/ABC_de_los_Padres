@@ -218,48 +218,70 @@ function calcular(){
 }
 function generoN(id,objetos,footerinter,headerinter,wr,scrolle){		
 uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
-			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				for(index in json_data){
-				objetos.append("<li>"+json_data[index].nombre+"</li>");		
-				}
-				objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
-				loadedscroll(headerinter,footerinter,wr,scrolle);
-			});
-			return true;
+	$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+		for(index in json_data){
+		objetos.append("<li>"+json_data[index].nombre+"</li>");		
+		}
+		objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
+		loadedscroll(headerinter,footerinter,wr,scrolle);
+	});
+	return true;
 
 }
 function descuentos(){
-
-			uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
-			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				$(".listaDescuentos").html("");
-				cont=1;
-				$(".listaDescuentos").append('<li id="wrapper"></li><li id="headerinter"></li>');				
-				for(index in json_data){
+	db.transaction(function(tx) {
+	//tx.executeSql('DROP TABLE descuentos ');
+	tx.executeSql('create table if not exists descuentos(id,tituloPromo,desde,hasta,descripcion,img,version)');
+	});
+	uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
+	$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+		$(".listaDescuentos").html("");
+		cont=1;
+		$(".listaDescuentos").append('<li id="wrapper"></li><li id="headerinter"></li>');				
+			version0=0 ;
+		db.transaction(function(tx) {
+		tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
+			if(results.rows.length!=0 ){ version0=results.rows.item(0).version; }
+		}, null);
+		 });				
+		for(index in json_data){
+			db.transaction(function(tx) {
+			tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
+				if(json_data[index].version!=version0){
+				tx.executeSql('insert into descuentos(id,tituloPromo,desde,hasta,descripcion,img,version) values ("'+json_data[index].id+'","'+json_data[index].tituloPromo+'","'+json_data[index].desde+'","'+json_data[index].hasta+'","'+json_data[index].descripcion+'","'+json_data[index].img+'","'+json_data[index].version+'")');
+				 }		  
+			}, null);
+			 });				
+		}
+		db.transaction(function(tx) {
+			tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
+			if(results.rows.length>0){
+			for(var i = 0; i < results.rows.length; i++) {
 				color="colorNormal";
 				if((cont%2)!=0){
 				color="cambioColor";
 				}
-				$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+json_data[index].img+"'/></div><div class='textoDesc'>"+
-				"<h3>"+json_data[index].tituloPromo+"</h3>"+
-				"<p>Aplica desde: "+json_data[index].desde+"</p>"+
-				"<p>Hasta: "+json_data[index].hasta+"</p>"+
-				"<p>Descripci&oacute;n: "+json_data[index].descripcion+"</p>"+
+				$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows.item(i).img+"'/></div><div class='textoDesc'>"+
+				"<h3>"+results.rows.item(i).tituloPromo+"</h3>"+
+				"<p>Aplica desde: "+results.rows.item(i).desde+"</p>"+
+				"<p>Hasta: "+results.rows.item(i).hasta+"</p>"+
+				"<p>Descripci&oacute;n: "+results.rows.item(i).descripcion+"</p>"+
 				"</div></li>");	
-				$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+json_data[index].img+"'/></div><div class='textoDesc'>"+
-				"<h3>"+json_data[index].tituloPromo+"</h3>"+
-				"<p>Aplica desde: "+json_data[index].desde+"</p>"+
-				"<p>Hasta: "+json_data[index].hasta+"</p>"+
-				"<p>Descripci&oacute;n: "+json_data[index].descripcion+"</p>"+
+				$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows.item(i).img+"'/></div><div class='textoDesc'>"+
+				"<h3>"+results.rows.item(i).tituloPromo+"</h3>"+
+				"<p>Aplica desde: "+results.rows.item(i).desde+"</p>"+
+				"<p>Hasta: "+results.rows.item(i).hasta+"</p>"+
+				"<p>Descripci&oacute;n: "+results.rows.item(i).descripcion+"</p>"+
 				"</div></li>");					
 				cont++;
-				}
-				$(".listaDescuentos").append('<li></li><li></li><li id="footerinter"></li>');
+				}			
+				}  
+				}, null);
+		});
+		$(".listaDescuentos").append('<li></li><li></li><li id="footerinter"></li>');
 		loadedscroll('headerinter','footerinter','wrapper','scroller');
 		$('.listaDescuentos').disableSelection();
-			});
-$(".listaDeNombreBB").show();
-
+	});
 }
 function juegos(){
 uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
@@ -283,10 +305,6 @@ uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
 			});
 $(".listaJuegos").show();
 }
-function inicio(){
-	
-
-}
 function comentar(){
 var comentarios1=$("#comentario").val();
 	$.ajax({
@@ -301,39 +319,6 @@ var comentarios1=$("#comentario").val();
 	});
 
 }
-/*
-function scrollActiv(div,clase,pad){
-	myScroll = new iScroll( div, {
-		scrollbarClass: clase,
-		useTransform: false,
-		fadeScrollbar:false,
-		hideScrollbar:false,
-		checkDOMChanges: true,
-		desktopCompatibility:true,
-		onBeforeScrollStart: function (e) {
-			var target = e.target;
-			while (target.nodeType != 1) target = target.parentNode;
-			if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA')
-				e.preventDefault();
-			}
-		});			
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-		/*Etiqueta ALT del bot—n que se encuentra en el campo de busqueda*/
-	//	$('#contenedorgeneral').find('.ui-input-search .ui-input-clear').attr('title','Eliminar entrada');
-		/*	ID del contenido de la p‡gina mobile. 
-			Forzar refresco en la altura del elemento contenedor para que el scroll se 
-			muestre y se adapte sin problemas si redimensionamos el navegador
-		*/
-	/*	$(window).resize(function(){
-				$('#'+pad).width($(window).width());
-				$('#'+pad).height($(window).height()-45);
-		});
-		$(window).resize();
-		/*INI iScroll forzar refresco para que la barra se muestre correctamente*/
-	/*	$(window).load(function() {
-  			myScroll.refresh();
-		});
-}*/
 function volver(){
 $(".header").html("<img src='img/hederPrincipal.png' />");
 $("#pagInfoSemanal").hide();
@@ -348,47 +333,42 @@ $(".listaJuegos").hide();
 $("#pagInicio").show();
 }
 //* db.transaction(function(tx) {
-		/*		 tx.executeSql('create table if not exists descuentos(id,tituloPromo,desde,hasta,descripcion,img,version)');
-				 });
-			uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
-			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				$(".listaDescuentos").html("");
-				cont=1;
-				$(".listaDescuentos").append('<li id="wrapper"></li><li id="headerinter"></li>');				
-				for(index in json_data){
-				 db.transaction(function(tx) {
-				 /*idAu=parseInt(index)+1;*/
-	/*			 alert(idAu);
-		/*		 tx.executeSql('insert into descuentos(id, tituloPromo, desde,semanasPubli,fechaIngreso) values ("'+idAu+'","'+json_data[index].tituloPromo+'","'+json_data[index].desde+'","'+json_data[index].hasta+'","'+json_data[index].descripcion+'","'+json_data[index].img+'","'+json_data[index].version+'")');
-				 });				
-				}
-				db.transaction(function(tx) {
-					tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
-					if(results.rows.length>0){
-					for(var i = 0; i < rs.rows.length; i++) {
-						color="colorNormal";
-						if((cont%2)!=0){
-						color="cambioColor";
-						}
-						$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows[i].img+"'/></div><div class='textoDesc'>"+
-						"<h3>"+results.rows[i].tituloPromo+"</h3>"+
-						"<p>Aplica desde: "+results.rows[i].desde+"</p>"+
-						"<p>Hasta: "+results.rows[i].hasta+"</p>"+
-						"<p>Descripci&oacute;n: "+results.rows[i].descripcion+"</p>"+
-						"</div></li>");	
-						$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows[i].img+"'/></div><div class='textoDesc'>"+
-						"<h3>"+results.rows[i].tituloPromo+"</h3>"+
-						"<p>Aplica desde: "+results.rows[i].desde+"</p>"+
-						"<p>Hasta: "+results.rows[i].hasta+"</p>"+
-						"<p>Descripci&oacute;n: "+results.rows[i].descripcion+"</p>"+
-						"</div></li>");					
-						cont++;
-						}			
-						}  
-						}, null);
-				});
-				$(".listaDescuentos").append('<li></li><li></li><li id="footerinter"></li>');
-		loadedscroll('headerinter','footerinter','wrapper','scroller');
-		$('.listaDescuentos').disableSelection();
-			});
-$(".listaDeNombreBB").show();*/
+//tx.executeSql('DROP TABLE generoNinnos ');
+/*tx.executeSql('create table if not exists generoNinnos(id,nombre,genero,version)');
+});
+	version1=0 ;
+		db.transaction(function(tx) {
+		tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'"', [], function (tx, results) {
+			if(results.rows.length!=0 ){ version1=results.rows.item(0).version; }
+		}, null);
+		});
+uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
+$.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
+	for(index in json_data){
+				idIn=json_data[index].id;
+				nombreIn=String(json_data[index].nombre);
+				generoIn=json_data[index].genero;
+				versionIN=json_data[index].version;
+		db.transaction(function(tx1) {
+				alert('1');
+			tx1.executeSql('SELECT * FROM generoNinnos where genero="'+id+'"', [], function (tx, results) {
+				alert(nombreIn);
+				if(json_data[index].version!=version1){
+				//tx.executeSql('insert into generoNinnos(id,nombre,genero,version) values ("'+idIn+'","'+nombreIn+'","'+generoIn+'","'+versionIN+'")');
+				 }		  
+			}, null);
+			 });
+	}
+		/*db.transaction(function(tx) {
+			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'"', [], function (tx, results) {
+				if(results.rows.length>0){
+					for(var i = 0; i < results.rows.length; i++) {
+						objetos.append("<li>"+=results.rows.item(i).nombre+"</li>");		
+					}
+				}  
+			}, null);
+		});*/
+	/*objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
+	loadedscroll(headerinter,footerinter,wr,scrolle);
+});
+return true;*/
