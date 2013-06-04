@@ -112,14 +112,12 @@ anno=$("#fechasDeNacimientoNinno #anno").val();
 
 
 fecha=String(anno+'-'+Mes+'-'+Dia);
-alert(fecha);
 fecha = new Date(fecha);
 hoy = new Date()
 ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
 ed = String(ed).split('.');
 edadNacido1=ed[0];
 semapu='1';
-alert(edadNacido1);
 }else if(embarazo!=""){
 embarazoDtos=embarazo;
  }
@@ -127,6 +125,7 @@ hoy = new Date()
  db.transaction(function(tx) {
 tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIngreso) values (1,"'+edadNacido1+'","'+embarazoDtos+'","'+semapu+'","'+hoy+'")');
    });
+   $.mobile.changePage($("#infosolicitada"), "none");
 }
 $("#TemasSemanales").on('pageinit', function(){
 	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
