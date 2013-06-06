@@ -162,21 +162,11 @@ db.transaction(function(tx) {
 							$("#contenidoTemaSemana ul").append('<li id="wrtema"></li><li id="headerintertema"></li>');		
 							$("#contenidoTemaSemana ul").append("<li><h2>"+results.rows.item(0).titulo+"</h2>"+results.rows.item(0).texto+"</li>");				
 							$("#contenidoTemaSemana ul").append('<li></li><li></li><li id="footerintertema"></li>');
-								loadedscroll("headerintertema","footerintertema","wrtema","scrollertema");
 						}  
 					}, null);
 				});
 			});
 });
-function volverF(){
-	var pregunta=confirm("Desea reingresar los datos");
-	if(pregunta){
-				db.transaction(function(tx) {
-		tx.executeSql('DROP TABLE BBEMBARAZO ');
-		});
-		top.location="#pagInfoSemanal";
-	}
-}
 $("#listaDeNombreBB1").on('pagecreate', function(){
  $.fn.disableSelection = function() {
         return this
@@ -288,15 +278,15 @@ function descuentos(){
 			if(results.rows.length!=0 ){ version0=results.rows.item(0).version; }
 		}, null);
 		 });				
-			db.transaction(function(tx) {
 		for(index in json_data){
-
+			db.transaction(function(tx) {
+			tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
 				if(json_data[index].version!=version0){
 				tx.executeSql('insert into descuentos(id,tituloPromo,desde,hasta,descripcion,img,version) values ("'+json_data[index].id+'","'+json_data[index].tituloPromo+'","'+json_data[index].desde+'","'+json_data[index].hasta+'","'+json_data[index].descripcion+'","'+json_data[index].img+'","'+json_data[index].version+'")');
 				 }		  
-		
-		}
+			}, null);
 			 });				
+		}
 		db.transaction(function(tx) {
 			tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
 			if(results.rows.length>0){
@@ -310,21 +300,16 @@ function descuentos(){
 				"<p>Aplica desde: "+results.rows.item(i).desde+"</p>"+
 				"<p>Hasta: "+results.rows.item(i).hasta+"</p>"+
 				"<p>Descripci&oacute;n: "+results.rows.item(i).descripcion+"</p>"+
-				"</div></li>");	$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows.item(i).img+"'/></div><div class='textoDesc'>"+
-				"<h3>"+results.rows.item(i).tituloPromo+"</h3>"+
-				"<p>Aplica desde: "+results.rows.item(i).desde+"</p>"+
-				"<p>Hasta: "+results.rows.item(i).hasta+"</p>"+
-				"<p>Descripci&oacute;n: "+results.rows.item(i).descripcion+"</p>"+
 				"</div></li>");	
 							
 				cont++;
 				}			
-		$(".listaDescuentos").append('<li></li><li></li><li id="footerinter"></li>');
-		$('.listaDescuentos').disableSelection();
-		loadedscroll('headerinter','footerinter','wrapper','scroller');
 				}  
 				}, null);
 		});
+		$(".listaDescuentos").append('<li></li><li></li><li id="footerinter"></li>');
+		$('.listaDescuentos').disableSelection();
+		loadedscroll('headerinter','footerinter','wrapper','scroller');
 	});
 }
 function juegos(){

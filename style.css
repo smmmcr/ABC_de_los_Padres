@@ -18,7 +18,12 @@ input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 }
-#pagInicio, #pagInfoSemanal,#TemasSemanales,#TemasEmbarazo,#Descuentos,#juegos,#eventoEmba1,#eventoEmba2,#eventoEmba3,#listaDeNombreBB1,#listaDeNombreBB2,#infosolicitada{
+#pagInicio, #pagInfoSemanal,
+#TemasSemanales,#TemasEmbarazo,
+#Descuentos,#juegos,#eventoEmba1,
+#eventoEmba2,#eventoEmba3,
+#listaDeNombreBB1,#listaDeNombreBB2,
+#infosolicitada,#caminar,#natacion,#yoga,#pilates,#kegel,#bicicleta,#pelota,#aerobicos,#bailar{
 width: 100%;
 height: 100%;
 /*position: relative;*/
@@ -27,6 +32,15 @@ background: url(img/backgr.jpg) no-repeat;
 min-height: 480px;
 min-width: 318px;
 background-size: 100% 100%;
+}
+.ejer{
+border: 10px solid rgb(118, 216, 52);
+float: left;
+border-radius: 11px;
+background: rgba(255, 255, 255, 0.71);
+}
+.ejer p{
+color:#000!important;
 }
 .header{
 position: relative;
@@ -172,6 +186,17 @@ position: relative;
 }
 #contenidoTemaSemana{
 border: 8px solid rgb(32, 102, 228);
+border-radius: 7px;
+width: 93%;
+margin-left: 3.1%;
+height: 389px;
+background: rgba(255, 249, 249, 0.78);
+overflow: hidden;
+-webkit-overflow-scrolling: touch;
+position:relative;
+}
+#divEjer{
+border: 8px solid #87AB2E;
 border-radius: 7px;
 width: 93%;
 margin-left: 3.1%;
@@ -555,7 +580,7 @@ margin-top: 53%;
 .listaDeNombreBB{
 position: relative;
 }
-#headerinter, #headerinter1 , #headerinter2 {
+#headerinter, #headerinter1 , #headerinter2 ,#headerinterEjer{
 	display:none;
 	width:100%;
 	height:45px;
@@ -566,13 +591,13 @@ position: relative;
 	font-size:20px;
 	text-align:center;
 }
-#headerinter a, #headerinter1 a, #headerinter2 a {
+#headerinter a, #headerinter1 a, #headerinter2 a  ,#headerinterEjer a{
 	color:#f3f3f3;
 	text-decoration:none;
 	font-weight:bold;
 	text-shadow:0 -1px 0 rgba(0,0,0,0.5);
 }
-#footerinter, #footerinter1, #footerinter2 {
+#footerinter, #footerinter1, #footerinter2, #footerinterEjer {
 	display:none;
 	width:100%;
 	height:48px;
@@ -580,21 +605,23 @@ position: relative;
 	padding:0;
 	border-top:1px solid #444;
 }
-#footerinter li, #footerinter1 li, #footerinter2 li {
+#footerinter li, #footerinter1 li, #footerinter2 li,#footerinterEjer li {
 	display:block;
 	float:left;
+	width:50%;
+	text-align:center;
 }
 #footerinter li ,#footerinter1 li,#footerinter2 li {
 	width:50%;
 	text-align:center;
 }
-#footerinter a.remove, #footerinter1 a.remove, #footerinter2 a.remove {
+#footerinter a.remove, #footerinter1 a.remove, #footerinter2 a.remove , #footerinterEjer a.remove {
 	border-right:1px solid #333;
 }
-#footerinter a.add, #footerinter1 a.add, #footerinter2 a.add {
+#footerinter a.add, #footerinter1 a.add, #footerinter2 a.add, #footerinterEjer a.add {
 	border-left:1px solid #6a6a6a;
 }
-#footerinter a, #footerinter1 a, #footerinter2 a {
+#footerinter a, #footerinter1 a, #footerinter2 a, #footerinterEjer a {
 	display:block;
 	text-decoration:none;
 	font-size:12px;
@@ -602,15 +629,15 @@ position: relative;
 	line-height:24px;
 	text-shadow:0 -1px 0 #000;
 }
-#footerinter span, #footerinter1 span, #footerinter2 span {
+#footerinter span, #footerinter1 span, #footerinter2 span, #footerinterEjer span {
 	display:block;
 	font-size:30px;
 	font-weight:bold;
 }
-#wr, #wrapper1, #wr2,#wrtema {
+#wr, #wrapper1, #wr2,#wrtema ,#wrEjer,#wrapper {
 	display:none;
 }
-#scroller,#scrolle1,#scroller ,#scrollertema {
+#scroller,#scrolle1,#scroller ,#scrollertema ,#scrolleEjer {
 /*	-webkit-touch-callout:none;*/
 
 -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -662,4 +689,15 @@ float:left;
 color: #000!important;
 font-size: 1.3em!important;
 font-family: arial!important;
+}
+#scrolleEjer li{
+width:94%;
+}
+#scrolleEjer img{
+width:100%;
+}
+.volverformulario{
+float: right;
+margin-right: 7%;
+margin-top: 9px;
 }
