@@ -66,11 +66,11 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 				for(index in json_data){
 				$("#infosolicitada ul").append("<li>"+json_data[index].contenido+"</li>");		
 				}
-				$("#infosolicitada ul").append('<li></li><li></li><li id="footerinter10"></li>');
 				//loadedscroll('headerinter10','footerinter10','wr10','scrolle10');
 			});
  }, null);
    });
+				$("#infosolicitada ul").append('<li></li><li></li><li id="footerinter10"></li>');
 });
 $("#pagInfoSemanal").on('pagecreate', function(){
 //alert(localStorage.infoSolicitada);
@@ -206,7 +206,7 @@ generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2",'headerinter2','wr2','scrolle
 $("#Descuentos").on('pagecreate', function(){
 descuentos();
 });
-$("#eventoEmba2").on('pagecreate', function(){
+$("#eventoEmba2").on('tap', function(){
 		loadedscroll('headerinterEjer','footerinterEjer','wrEjer','scrolleEjer');
 });
 $("#eventoEmba1").on('pagecreate', function(){
@@ -262,13 +262,18 @@ $.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'"', [], function (tx, results) {
 				if(results.rows.length>0){
 					for(var i = 0; i < results.rows.length; i++) {
-						objetos.append("<li>"+results.rows.item(i).nombre+"</li>");		
+						objetos.append("<li>"+results.rows.item(i).nombre+"</li>");	
+						if(i==(results.rows.length-1)){
+							objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
+							loadedscroll(headerinter,footerinter,wr,scrolle);						
+						}
 					}
 				}  
 			}, null);
+
 		});
-	objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
-	loadedscroll(headerinter,footerinter,wr,scrolle);
+
+	
 });
 return true;
 }
