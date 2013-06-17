@@ -386,7 +386,7 @@ function eliminarlista(id){
 db.transaction(function(tx) {
 tx.executeSql('Update generoNinnos set estado=0 where id="'+id+'"');
    });
-	$("#"+id).hide('slow');
+	$("#"+id).hide();
 }
 function volver(){
 $(".header").html("<img src='img/hederPrincipal.png' />");
