@@ -321,7 +321,7 @@ font-weight: bold;
 .ui-overlay-c {
 	/*border: 1px solid 		#aaa /*{c-body-border}*/;
 	color: 					#333 /*{c-body-color}*/;
-	text-shadow: 0 /*{c-body-shadow-x}*/ 1px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #fff /*{c-body-shadow-color}*/;
+	/*text-shadow: 0 /*{c-body-shadow-x}*//* 1px /*{c-body-shadow-y}*/ /*0 /*{c-body-shadow-radius}*/ /*#fff /*{c-body-shadow-color}*//*;*/
 	background: 			#f9f9f9 /*{c-body-background-color}*/;
 	background-image: -webkit-gradient(linear, left top, left bottom, from( #f9f9f9 /*{c-body-background-start}*/), to( #eee /*{c-body-background-end}*/)); /* Saf4+, Chrome */
 	background-image: -webkit-linear-gradient( #f9f9f9 /*{c-body-background-start}*/, #eee /*{c-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
@@ -3391,7 +3391,7 @@ float: left;
 margin-left: 5%;
 }
 .contVolver .volver{
-width: 100%;
+width: 154%!important;
 }
 #botonesTEmas{ 
 float: left;
@@ -3436,7 +3436,7 @@ background-repeat: no-repeat;
 margin-top: 0px;
 }
 #botonesTEmas :nth-child(3) .volver{
-width: 100%;
+width: 154%!important;
 }
 #botonesTemasEmba {
 float: left;

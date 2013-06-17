@@ -159,8 +159,9 @@ db.transaction(function(tx) {
 						if(results.rows.length>0){
 							$("#contenidoTemaSemana ul").disableSelection();
 							$("#contenidoTemaSemana ul").html("");
+							$("#tituloTemaSemana").append("<h2>"+results.rows.item(0).titulo+"</h2>");				
 							$("#contenidoTemaSemana ul").append('<li id="wrtema"></li><li id="headerintertema"></li>');		
-							$("#contenidoTemaSemana ul").append("<li><h2>"+results.rows.item(0).titulo+"</h2>"+results.rows.item(0).texto+"</li>");				
+							$("#contenidoTemaSemana ul").append("<li>"+results.rows.item(0).texto+"</li>");				
 							$("#contenidoTemaSemana ul").append('<li></li><li></li><li id="footerintertema"></li>');
 								loadedscroll("headerintertema","footerintertema","wrtema","scrollertema");
 						}  
@@ -234,10 +235,11 @@ function calcular(){
 	
 	});	
 }
+var block;
 function generoN(id,objetos,footerinter,headerinter,wr,scrolle){		
  db.transaction(function(tx) {
 //tx.executeSql('DROP TABLE generoNinnos ');
-tx.executeSql('create table if not exists generoNinnos(id,nombre,genero,version)');
+tx.executeSql('create table if not exists generoNinnos(id,nombre,genero,version,estado)');
 });
 	version1=0 ;
 		db.transaction(function(tx) {
@@ -254,23 +256,34 @@ $.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 				var generoIn=json_data[index].genero;
 				var versionIN=json_data[index].version;		
 				if(json_data[index].version!=version1){
-					tx.executeSql('insert into generoNinnos(id,nombre,genero,version) values ("'+idIn+'","'+nombreIn+'","'+generoIn+'","'+versionIN+'")');
+					tx.executeSql('insert into generoNinnos(id,nombre,genero,version,estado) values ("'+idIn+'","'+nombreIn+'","'+generoIn+'","'+versionIN+'","1")');
 				 }		  			
 		}
 	});
+				
+	
 		db.transaction(function(tx) {
-			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'"', [], function (tx, results) {
+			tx.executeSql('create table if not exists bloqueos(id)');						
+			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'" and estado="1"', [], function (tx, results) {
 				if(results.rows.length>0){
 					for(var i = 0; i < results.rows.length; i++) {
-						objetos.append("<li>"+results.rows.item(i).nombre+"</li>");	
-						if(i==(results.rows.length-1)){
-							objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
-							loadedscroll(headerinter,footerinter,wr,scrolle);						
-						}
+					var idingreso=results.rows.item(i).id;
+					//alert(idingreso);
+							
+						//	alert(block);
+							sombra="sombraNombreG";
+								if((i%2)!=0){
+								sombra="sombraNombreT"
+								}
+								objetos.append("<li class='"+sombra+"' id='"+results.rows.item(i).id+"'>"+results.rows.item(i).nombre+"<a href='' onclick=\"eliminarlista('"+results.rows.item(i).id+"')\" class='remov' >Remover</a></li>");	
+								if(i==(results.rows.length-1)){
+									objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
+									loadedscroll(headerinter,footerinter,wr,scrolle);						
+								}
+						
 					}
-				}  
+				}				
 			}, null);
-
 		});
 
 	
@@ -367,6 +380,13 @@ var comentarios1=$("#comentario").val();
 		}
 	});
 
+}
+function eliminarlista(id){
+//alert(id);
+db.transaction(function(tx) {
+tx.executeSql('Update generoNinnos set estado=0 where id="'+id+'"');
+   });
+	$("#"+id).hide('slow');
 }
 function volver(){
 $(".header").html("<img src='img/hederPrincipal.png' />");

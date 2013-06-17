@@ -464,12 +464,10 @@ margin-top:11px;
 margin-left:31px;
 }
 #contenidoNombreNinno li, #contenidoNombresNina li{
-width: 76%!important;
+width: 97%!important;
 height: auto!important;
 float: left;
-margin-left: 5%;
-font-size: 71px;
-text-align: center;
+font-size: 44px;
 }
 .listaDescuentos p{
 color: rgb(88, 69, 69);
@@ -700,4 +698,29 @@ width:100%;
 float: right;
 margin-right: 7%;
 margin-top: 9px;
+}
+#tituloTemaSemana{
+width: 96%;
+margin-left: 3.1%;
+height: 47px;
+background: rgb(4, 112, 228);
+overflow: hidden;
+-webkit-overflow-scrolling: touch;
+position: relative;
+text-align: center;
+border-radius: 8px;
+margin-bottom: 11px;
+padding-top: 13px;
+color: rgb(255, 255, 255);
+}
+.sombraNombreG{
+background: rgba(19, 98, 177, 0.33);
+}
+.remov{
+float: right;
+font-size: 17px;
+margin-top: 4%;
+color: rgb(255, 255, 255);
+background: rgba(0, 109, 248, 0.62);
+/*border: 1px solid rgb(218, 33, 99);*/
 }
