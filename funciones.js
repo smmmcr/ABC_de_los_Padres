@@ -275,7 +275,7 @@ $.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 								if((i%2)!=0){
 								sombra="sombraNombreT"
 								}
-								objetos.append("<li class='"+sombra+"' id='"+results.rows.item(i).id+"'>"+results.rows.item(i).nombre+"<a href=\"javascript:eliminarlista('"+results.rows.item(i).id+"')\" class='remov' >Remover</a></li>");	
+								objetos.append("<li class='"+sombra+"' id='"+results.rows.item(i).id+"'>"+results.rows.item(i).nombre+"<a href='javascript:eliminarlista("+results.rows.item(i).id+")' class='remov' >Remover</a></li>");	
 								if(i==(results.rows.length-1)){
 									objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
 									loadedscroll(headerinter,footerinter,wr,scrolle);						
