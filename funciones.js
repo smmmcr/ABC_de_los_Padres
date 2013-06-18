@@ -154,6 +154,7 @@ db.transaction(function(tx) {
 						}
 					});				
 				}
+			});
 				db.transaction(function(tx) {
 					tx.executeSql('SELECT * FROM temaSeman ORDER BY id', [], function (tx, results) {
 						if(results.rows.length>0){
@@ -167,7 +168,6 @@ db.transaction(function(tx) {
 						}  
 					}, null);
 				});
-			});
 });
 function volverF(){
 	var pregunta=confirm("Desea reingresar los datos");
@@ -259,10 +259,9 @@ $.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 					tx.executeSql('insert into generoNinnos(id,nombre,genero,version,estado) values ("'+idIn+'","'+nombreIn+'","'+generoIn+'","'+versionIN+'","1")');
 				 }		  			
 		}
-	});
-				
-	
-		db.transaction(function(tx) {
+	});	
+});
+db.transaction(function(tx) {
 			tx.executeSql('create table if not exists bloqueos(id)');						
 			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'" and estado="1"', [], function (tx, results) {
 				if(results.rows.length>0){
@@ -285,9 +284,6 @@ $.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 				}				
 			}, null);
 		});
-
-	
-});
 return true;
 }
 function descuentos(){
@@ -297,9 +293,6 @@ function descuentos(){
 	});
 	uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
 	$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-		$(".listaDescuentos").html("");
-		cont=1;
-		$(".listaDescuentos").append('<li id="wrapper"></li><li id="headerinter"></li>');				
 			version0=0 ;
 		db.transaction(function(tx) {
 		tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
@@ -314,8 +307,12 @@ function descuentos(){
 				 }		  
 		
 		}
-			 });				
+			 });		
+});			 
 		db.transaction(function(tx) {
+		cont=1;
+		$(".listaDescuentos").html("");
+		$(".listaDescuentos").append('<li id="wrapper"></li><li id="headerinter"></li>');				
 			tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
 			if(results.rows.length>0){
 			for(var i = 0; i < results.rows.length; i++) {
@@ -343,7 +340,7 @@ function descuentos(){
 				}  
 				}, null);
 		});
-	});
+	
 }
 function juegos(){
 uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
