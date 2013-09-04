@@ -3370,7 +3370,7 @@ border: none;
 background-repeat: no-repeat;
 }
 .botones div:nth-child(2){
-background: url(img/btnfacebook.png);
+background: url(../img/btnfacebook.png);
 width: 30%;
 height: 49%;
 min-height: 51px;
@@ -3414,7 +3414,7 @@ float:left;
 width:100%;
 }
 #botonesTEmas div:nth-child(2){
-background: url(img/btnincluir.png);
+background: url(../img/btnincluir.png);
 width: 30%;
 height: 49%;
 min-height: 51px;
@@ -3485,7 +3485,7 @@ border: 6px solid #90A83D;
 border-radius: 10px;
 }*/
 #divBtncalcular div:nth-child(1){
-background: url(img/calcular.png);
+background: url(../img/calcular.png);
 width: 30%;
 height: 49%;
 min-height: 51px;
