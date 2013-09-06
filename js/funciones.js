@@ -3,6 +3,82 @@ var idtema;
 var myScroll;
 var a = 0;
 var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
+document.addEventListener("deviceready", onDeviceReady, false);
+ function onDeviceReady() {
+//Inicializamos las BD
+checkConnection();
+
+    }
+ function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 0;
+            states[Connection.ETHERNET] = 1;
+            states[Connection.WIFI]     = 1;
+            states[Connection.CELL_2G]  = 1;
+            states[Connection.CELL_3G]  = 1;
+            states[Connection.CELL_4G]  = 1;
+            states[Connection.CELL]     = 0;
+            states[Connection.NONE]     = 0;
+			if(states[networkState]!=0){
+			sincronizar();
+			}else{
+			alert("Para utilizar esta aplicación necesita conexión a internet");
+			 navigator.app.exitApp();
+			}
+        }
+function sincronizar(){
+
+	db.transaction(function(tx) {
+	//tx.executeSql('DROP TABLE descuentos ');
+	tx.executeSql('create table if not exists descuentos(id,tituloPromo,desde,hasta,descripcion,img,version)');
+	   tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso)');
+	   	tx.executeSql('create table if not exists temaSeman(id,titulo,texto TEXT)');
+		tx.executeSql('create table if not exists generoNinnos(id,nombre,genero,version,estado)');
+	});
+	uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
+	$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
+	version0=0 ;
+	db.transaction(function(tx) {
+	tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
+	if(results.rows.length!=0 ){ version0=results.rows.item(0).version; }
+	}, null);
+	});				
+	db.transaction(function(tx) {
+	for(index in json_data){
+
+	if(json_data[index].version!=version0){
+	tx.executeSql('insert into descuentos(id,tituloPromo,desde,hasta,descripcion,img,version) values ("'+json_data[index].id+'","'+json_data[index].tituloPromo+'","'+json_data[index].desde+'","'+json_data[index].hasta+'","'+json_data[index].descripcion+'","'+json_data[index].img+'","'+json_data[index].version+'")');
+	}
+	}
+	});		
+	});
+	version1=0 ;
+	db.transaction(function(tx) {
+	tx.executeSql('SELECT * FROM generoNinnos', [], function (tx, results) {
+	if(results.rows.length!=0 ){ version1=results.rows.item(0).version; }
+	}, null);
+	});
+	uri="https://movilmultimediasa.com/abcMobil/post.php?gen=''";
+	$.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
+	db.transaction(function(tx) {
+	for(index in json_data){
+	idIn=json_data[index].id;
+	var nombreIn=String(json_data[index].nombre);
+	var generoIn=json_data[index].genero;
+	var versionIN=json_data[index].version;		
+	if(json_data[index].version!=version1){
+	tx.executeSql('insert into generoNinnos(id,nombre,genero,version,estado) values ("'+idIn+'","'+nombreIn+'","'+generoIn+'","'+versionIN+'","1")');
+	}		  			
+	}
+	});	
+	});
+	
+}
+ function goToNext() {
+       window.location.href = 'https://www.facebook.com/';
+    }
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
@@ -88,7 +164,7 @@ $("#divCiclo .disable").on( "vclick", function() {
 	$("#nacido input[type='text']").val(""); 
 });
 	db.transaction(function(tx) {
-    tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso)');
+ 
 	//tx.executeSql('DROP TABLE BBEMBARAZO ');
 	tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 		 if(results.rows.length>0){
@@ -130,35 +206,7 @@ tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIn
    $.mobile.changePage($("#infosolicitada"), "none");
 }
 $("#TemasSemanales").on('pageinit', function(){
-db.transaction(function(tx) {
-	//tx.executeSql('DROP TABLE temaSeman ');
-	tx.executeSql('create table if not exists temaSeman(id,titulo,texto TEXT)');
-	});
-	uri="https://movilmultimediasa.com/abcMobil/blog.php?blog=1";
-			$.fn.disableSelection = function() {
-			return this
-			.attr('unselectable', 'on')
-			.css('user-select', 'none')
-			.on('selectstart', false);
-			};
-			$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-				version1=0 ;
-				db.transaction(function(tx) {
-					tx.executeSql('SELECT * FROM temaSeman ORDER BY id', [], function (tx, results) {
-					if(results.rows.length!=0 ){ version1=results.rows.item(0).id; }
-					}, null);
-				});
-				for(index in json_data){
-					localStorage.id=json_data[0].id;
-					localStorage.titulo=json_data[0].titulo;
-					localStorage.texto=json_data[0].texto;
-					db.transaction(function(tx) {
-						if(json_data[index].id!=version1){	
-							tx.executeSql('insert into temaSeman(id,titulo,texto) values(?,?,?)', [localStorage.id,localStorage.titulo,localStorage.texto]);
-						}
-					});				
-				}
-			});
+	
 				db.transaction(function(tx) {
 					tx.executeSql('SELECT * FROM temaSeman ORDER BY id', [], function (tx, results) {
 						if(results.rows.length>0){
@@ -246,30 +294,8 @@ function calcular(){
 }
 var block;
 function generoN(id,objetos,footerinter,headerinter,wr,scrolle){		
- db.transaction(function(tx) {
-//tx.executeSql('DROP TABLE generoNinnos ');
-tx.executeSql('create table if not exists generoNinnos(id,nombre,genero,version,estado)');
-});
-	version1=0 ;
-		db.transaction(function(tx) {
-		tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'"', [], function (tx, results) {
-			if(results.rows.length!=0 ){ version1=results.rows.item(0).version; }
-		}, null);
-		});
-uri="https://movilmultimediasa.com/abcMobil/post.php?gen="+id;
-$.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
-	db.transaction(function(tx) {
-		for(index in json_data){
-				idIn=json_data[index].id;
-				var nombreIn=String(json_data[index].nombre);
-				var generoIn=json_data[index].genero;
-				var versionIN=json_data[index].version;		
-				if(json_data[index].version!=version1){
-					tx.executeSql('insert into generoNinnos(id,nombre,genero,version,estado) values ("'+idIn+'","'+nombreIn+'","'+generoIn+'","'+versionIN+'","1")');
-				 }		  			
-		}
-	});	
-});
+
+
 db.transaction(function(tx) {
 			tx.executeSql('create table if not exists bloqueos(id)');						
 			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'" and estado="1"', [], function (tx, results) {
@@ -304,28 +330,6 @@ db.transaction(function(tx) {
 return true;
 }
 function descuentos(){
-	db.transaction(function(tx) {
-	//tx.executeSql('DROP TABLE descuentos ');
-	tx.executeSql('create table if not exists descuentos(id,tituloPromo,desde,hasta,descripcion,img,version)');
-	});
-	uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
-	$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
-			version0=0 ;
-		db.transaction(function(tx) {
-		tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
-			if(results.rows.length!=0 ){ version0=results.rows.item(0).version; }
-		}, null);
-		 });				
-			db.transaction(function(tx) {
-		for(index in json_data){
-
-				if(json_data[index].version!=version0){
-				tx.executeSql('insert into descuentos(id,tituloPromo,desde,hasta,descripcion,img,version) values ("'+json_data[index].id+'","'+json_data[index].tituloPromo+'","'+json_data[index].desde+'","'+json_data[index].hasta+'","'+json_data[index].descripcion+'","'+json_data[index].img+'","'+json_data[index].version+'")');
-				 }		  
-		
-		}
-			 });		
-});			 
 		db.transaction(function(tx) {
 		cont=1;
 		$(".listaDescuentos").html("");

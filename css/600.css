@@ -38,7 +38,7 @@ width: 600px!important;
 height: 126px!important;
 margin-bottom: 0px!important;
 position: absolute!important;
-bottom: 0px!important;
+top: 665px!important;
 }
 .footer img{
 margin-left: 10px;
@@ -267,6 +267,11 @@ margin-top: 12px;
 height: 315px;
 background: rgba(255, 255, 255, 0.79);
 position: relative;
+color: rgba(12, 11, 11, 0.9)!important;
+}
+#contenidoTemaSemana p, #contenidoTemaSemana li{
+
+color: rgba(12, 11, 11, 0.9)!important;
 }
 #contenidoTemaSemana ul{
 margin-top: 0;
@@ -298,7 +303,7 @@ border-radius: 12px;
 }
 #objcalculo{
 width: 552px;
-height: 170px;
+height: 151px;
 }
 #objcalculo #divdianinno,#objcalculo #divmesesninno,#objcalculo #divannonino{
 width: 179px;
@@ -317,10 +322,11 @@ margin: 0;
 border-radius: 7px;
 }
 #imagenNacido{
-width: 235px;
-height: 220px;
+width: 184px;
+height: 161px;
 float: left;
 margin-left: 150px;
+font-size: 11px;
 }
 #imagenNacido img{
 width: 100%;
@@ -339,6 +345,17 @@ background: rgba(255, 255, 255, 0.47);
 height: 343px;
 position: relative;
 }
+.ejer{
+border: 10px solid rgb(118, 216, 52);
+float: left;
+border-radius: 11px;
+background: rgba(255, 255, 255, 0.71);
+width: 512px;
+}
+.ejer p{
+color:#000!important;
+}
+
 #scrollerejerci{
 width: 540px;
 
