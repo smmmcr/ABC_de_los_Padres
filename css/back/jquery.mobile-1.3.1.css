@@ -3361,7 +3361,7 @@ margin-left: 4%;
 margin-top: 12%;
 }
 .botones div:first-child {
-background: url(img/btnEnviar.png);
+background: url(../img/btnEnviar.png);
 width: 30%;
 height: 49%;
 min-height: 51px;

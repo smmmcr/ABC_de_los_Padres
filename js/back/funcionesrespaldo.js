@@ -25,7 +25,7 @@ function loadURL(url){
     navigator.app.loadUrl(url, { openExternal:true });
     return false;
 } 
-/*function loadedscroll(headerinter,footerinter,wrapper,scroller) {
+function loadedscroll(headerinter,footerinter,wrapper,scroller) {
 	setHeight(headerinter,footerinter,wrapper);
 	myScroll = new iScroll(scroller, {desktopCompatibility:true});
 }
@@ -34,7 +34,7 @@ function setHeight(headerinter,footerinter,wrapper) {
 		footerH = document.getElementById(footerinter).offsetHeight,
 		wrapperH = window.innerHeight - headerH - footerH;
 		document.getElementById(wrapper).style.height = wrapperH + 'px';
-}*/
+}
 $("#infosolicitada").on('pagecreate', function(){
  $.fn.disableSelection = function() {
         return this
@@ -57,18 +57,16 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 			tiempo=results.rows.item(0).semanasEmba;
 		//hoy = new Date() sumar cada 7
 		 } 
-	 } 
-	 var tipotitu;
-	( infoASoli === "ninnoSemanas" ) ? tipotitu="Semanas de nacido" : tipotitu="Semanas de Embarazo";
+	 }  
 	$("#infosolicitada ul").disableSelection();
 	$("#infosolicitada ul").html("");
+	$("#infosolicitada ul").append('<li id="wr10"></li><li id="headerinter10"></li>');
 	 uri="https://movilmultimediasa.com/abcMobil/post.php?infoSolicitada="+infoASoli+"&tiempo="+tiempo+"&semanaPubli="+semanaPubli;
 			$.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 				for(index in json_data){
 				$("#infosolicitada ul").append("<li>"+json_data[index].contenido+"</li>");		
 				}
-				$("#infosolicitada #titutiempo h3").append("Con "+tiempo+" "+tipotitu);
-				myScroll3 = new iScroll('infosolicitada', {hScrollbar: false});
+				//loadedscroll('headerinter10','footerinter10','wr10','scrolle10');
 			});
  }, null);
    });
@@ -100,9 +98,7 @@ $("#divCiclo .disable").on( "vclick", function() {
 });
 function infonino(){
 nacido=$("#nacido input[type='text']").val();
-embarazo=$("#divCiclo select").val();
-
-
+embarazo=$("#divCiclo input[type='text']").val();
 var edadNacido1='';
 var embarazoDtos='';
 var semapu='';
@@ -164,9 +160,11 @@ db.transaction(function(tx) {
 						if(results.rows.length>0){
 							$("#contenidoTemaSemana ul").disableSelection();
 							$("#contenidoTemaSemana ul").html("");
-							$("#tituloTemaSemana").append("<h2>"+results.rows.item(0).titulo+"</h2>");					
-							$("#contenidoTemaSemana ul").append("<li>"+results.rows.item(0).texto+"</li>");							
-									myScroll3 = new iScroll('contenidoTemaSemana', {hScrollbar: false});	
+							$("#tituloTemaSemana").append("<h2>"+results.rows.item(0).titulo+"</h2>");				
+							$("#contenidoTemaSemana ul").append('<li id="wrtema"></li><li id="headerintertema"></li>');		
+							$("#contenidoTemaSemana ul").append("<li>"+results.rows.item(0).texto+"</li>");				
+							$("#contenidoTemaSemana ul").append('<li></li><li></li><li id="footerintertema"></li>');
+								loadedscroll("headerintertema","footerintertema","wrtema","scrollertema");
 						}  
 					}, null);
 				});
@@ -189,7 +187,7 @@ $("#listaDeNombreBB1").on('pagecreate', function(){
     };
 $("#listaDeNombreBB1 ul").disableSelection();
 $("#listaDeNombreBB1 ul").html("");
-	
+$("#listaDeNombreBB1 ul").append('<li id="wr"></li><li id="headerinter1"></li>');		
 generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1",'headerinter1','wr','scrolle1');
 
 });
@@ -202,7 +200,7 @@ $("#listaDeNombreBB2").on('pagecreate', function(){
     };
 $("#listaDeNombreBB2 ul").disableSelection();
 $("#listaDeNombreBB2 ul").html("");
-
+$("#listaDeNombreBB2 ul").append('<li id="wr2"></li><li id="headerinter2"></li>');
 generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2",'headerinter2','wr2','scrolle2');
 /*$("#listaDeNombreBB2").on('vclick',function(){loadedscroll('headerinter2','footerinter2','wr2','scrolle2');});*/
 });
@@ -211,13 +209,7 @@ descuentos();
 });
 $("#eventoEmba2").on('pagebeforecreate', function(){
 		//loadedscroll('headerinterEjer','footerinterEjer','wrEjer','scrolleEjer');
-			myScroll3 = new iScroll('divEjer');
-			setTimeout(function(){
-				myScroll3.refresh();
-			
-			
-			},500);
-		
+			myScroll3 = new iScroll('divEjer', {hScrollbar: false});
 });
 $("#eventoEmba1").on('pagecreate', function(){
 	$("#eventoEmba1 #imagenNacido").hide();
@@ -273,28 +265,20 @@ $.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 db.transaction(function(tx) {
 			tx.executeSql('create table if not exists bloqueos(id)');						
 			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'" and estado="1"', [], function (tx, results) {
-
 				if(results.rows.length>0){
 					for(var i = 0; i < results.rows.length; i++) {
 					var idingreso=results.rows.item(i).id;
-					//alert(idingreso);							
+					//alert(idingreso);
+							
 						//	alert(block);
-						var conte;
-						(id==2)?conte="contenidoNombreNinno":conte="contenidoNombresNina";
 							sombra="sombraNombreG";
 								if((i%2)!=0){
 								sombra="sombraNombreT"
 								}
 								objetos.append("<li class='"+sombra+"' id='"+results.rows.item(i).id+"'>"+results.rows.item(i).nombre+"<a href='javascript:eliminarlista("+results.rows.item(i).id+")' class='remov' >Remover</a></li>");	
 								if(i==(results.rows.length-1)){
-								
-									myScroll3 = new iScroll(conte);
-									setTimeout(function(){
-									myScroll3.refresh();
-
-
-									},900);
-											
+									objetos.append('<li></li><li></li><li id="'+footerinter+'"></li>');
+									loadedscroll(headerinter,footerinter,wr,scrolle);						
 								}
 						
 					}
@@ -329,7 +313,7 @@ function descuentos(){
 		db.transaction(function(tx) {
 		cont=1;
 		$(".listaDescuentos").html("");
-		
+		$(".listaDescuentos").append('<li id="wrapper"></li><li id="headerinter"></li>');				
 			tx.executeSql('SELECT * FROM descuentos', [], function (tx, results) {
 			if(results.rows.length>0){
 			for(var i = 0; i < results.rows.length; i++) {
@@ -351,14 +335,9 @@ function descuentos(){
 							
 				cont++;
 				}			
-
+		$(".listaDescuentos").append('<li></li><li></li><li id="footerinter"></li>');
 		$('.listaDescuentos').disableSelection();
-			myScroll3 = new iScroll("conteDescuentos");
-									setTimeout(function(){
-									myScroll3.refresh();
-
-
-									},900);
+		loadedscroll('headerinter','footerinter','wrapper','scroller');
 				}  
 				}, null);
 		});
