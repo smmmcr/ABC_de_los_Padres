@@ -77,7 +77,7 @@ function sincronizar(){
 	
 }
  function goToNext() {
-    window.open('https://www.facebook.com/', '_blank', 'location=yes');  
+    window.open('https://www.facebook.com/elabcdelospadres?fref=ts', '_blank', 'location=yes');  
     }
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
@@ -144,11 +144,17 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 				$("#infosolicitada ul").append("<li>"+json_data[index].contenido+"</li>");		
 				}
 				$("#infosolicitada #titutiempo h3").append("Con "+tiempo+" "+tipotitu);
-				myScroll3 = new iScroll('infosolicitada', {hScrollbar: false});
+	
 			});
+				myScroll3 = new iScroll('infosolicitada');
+			setTimeout(function(){
+				myScroll3.refresh();
+			
+			
+			},900);
  }, null);
    });
-				$("#infosolicitada ul").append('<li></li><li></li><li id="footerinter10"></li>');
+	
 });
 $("#pagInfoSemanal").on('pagecreate', function(){
 //alert(localStorage.infoSolicitada);
@@ -177,18 +183,13 @@ $("#divCiclo .disable").on( "vclick", function() {
 function infonino(){
 nacido=$("#nacido input[type='text']").val();
 embarazo=$("#divCiclo select").val();
-
-
 var edadNacido1='';
 var embarazoDtos='';
 var semapu='';
 if(nacido!=''){
 Dia=$("#fechasDeNacimientoNinno #dia").val();
-
 Mes=$("#fechasDeNacimientoNinno #mes").val();
 anno=$("#fechasDeNacimientoNinno #anno").val();
-
-
 fecha=String(anno+'-'+Mes+'-'+Dia);
 fecha = new Date(fecha);
 hoy = new Date()
@@ -201,6 +202,7 @@ embarazoDtos=embarazo;
  }
 hoy = new Date()
  db.transaction(function(tx) {
+  tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso)');
 tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIngreso) values (1,"'+edadNacido1+'","'+embarazoDtos+'","'+semapu+'","'+hoy+'")');
    });
    $.mobile.changePage($("#infosolicitada"), "none");
