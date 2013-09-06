@@ -77,7 +77,7 @@ function sincronizar(){
 	
 }
  function goToNext() {
-       window.location.href = 'https://www.facebook.com/';
+    window.open('https://www.facebook.com/', '_blank', 'location=yes');  
     }
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
