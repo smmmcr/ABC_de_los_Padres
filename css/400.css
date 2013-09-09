@@ -159,6 +159,7 @@ float: left;
 position: relative;
 text-align: center;
 }
+/*
 #selecDivGen{
 width: 141px;
 height: 40px;
@@ -166,7 +167,7 @@ margin-left: 37px;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
-}
+}*/
 #selecDivGen .ui-btn ,
 #selecDivGen.ui-shadow ,
 #selecDivGen .ui-btn-corner-all ,
@@ -212,13 +213,30 @@ height: 38px;
 margin: 0;
 border-radius: 7px;
 }
+/*
 .combobox{
 width: 120px;
 height: 40px;
 margin-left: 37px;
-border: 5px solid #90A83D;
+/*border: 5px solid #90A83D;*
 border-radius: 12px;
 padding: 0px;
+}*/
+.combobox select{
+width: 120px;
+height: 40px;
+margin-left: 0px;
+border: 5px solid #90A83D;
+border-radius: 8px;
+padding: 0px;
+}
+#objFormulario  select{
+width: 146px;
+height: 45px;
+margin-left: 0px;
+border-radius: 8px;
+padding: 0px;
+border: 5px solid #F01414;
 }
 .botones{
 width: 600px;
@@ -594,6 +612,20 @@ margin-top: 5%;
 background: rgba(247, 139, 229, 0.97);
 position: relative;
 float: left;
+}
+.ui-select .ui-btn select {
+cursor: pointer!important;
+-webkit-appearance: none!important;
+left: 0!important;
+top: 0!important;
+width: 100%!important;
+min-height: 1.5em!important;
+min-height: 100%!important;
+height: 3em!important;
+max-height: 100%!important;
+filter: Alpha(Opacity=0)!important;
+opacity: 0!important;
+z-index: 2!important;
 }
 .listaDescuentos .imgPromo{
 width: 30%;

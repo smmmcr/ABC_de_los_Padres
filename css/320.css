@@ -179,6 +179,7 @@ float: left;
 position: relative;
 text-align: center;
 }
+/*
 #selecDivGen{
 width: 55%;
 height: 27px;
@@ -186,7 +187,7 @@ margin-left: 17px;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
-}
+}*/
 #selecDivGen .ui-btn ,
 #selecDivGen.ui-shadow ,
 #selecDivGen .ui-btn-corner-all ,
@@ -202,19 +203,21 @@ width: 90px;
 height: 52px;
 float: left;
 text-align:center;
+margin-left: 3%;
 }
 #divmesesninno{
 width: 90px;
 height: 52px;
 float: left;
 text-align:center;
+margin-left: 3%;
 }
 #divannonino{
 width: 90px;
 height: 52px;
 float: left;
 text-align:center;
-margin-left: 0%;
+margin-left: 3%;
 }
 #fechasDeNacimientoNinno{
 width: 100%;
@@ -233,12 +236,29 @@ height: 23px;
 margin: 0;
 border-radius: 7px;
 }
+#objFormulario  select{
+width: 96px;
+height: 34px;
+margin-left: 3px;
+border-radius: 8px;
+padding: 0px;
+border: 5px solid #F01414;
+}
+/*
 .combobox{
 width: 73px;
 height: 24px;
 margin-left: 1px;
-border: 5px solid #90A83D;
+/*border: 5px solid #90A83D;
 border-radius: 12px;
+padding: 0px;
+}*/
+.combobox select{
+width: 75px;
+height: 31px;
+margin-left: 0px;
+border: 5px solid #90A83D;
+border-radius: 8px;
 padding: 0px;
 }
 .botones{
@@ -381,7 +401,7 @@ height: 151px;
 }
 
 #objcalculo #divdianinno,#objcalculo #divmesesninno,#objcalculo #divannonino{
-width: 89px;
+width: 75px;
 height: 50px;
 float: left;
 text-align: center;

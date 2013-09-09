@@ -82,8 +82,8 @@ function sincronizar(){
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
-		$.mobile.defaultDialogTransition = 'none';
-		$.mobile.defaultPageTransition = 'none';
+		$.mobile.defaultDialogTransition = 'flip';
+		$.mobile.defaultPageTransition = 'flip';
 	$.mobile.allowCrossDomainPages = true;
 	 $.fn.disableSelection = function() {
         return this
@@ -348,13 +348,7 @@ function descuentos(){
 				"<p>Aplica desde: "+results.rows.item(i).desde+"</p>"+
 				"<p>Hasta: "+results.rows.item(i).hasta+"</p>"+
 				"<p>Descripci&oacute;n: "+results.rows.item(i).descripcion+"</p>"+
-				"</div></li>");	$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows.item(i).img+"'/></div><div class='textoDesc'>"+
-				"<h3>"+results.rows.item(i).tituloPromo+"</h3>"+
-				"<p>Aplica desde: "+results.rows.item(i).desde+"</p>"+
-				"<p>Hasta: "+results.rows.item(i).hasta+"</p>"+
-				"<p>Descripci&oacute;n: "+results.rows.item(i).descripcion+"</p>"+
-				"</div></li>");	
-							
+				"</div></li>");								
 				cont++;
 				}			
 
