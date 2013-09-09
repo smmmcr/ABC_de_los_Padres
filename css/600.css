@@ -52,8 +52,8 @@ min-height: 100%!important;
 height: 3em!important;
 max-height: 100%!important;
 filter: Alpha(Opacity=0)!important;
-opacity: 1!important;
-z-index: 2!important;
+opacity: 0!important;
+z-index: 3!important;
 position: absolute!important;
 }
 .footer a{
