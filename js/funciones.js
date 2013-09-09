@@ -82,8 +82,8 @@ function sincronizar(){
 $(document).on('pagecreate', function(){
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
-		$.mobile.defaultDialogTransition = 'flip';
-		$.mobile.defaultPageTransition = 'flip';
+		$.mobile.defaultDialogTransition = 'slide';
+		$.mobile.defaultPageTransition = 'slide';
 	$.mobile.allowCrossDomainPages = true;
 	 $.fn.disableSelection = function() {
         return this
