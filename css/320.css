@@ -18,6 +18,20 @@ input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 }
+.ui-select .ui-btn select {
+cursor: pointer!important;
+-webkit-appearance: none!important;
+left: 0!important;
+top: 0!important;
+width: 100%!important;
+min-height: 1.5em!important;
+min-height: 100%!important;
+height: 3em!important;
+max-height: 100%!important;
+filter: Alpha(Opacity=0)!important;
+opacity: 0!important;
+z-index: 2!important;
+}
 #pagInicio, #pagInfoSemanal,
 #TemasSemanales,#TemasEmbarazo,
 #Descuentos,#juegos,#eventoEmba1,
