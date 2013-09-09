@@ -181,6 +181,7 @@ margin-left: 37px;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
+position: relative;
 }
 #selecDivGen .ui-btn ,
 #selecDivGen.ui-shadow ,
@@ -197,18 +198,21 @@ width: 200px;
 height: 100px;
 float: left;
 text-align:center;
+position: relative;
 }
 #divmesesninno{
 width: 200px;
 height: 100px;
 float: left;
 text-align:center;
+position: relative;
 }
 #divannonino{
 width: 200px;
 height: 100px;
 float: left;
 text-align:center;
+position: relative;
 }
 #fechasDeNacimientoNinno{
 width: 600px;
