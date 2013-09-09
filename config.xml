@@ -24,7 +24,7 @@
 	<preference name="target-device" value="universal" />
 	<!--<feature name="http://api.phonegap.com/1.0/network"/>-->	
 
-	<gap:splash src="splash.png" width="768" height="1024" />
+	<gap:splash src="splash.jpg" width="768" height="1024" />
 
 	<!-- Optional splash screen image, e.g.: -->
 	<!-- <gap:splash src="splash.png" width="1024" height="768" /> -->
