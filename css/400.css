@@ -159,7 +159,6 @@ float: left;
 position: relative;
 text-align: center;
 }
-/*
 #selecDivGen{
 width: 141px;
 height: 40px;
@@ -167,7 +166,7 @@ margin-left: 37px;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
-}*/
+}
 #selecDivGen .ui-btn ,
 #selecDivGen.ui-shadow ,
 #selecDivGen .ui-btn-corner-all ,
@@ -213,30 +212,13 @@ height: 38px;
 margin: 0;
 border-radius: 7px;
 }
-/*
 .combobox{
 width: 120px;
 height: 40px;
 margin-left: 37px;
-/*border: 5px solid #90A83D;*
+border: 5px solid #90A83D;
 border-radius: 12px;
 padding: 0px;
-}*/
-.combobox select{
-width: 120px;
-height: 40px;
-margin-left: 0px;
-border: 5px solid #90A83D;
-border-radius: 8px;
-padding: 0px;
-}
-#objFormulario  select{
-width: 146px;
-height: 45px;
-margin-left: 0px;
-border-radius: 8px;
-padding: 0px;
-border: 5px solid #F01414;
 }
 .botones{
 width: 600px;

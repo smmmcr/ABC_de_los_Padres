@@ -52,8 +52,9 @@ min-height: 100%!important;
 height: 3em!important;
 max-height: 100%!important;
 filter: Alpha(Opacity=0)!important;
-opacity: 0!important;
+opacity: 1!important;
 z-index: 2!important;
+position: absolute!important;
 }
 .footer a{
 background: rgba(255, 255, 255, 0);
@@ -173,14 +174,14 @@ float: left;
 position: relative;
 text-align: center;
 }
-/*#selecDivGen{
+#selecDivGen{
 width: 141px;
 height: 40px;
 margin-left: 37px;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
-}*/
+}
 #selecDivGen .ui-btn ,
 #selecDivGen.ui-shadow ,
 #selecDivGen .ui-btn-corner-all ,
@@ -226,30 +227,12 @@ height: 38px;
 margin: 0;
 border-radius: 7px;
 }
-
-/*
 .combobox{
 width: 120px;
 height: 40px;
 margin-left: 37px;
 border: 5px solid #90A83D;
 border-radius: 12px;
-padding: 0px;
-}*/
-.combobox select{
-width: 120px;
-height: 40px;
-margin-left: 0px;
-border: 5px solid #90A83D;
-border-radius: 8px;
-padding: 0px;
-}
-.combobox select{
-width: 120px;
-height: 40px;
-margin-left: 0px;
-border: 5px solid #90A83D;
-border-radius: 8px;
 padding: 0px;
 }
 .botones{
