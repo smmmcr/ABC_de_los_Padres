@@ -90,10 +90,12 @@ padding: 0px;
 #objFormulario{
 width: 600px;
 height: 440px;
+position:relative;
 }
 #divtopforminfosemanal{
 width: 600px;
 height: 129px;
+position:relative;
 }
 #divtopforminfosemanal p {
 color: rgb(247, 11, 11);
@@ -144,6 +146,7 @@ position:relative;
 width: 600px;
 background: rgba(255, 255, 255, 0.54);
 height: 280px;
+position:relative;
 }
 #objninno #nacido p{
 color:#0080B9!important;
