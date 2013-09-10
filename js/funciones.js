@@ -157,7 +157,10 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 	
 });
 $("#pagInfoSemanal").on('pagecreate', function(){
-alert($(this).width());
+alert("divselectsexo top "+$("#divselectsexo").css("top"));
+alert("divselectsexo margin-top "+$("#divselectsexo").css("margin-top"));
+alert("divselectsexo top "+$("#divselectsexo select").css("top"));
+alert("divselectsexo margin-top "+$("#divselectsexo select").css("margin-top"));
 $("#divCiclo .disable").css("display","none"); 
 $("#nacido .disable").on( "vclick", function() { 
 	$("#nacido .disable").css("display","none"); 
