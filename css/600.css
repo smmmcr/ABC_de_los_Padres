@@ -18,9 +18,9 @@ input[type="text"], select{
 border: 8px solid rgb(32, 102, 228);
 border-radius: 7px;
 }
-#pagInicio, #pagInfoSemanal,
+#pagInicio,
 #TemasSemanales,#TemasEmbarazo,
-#Descuentos,#juegos,#eventoEmba1,
+#Descuentos,#juegos,
 #eventoEmba2,#eventoEmba3,
 #listaDeNombreBB1,#listaDeNombreBB2,
 #infosolicitada,#caminar,#natacion,#yoga,#pilates,#kegel,#bicicleta,#pelota,#aerobicos,#bailar{
@@ -33,7 +33,9 @@ min-height: 480px;
 min-width: 318px;
 background-size: 100% 100%;
 }
-
+ #pagInfoSemanal,#eventoEmba1{
+ background: url(../img/backgr.jpg) no-repeat;
+ }
 .footer{
 width: 600px!important;
 height: 126px!important;
