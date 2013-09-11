@@ -33,9 +33,7 @@ min-height: 480px;
 min-width: 318px;
 background-size: 100% 100%;
 }
- #pagInfoSemanal,#eventoEmba1{
- background: url(../img/backgr.jpg) no-repeat;
- }
+
 .footer{
 width: 600px!important;
 height: 126px!important;
