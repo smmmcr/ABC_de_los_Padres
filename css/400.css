@@ -240,11 +240,9 @@ margin: 0;
 border-radius: 7px;
 }
 .combobox{
-width: 120px;
-height: 40px;
-margin-left: 37px;
-border: 5px solid #90A83D;
-border-radius: 12px;
+width: 94%;
+height: auto;
+margin-left: 0px;
 padding: 0px;
 }
 .botones{
@@ -358,10 +356,9 @@ text-align:center;
 #objcalculo .ui-btn-corner-all ,
 #objcalculo .ui-btn-icon-right ,
 #objcalculo .ui-btn-up-c{
-width: 99%;
-height: 38px;
-margin: 0;
-border-radius: 7px;
+width: 100%;
+height: auto;
+text-align: center;
 }
 #imagenNacido{
 width: 184px;

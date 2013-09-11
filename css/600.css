@@ -242,13 +242,20 @@ height: 38px;
 margin: 0;
 border-radius: 7px;
 }
-.combobox{
+/*.combobox{
 width: 120px;
 height: 40px;
 margin-left: 37px;
 border: 5px solid #90A83D;
 border-radius: 12px;
 padding: 0px;
+}*/
+.combobox{
+width: 94%;
+height: auto;
+margin-left: 0px;
+padding: 0px;
+
 }
 .botones{
 width: 600px;
@@ -351,10 +358,9 @@ width: 552px;
 height: 151px;
 }
 #objcalculo #divdianinno,#objcalculo #divmesesninno,#objcalculo #divannonino{
-width: 179px;
-height: 100px;
-float: left;
-text-align:center;
+width: 100%;
+height: auto;
+text-align: center;
 }
 #objcalculo .ui-btn ,
 #objcalculo.ui-shadow ,
