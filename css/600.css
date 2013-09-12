@@ -30,12 +30,15 @@ height: 100%;
 position: fixed;
 background: url(../img/backgr.jpg) no-repeat;
 min-height: 480px;
-min-width: 318px;
+
 background-size: 100% 100%;
 }
  #pagInfoSemanal,#eventoEmba1{
  background: url(../img/backgr.jpg) no-repeat;
  background-size: 100% 100%;
+ }
+ label.ui-select{
+ color: #0080B9!important;
  }
 .footer{
 width: 600px!important;

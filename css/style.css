@@ -1,4 +1,4 @@
-@media screen and (min-width: 300px) and (max-width: 399px) {
+@media screen and (min-width: 288px) and (max-width: 399px) {
 	@import url("320.css");
 }
 @media all and (min-width: 400px) {
