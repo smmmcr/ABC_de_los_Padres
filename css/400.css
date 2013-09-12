@@ -307,7 +307,7 @@ height:55;
 float:left;
 }
 #infoSolicitadasemanal{
-width: 476px;
+width: 81%;
 height: 350px;
 border: 10px solid #002CDB;
 border-radius: 15px;
@@ -317,6 +317,13 @@ margin-left: 33px;
 #infoSolicitadasemanal ul{
 border: none;
 box-shadow: 0 0 0 0;
+}
+.header img{
+width: 100%;
+
+}
+#menuPrincipal img{
+width: 100%;
 }
 .contVolver{
 float: left;
@@ -335,7 +342,7 @@ text-align: center;
 }
 #tituloTemaSemana{
 background: #F1532B;
-width: 570px;
+width: 100%;
 height: 50px;
 text-align: center;
 padding-top: 20px;
