@@ -29,8 +29,8 @@ height: 100%;
 /*position: relative;*/
 position: fixed;
 background: url(../img/backgr.jpg) no-repeat;
-min-height: 480px;
-min-width: 318px;
+min-height: 288px;
+min-width: 288px;
 background-size: 100% 100%;
 }
 #pagInfoSemanal,#eventoEmba1{
@@ -38,7 +38,7 @@ background-size: 100% 100%;
  background-size: 100% 100%!important;
  }
 .footer{
-width: 600px!important;
+width: 100%!important;
 height: 126px!important;
 margin-bottom: 0px!important;
 position: absolute!important;
@@ -70,7 +70,7 @@ left: 0; width: 100%; min-height: 1.5em; min-height: 100%; height: 3em; max-heig
 background: rgba(255, 255, 255, 0);
 border: none;
 box-shadow: 0 0 0 0!important;
-width: 190px;
+width:30%;
 }
 .footer span{
 box-shadow: 0 0 0 0;

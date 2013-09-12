@@ -44,8 +44,8 @@ height: 100%;
 /*position: relative;*/
 position: fixed;
 background: url(../img/backgr.jpg) no-repeat;
-min-height: 480px;
-min-width: 318px;
+min-height: 288px;
+min-width: 250px;
 background-size: 100% 100%;
 }
 #pagInfoSemanal,#eventoEmba1{
@@ -57,7 +57,7 @@ width: 100%;
 }
 
 .footer{
-width: 320PX!important;
+width: 100%!important;
 height: 56PX!important;
 margin-bottom: 0px!important;
 position: absolute!important;
@@ -71,7 +71,7 @@ width:100%;
 background: rgba(255, 255, 255, 0);
 border: none;
 box-shadow: 0 0 0 0!important;
-width: 102px;
+width: 30%;
 }
 .footer span{
 box-shadow: 0 0 0 0;
