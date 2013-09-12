@@ -244,14 +244,33 @@ height: 38px;
 margin: 0;
 border-radius: 7px;
 }
-/*.combobox{
+.combobox{
 width: 120px;
 height: 40px;
 margin-left: 37px;
 border: 5px solid #90A83D;
 border-radius: 12px;
 padding: 0px;
-}*/
+}
+#nacido .combobox{
+width: 120px;
+height: 40px;
+margin-left: 37px;
+border: 5px solid #F01414;
+border-radius: 12px;
+padding: 0px;
+}
+#nacido .combobox{
+width: 120px;
+height: 40px;
+margin-left: 37px;
+border: 5px solid #F01414;
+border-radius: 12px;
+padding: 0px;
+}
+
+
+/*
 .combobox{
 width: 94%;
 height: auto;
@@ -259,6 +278,7 @@ margin-left: 0px;
 padding: 0px;
 
 }
+*/
 .botones{
 width: 600px;
 height: 80px;
@@ -370,7 +390,8 @@ opacity: 0;
 filter: alpha(opacity=0);
 }
 #objcalculo #divdianinno,#objcalculo #divmesesninno,#objcalculo #divannonino{
-width: 100%;
+
+width: 25%;
 height: auto;
 text-align: center;
 }

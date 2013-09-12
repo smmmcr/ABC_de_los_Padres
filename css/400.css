@@ -33,20 +33,15 @@ min-height: 480px;
 min-width: 318px;
 background-size: 100% 100%;
 }
-#eventoEmba1, #pagInfoSemanal{
-
-background: url(../img/backgr.jpg) no-repeat;
-width: 100%;
-height: 100%;
-position:absolute;
-background-size: 100% 100%;
-}
-
+ #pagInfoSemanal,#eventoEmba1{
+ background: url(../img/backgr.jpg) no-repeat;
+ }
 .footer{
 width: 600px!important;
 height: 126px!important;
 margin-bottom: 0px!important;
 position: absolute!important;
+
 bottom: 0px!important;
 }
 /*
@@ -98,10 +93,12 @@ padding: 0px;
 #objFormulario{
 width: 600px;
 height: 440px;
+position:relative;
 }
 #divtopforminfosemanal{
 width: 600px;
 height: 129px;
+position:relative;
 }
 #divtopforminfosemanal p {
 color: rgb(247, 11, 11);
@@ -152,6 +149,7 @@ position:relative;
 width: 600px;
 background: rgba(255, 255, 255, 0.54);
 height: 280px;
+position:relative;
 }
 #objninno #nacido p{
 color:#0080B9!important;
@@ -164,7 +162,7 @@ height: 100px;
 #divinputnom{
 width: 389px;
 height: 100px;
-float: left;
+
 position: relative;
 text-align: center;
 }
@@ -185,7 +183,7 @@ margin: 0px;
 #divselectsexo{
 width: 211px;
 height: 100px;
-float: left;
+
 position: relative;
 text-align: center;
 }
@@ -247,11 +245,40 @@ margin: 0;
 border-radius: 7px;
 }
 .combobox{
+width: 120px;
+height: 40px;
+margin-left: 37px;
+border: 5px solid #90A83D;
+border-radius: 12px;
+padding: 0px;
+}
+#nacido .combobox{
+width: 120px;
+height: 40px;
+margin-left: 37px;
+border: 5px solid #F01414;
+border-radius: 12px;
+padding: 0px;
+}
+#nacido .combobox{
+width: 120px;
+height: 40px;
+margin-left: 37px;
+border: 5px solid #F01414;
+border-radius: 12px;
+padding: 0px;
+}
+
+
+/*
+.combobox{
 width: 94%;
 height: auto;
 margin-left: 0px;
 padding: 0px;
+
 }
+*/
 .botones{
 width: 600px;
 height: 80px;
@@ -352,20 +379,31 @@ border-radius: 12px;
 width: 552px;
 height: 151px;
 }
+#contenidoDiaNacimiento select{
+cursor: pointer;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+opacity: 0;
+-ms-filter: "alpha(opacity=0)";
+filter: alpha(opacity=0);
+}
 #objcalculo #divdianinno,#objcalculo #divmesesninno,#objcalculo #divannonino{
-width: 179px;
-height: 100px;
-float: left;
-text-align:center;
+
+width: 25%;
+height: auto;
+text-align: center;
 }
 #objcalculo .ui-btn ,
 #objcalculo.ui-shadow ,
 #objcalculo .ui-btn-corner-all ,
 #objcalculo .ui-btn-icon-right ,
 #objcalculo .ui-btn-up-c{
-width: 100%;
-height: auto;
-text-align: center;
+width: 99%;
+height: 38px;
+margin: 0;
+border-radius: 7px;
 }
 #imagenNacido{
 width: 184px;
