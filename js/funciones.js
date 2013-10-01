@@ -32,7 +32,7 @@ function sincronizar(){
 	db.transaction(function(tx) {
 	//tx.executeSql('DROP TABLE descuentos ');
 	tx.executeSql('create table if not exists descuentos(id INTEGER PRIMARY KEY,tituloPromo TEXT,desde TEXT,hasta TEXT,descripcion TEXT,img TEXT,version INTEGER)');
-	   tx.executeSql('create table if not exists BBEMBARAZO(id INTEGER PRIMARY KEY,edad TEXT,semanasEmba TEXT,semanasPubli TEXT,fechaIngreso TEXT)');
+	   tx.executeSql('create table if not exists BBEMBARAZO(id INTEGER PRIMARY KEY,edad TEXT,semanasEmba TEXT,semanasPubli TEXT,fechaIngreso TEXT,cumple TEXT)');
 	   	tx.executeSql('create table if not exists temaSeman(id INTEGER PRIMARY KEY,titulo TEXT,texto TEXT)');
 		tx.executeSql('create table if not exists generoNinnos(id INTEGER PRIMARY KEY ,nombre TEXT,genero INTEGER,version INTEGER,estado INTEGER)');
 	});
@@ -131,10 +131,18 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 		infoASoli='ninnoSemanas';
 			tiempo=results.rows.item(0).edad;
 			semanaPubli=results.rows.item(0).semanasPubli;
+			semanaIngreso=results.rows.item(0).fechaIngreso;
+			semanahoy = new Date();
+			//console.log(semanahoy);
+			console.log(semanahoy - semanaIngreso);
+			/*ed = ((semanahoy - semanaIngreso)/12/30.5/24/60/60/1000)*12;
+			ed = String(ed).split('.');
+			edadNacido1=ed[0];
+			console.log(edadNacido1);*/
 		//hoy = new Date() sumar cada 30
 		}else if(results.rows.item(0).semanas!=""){
 			infoASoli='EmbarazoSemanal';
-			tiempo=results.rows.item(0).semanasEmba;
+			tiempo=results.rows.item(0).semanasEmba;		
 		//hoy = new Date() sumar cada 7
 		 } 
 	 } 
@@ -146,7 +154,7 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 		}
 	}
 	$("#infosolicitada ul").disableSelection();
-	$("#infosolicitada ul").html("");
+	$("#infosolicitada ul").html("");	
 	 uri="https://movilmultimediasa.com/abcMobil/post.php?infoSolicitada="+infoASoli+"&tiempo="+tiempo+"&semanaPubli="+semanaPubli;
 			$.getJSON(uri + '&function=' + 'check' + '&callback=?', function (json_data) {
 				for(index in json_data){
@@ -201,7 +209,7 @@ Mes=$("#fechasDeNacimientoNinno #mes").val();
 anno=$("#fechasDeNacimientoNinno #anno").val();
 fecha=String(anno+'-'+Mes+'-'+Dia);
 fecha = new Date(fecha);
-hoy = new Date()
+hoy = new Date();
 
 ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
 ed = String(ed).split('.');
@@ -219,8 +227,10 @@ embarazoDtos=embarazo;
 if(embarazo!=""||nacido!=''&& edadNacido1<21 && edadNacido1>0){
 hoy = new Date()
  db.transaction(function(tx) {
-  tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso)');
-tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIngreso) values (1,"'+edadNacido1+'","'+embarazoDtos+'","'+semapu+'","'+hoy+'")');
+
+  tx.executeSql('drop table BBEMBARAZO');
+  tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso,cumple)');
+tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIngreso,cumple) values (1,"'+edadNacido1+'","'+embarazoDtos+'","'+semapu+'","'+hoy+'","'+fecha+'")');
    });
   $.mobile.changePage($("#infosolicitada"), "none");
   }
