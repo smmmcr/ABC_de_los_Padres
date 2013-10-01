@@ -8,6 +8,13 @@ body {
 background: #000;
 font-size:arial;
 }
+.mask{
+position: absolute;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.41);
+z-index: 999;
+}
 p{
 color: rgb(247, 11, 11);
 font-weight: bold;
@@ -124,6 +131,7 @@ border-radius: 4px;
 width: 321px;
 background: rgba(255, 255, 255, 0.54);
 height: 80px;
+position: relative;
 }
 #divtopforminfosemanal #divCiclo  p {
 color: #90A83D;
@@ -145,12 +153,13 @@ background: rgba(245, 242, 242, 0.6);
 }
 #objninno{
 width: 100%;
-height: 162px;
+height: 143px;
 }
 #objninno #nacido{
 width: 100%;
 background: rgba(255, 255, 255, 0.54);
-height: 146px;
+height: 124px;
+position: relative;
 }
 #objninno #nacido p{
 color:#0080B9!important;

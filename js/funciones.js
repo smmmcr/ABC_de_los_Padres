@@ -6,9 +6,9 @@ var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
 document.addEventListener("deviceready", onDeviceReady, false);
  function onDeviceReady() {
 //Inicializamos las BD
-checkConnection();
-
+//checkConnection();
     }
+
  function checkConnection() {
             var networkState = navigator.connection.type;
 
@@ -29,13 +29,12 @@ checkConnection();
 			}
         }
 function sincronizar(){
-
 	db.transaction(function(tx) {
 	//tx.executeSql('DROP TABLE descuentos ');
-	tx.executeSql('create table if not exists descuentos(id,tituloPromo,desde,hasta,descripcion,img,version)');
-	   tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso)');
-	   	tx.executeSql('create table if not exists temaSeman(id,titulo,texto TEXT)');
-		tx.executeSql('create table if not exists generoNinnos(id,nombre,genero,version,estado)');
+	tx.executeSql('create table if not exists descuentos(id INTEGER PRIMARY KEY,tituloPromo TEXT,desde TEXT,hasta TEXT,descripcion TEXT,img TEXT,version INTEGER)');
+	   tx.executeSql('create table if not exists BBEMBARAZO(id INTEGER PRIMARY KEY,edad TEXT,semanasEmba TEXT,semanasPubli TEXT,fechaIngreso TEXT)');
+	   	tx.executeSql('create table if not exists temaSeman(id INTEGER PRIMARY KEY,titulo TEXT,texto TEXT)');
+		tx.executeSql('create table if not exists generoNinnos(id INTEGER PRIMARY KEY ,nombre TEXT,genero INTEGER,version INTEGER,estado INTEGER)');
 	});
 	uri="https://movilmultimediasa.com/abcMobil/post.php?des=1";
 	$.getJSON(uri + '?function=' + 'check' + '&callback=?', function (json_data) {
@@ -74,12 +73,27 @@ function sincronizar(){
 	}
 	});	
 	});
+	ur2="https://movilmultimediasa.com/abcMobil/postblog.php?semanal=1";
+	$.getJSON(ur2 + '&function=' + 'check' + '&callback=?', function (json_data) {
+	db.transaction(function(tx) {
+	for(index in json_data){
+	id=json_data[index].id;
+	var titulo=String(json_data[index].titulo);
+	var texto=json_data[index].texto;
+	var versionIN=json_data[index].version;		
+	if(json_data[index].version!=version1){
+	tx.executeSql('insert into temaSeman(id,titulo,texto) values ("'+id+'","'+titulo+'","'+texto+'")');
+	}		  			
+	}
+	});	
+	});
 	
 }
  function goToNext() {
     window.open('https://www.facebook.com/elabcdelospadres?fref=ts', '_blank', 'location=yes');  
     }
 $(document).on('pagecreate', function(){
+	sincronizar();
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
 		$.mobile.defaultDialogTransition = 'none';
@@ -101,16 +115,6 @@ function loadURL(url){
     navigator.app.loadUrl(url, { openExternal:true });
     return false;
 } 
-/*function loadedscroll(headerinter,footerinter,wrapper,scroller) {
-	setHeight(headerinter,footerinter,wrapper);
-	myScroll = new iScroll(scroller, {desktopCompatibility:true});
-}
-function setHeight(headerinter,footerinter,wrapper) {
-	var headerH = document.getElementById(headerinter).offsetHeight,
-		footerH = document.getElementById(footerinter).offsetHeight,
-		wrapperH = window.innerHeight - headerH - footerH;
-		document.getElementById(wrapper).style.height = wrapperH + 'px';
-}*/
 $("#infosolicitada").on('pagecreate', function(){
  $.fn.disableSelection = function() {
         return this
@@ -135,7 +139,12 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 		 } 
 	 } 
 	 var tipotitu;
-	( infoASoli === "ninnoSemanas" ) ? tipotitu="Semanas de nacido" : tipotitu="Semanas de Embarazo";
+	( infoASoli === "ninnoSemanas" ) ? tipotitu="Meses de nacido" : tipotitu="Semanas de Embarazo";
+	if(tipotitu!="Meses de nacido" ){
+		if(results.rows.item(0).edad==1 ){
+			tipotitu="Mese de nacido";
+		}
+	}
 	$("#infosolicitada ul").disableSelection();
 	$("#infosolicitada ul").html("");
 	 uri="https://movilmultimediasa.com/abcMobil/post.php?infoSolicitada="+infoASoli+"&tiempo="+tiempo+"&semanaPubli="+semanaPubli;
@@ -158,15 +167,15 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 });
 $("#pagInfoSemanal").on('pagecreate', function(){
 
-$("#divCiclo .disable").css("display","none"); 
-$("#nacido .disable").on( "vclick", function() { 
-	$("#nacido .disable").css("display","none"); 
+$("#divCiclo .mask").css("display","none"); 
+$("#nacido .mask").on( "vclick", function() { 
+	$("#nacido .mask").css("display","none"); 
 	$("#divCiclo input[type='text']").val(""); 
-	$("#divCiclo .disable").css("display","block"); 
+	$("#divCiclo .mask").css("display","block"); 
 });
-$("#divCiclo .disable").on( "vclick", function() { 
-	$("#nacido .disable").css("display","block"); 
-	$("#divCiclo .disable").css("display","none"); 
+$("#divCiclo .mask").on( "vclick", function() { 
+	$("#nacido .mask").css("display","block"); 
+	$("#divCiclo .mask").css("display","none"); 
 	$("#nacido input[type='text']").val(""); 
 });
 	db.transaction(function(tx) {
@@ -193,19 +202,28 @@ anno=$("#fechasDeNacimientoNinno #anno").val();
 fecha=String(anno+'-'+Mes+'-'+Dia);
 fecha = new Date(fecha);
 hoy = new Date()
+
 ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
 ed = String(ed).split('.');
 edadNacido1=ed[0];
+if(edadNacido1>21||edadNacido1<0){
+$( "#errorEdad" ).popup( "open" );
+//location.reload();
+}
 semapu='1';
 }else if(embarazo!=""){
 embarazoDtos=embarazo;
- }
+}else{
+ $( "#errorContenido" ).popup( "open" ); 
+}
+if(embarazo!=""||nacido!=''&& edadNacido1<21 && edadNacido1>0){
 hoy = new Date()
  db.transaction(function(tx) {
   tx.executeSql('create table if not exists BBEMBARAZO(id,edad,semanasEmba,semanasPubli,fechaIngreso)');
 tx.executeSql('insert into BBEMBARAZO(id, edad, semanasEmba,semanasPubli,fechaIngreso) values (1,"'+edadNacido1+'","'+embarazoDtos+'","'+semapu+'","'+hoy+'")');
    });
-   $.mobile.changePage($("#infosolicitada"), "none");
+  $.mobile.changePage($("#infosolicitada"), "none");
+  }
 }
 $("#TemasSemanales").on('pageinit', function(){
 	
@@ -343,10 +361,16 @@ function descuentos(){
 				if((cont%2)!=0){
 				color="cambioColor";
 				}
+				fechaDESDE1=String(results.rows.item(i).desde);
+				fechaDESDE1=fechaDESDE1.split("-");
+				fechaDESDE1=fechaDESDE1[2]+"-"+fechaDESDE1[1]+"-"+fechaDESDE1[0];
+				fechaHasta=String(results.rows.item(i).hasta);
+				fechaHasta=fechaHasta.split("-");
+				fechaHasta=fechaHasta[2]+"-"+fechaHasta[1]+"-"+fechaHasta[0];
 				$(".listaDescuentos").append("<li class='"+color+"'><div class='imgPromo'><img src='https://movilmultimediasa.com/abcMobil/imgDescuentos/"+results.rows.item(i).img+"'/></div><div class='textoDesc'>"+
 				"<h3>"+results.rows.item(i).tituloPromo+"</h3>"+
-				"<p>Aplica desde: "+results.rows.item(i).desde+"</p>"+
-				"<p>Hasta: "+results.rows.item(i).hasta+"</p>"+
+				"<p>Aplica desde: "+fechaDESDE1+"</p>"+
+				"<p>Hasta: "+fechaHasta+"</p>"+
 				"<p>Descripci&oacute;n: "+results.rows.item(i).descripcion+"</p>"+
 				"</div></li>");								
 				cont++;
