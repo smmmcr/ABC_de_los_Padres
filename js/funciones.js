@@ -115,6 +115,15 @@ function loadURL(url){
     navigator.app.loadUrl(url, { openExternal:true });
     return false;
 } 
+function calculoedadregistrado(tipo,dato){
+		
+fecha = dato;
+hoy = new Date();
+ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
+ed = String(ed).split('.');
+edadNacido1=ed[0];
+return edadNacido1;
+	}
 $("#infosolicitada").on('pagecreate', function(){
  $.fn.disableSelection = function() {
         return this
@@ -122,6 +131,7 @@ $("#infosolicitada").on('pagecreate', function(){
                  .css('user-select', 'none')
                  .on('selectstart', false);
     };
+	
 db.transaction(function(tx) {
 //tx.executeSql('DROP TABLE BBEMBARAZO ');
 tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
@@ -129,23 +139,28 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 	 var semanaPubli='';
 		if(results.rows.item(0).edad!="" ){
 		infoASoli='ninnoSemanas';
-			tiempo=results.rows.item(0).edad;
-			semanaPubli=results.rows.item(0).semanasPubli;
-			semanaIngreso=results.rows.item(0).fechaIngreso;
-			semanahoy = new Date();
-			//console.log(semanahoy);
-			console.log(semanahoy - semanaIngreso);
-			/*ed = ((semanahoy - semanaIngreso)/12/30.5/24/60/60/1000)*12;
-			ed = String(ed).split('.');
-			edadNacido1=ed[0];
-			console.log(edadNacido1);*/
+		tiempo=results.rows.item(0).edad;		
+		cumple=results.rows.item(0).cumple;	
+		//mes1=cumple.getMonth()+1;
+		//cumple=	new Date('"'+cumple.getFullYear()+"-"+mes1+"-"+cumple.getDate()+'"');
+		edadcalculada=calculoedadregistrado("nino",cumple);
 		//hoy = new Date() sumar cada 30
 		}else if(results.rows.item(0).semanas!=""){
 			infoASoli='EmbarazoSemanal';
 			tiempo=results.rows.item(0).semanasEmba;		
-		//hoy = new Date() sumar cada 7
-		 } 
+				//hoy = new Date() sumar cada 7
+		} 
 	 } 
+	semanaIngreso=new Date(results.rows.item(0).fechaIngreso);
+	mes=semanaIngreso.getMonth()+1;
+	semanaIngreso=new Date('"'+semanaIngreso.getFullYear()+"-"+mes+"-"+semanaIngreso.getDate()+'"');
+	semanahoy = new Date();
+	semana = ((semanahoy - semanaIngreso)/12/30.5/24/60/60/1000)*52;
+	ede = String(semana).split('.');
+	semanaPubli=ede[0];
+	if(semanaPubli==0){
+	semanaPubli=results.rows.item(0).semanasPubli;
+	}
 	 var tipotitu;
 	( infoASoli === "ninnoSemanas" ) ? tipotitu="Meses de nacido" : tipotitu="Semanas de Embarazo";
 	if(tipotitu!="Meses de nacido" ){
@@ -169,6 +184,13 @@ tx.executeSql('SELECT * FROM BBEMBARAZO', [], function (tx, results) {
 			
 			
 			},900);
+			if(infoASoli=="ninnoSemanas"){
+	tx.executeSql('UPDATE BBEMBARAZO SET edad='+edadcalculada+', semanasPubli='+semanaPubli);
+	
+	}else{
+	semanaem=tiempo+semanaPubli;
+		tx.executeSql('UPDATE BBEMBARAZO SET semanasEmba='+semanaem);	
+	}
  }, null);
    });
 	
@@ -203,6 +225,8 @@ embarazo=$("#divCiclo select").val();
 var edadNacido1='';
 var embarazoDtos='';
 var semapu='';
+var hoy = new Date();
+var fecha = "";
 if(nacido!=''){
 Dia=$("#fechasDeNacimientoNinno #dia").val();
 Mes=$("#fechasDeNacimientoNinno #mes").val();
@@ -216,7 +240,12 @@ ed = String(ed).split('.');
 edadNacido1=ed[0];
 if(edadNacido1>21||edadNacido1<0){
 $( "#errorEdad" ).popup( "open" );
-//location.reload();
+	setTimeout(function(){
+location.reload();
+		
+			
+			
+			},7000);
 }
 semapu='1';
 }else if(embarazo!=""){
@@ -224,7 +253,7 @@ embarazoDtos=embarazo;
 }else{
  $( "#errorContenido" ).popup( "open" ); 
 }
-if(embarazo!=""||nacido!=''&& edadNacido1<21 && edadNacido1>0){
+if(embarazo!=""||nacido!=''){
 hoy = new Date()
  db.transaction(function(tx) {
 
