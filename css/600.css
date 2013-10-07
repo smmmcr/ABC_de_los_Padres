@@ -49,11 +49,10 @@ background-size: 100% 100%;
  color: #0080B9!important;
  }
 .footer{
-width: 600px!important;
-height: 126px!important;
+width: 100%!important;
+height: 6em!important;
 margin-bottom: 0px!important;
 position: absolute!important;
-
 bottom: 0px!important;
 }
 /*
@@ -81,7 +80,7 @@ left: 0; width: 100%; min-height: 1.5em; min-height: 100%; height: 3em; max-heig
 background: rgba(255, 255, 255, 0);
 border: none;
 box-shadow: 0 0 0 0!important;
-width: 190px;
+width: 30%;
 }
 .footer span{
 box-shadow: 0 0 0 0;
@@ -91,7 +90,7 @@ margin: 0;
 }
 .footer img{
 margin-left: 0px;
-width: 100%;
+width: 80%;
 
 }
 .ui-bar-a{
@@ -103,14 +102,14 @@ margin: 0px;
 padding: 0px;
 }
 #objFormulario{
-width: 600px;
-height: 440px;
-position:relative;
+width: 100%;
+height: auto;
+position: relative;
 }
 #divtopforminfosemanal{
-width: 600px;
-height: 129px;
-position:relative;
+width: 100%;
+height: auto;
+position: relative;
 }
 #divtopforminfosemanal p {
 color: rgb(247, 11, 11);
@@ -124,16 +123,16 @@ text-shadow: 0px 0px 3px #FFFFFF;
 #divtopforminfosemanal .ui-btn-corner-all ,
 #divtopforminfosemanal .ui-btn-icon-right ,
 #divtopforminfosemanal .ui-btn-up-c{
-width: 98%;
-height: 51px;
+width: 99%;
+min-height: 51px;
 margin: 0;
 border-radius: 4px;
 
 }
 #divCiclo{
-width: 600px;
+width: 100%;
 background: rgba(255, 255, 255, 0.54);
-height: 100px;
+height: 8em;
 position: relative;
 }
 #divtopforminfosemanal #divCiclo  p {
@@ -144,38 +143,38 @@ float: left;
 margin-left: 40px;
 margin-top: 15px;
 }
-#selectsemanas{
-width: 91px;
+#selectsemanas {
+width: 21%;
 float: left;
-height: 54px;
-margin-top: 15px;
+min-height: 54px;
+margin-top: 2%;
 margin-left: 15px;
 border: 7px solid #0E46D6;
 border-radius: 12px;
 background: rgba(245, 242, 242, 0.6);
 }
 #objninno{
-width: 600px;
-height: 305px;
-position:relative;
+width: 100%;
+height: 16em;
+position: relative;
+margin-top: 0.5em;
 }
 #objninno #nacido{
-width: 600px;
+width: 100%;
 background: rgba(255, 255, 255, 0.54);
-height: 200px;
-position:relative;
+height: 14em;
+position: relative;
 }
 #objninno #nacido p{
 color:#0080B9!important;
 }
 #divnombreNinno{
-width: 600px;
-
-height: 100px;
+width: 100%;
+height: 8em;
 }
 #divinputnom{
-width: 389px;
-height: 100px;
+width: 65%;
+min-height: 7em;
 float: left;
 position: relative;
 text-align: center;
@@ -195,16 +194,16 @@ padding: 0;
 margin: 0px;
 }
 #divselectsexo{
-width: 211px;
-height: 100px;
+width: 34%;
+min-height: 6em;
 float: left;
 position: relative;
 text-align: center;
 }
 #selecDivGen{
-width: 141px;
-height: 40px;
-margin-left: 37px;
+width: 90%;
+min-height: 40px;
+margin-left: 5%;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
@@ -221,29 +220,29 @@ margin: 0;
 border-radius: 7px;
 }
 #divdianinno{
-width: 200px;
-height: 100px;
+width: 33%;
+min-height: 100px;
 float: left;
-text-align:center;
+text-align: center;
 position: relative;
 }
 #divmesesninno{
-width: 200px;
-height: 100px;
+width: 33%;
+min-height: 100px;
 float: left;
-text-align:center;
+text-align: center;
 position: relative;
 }
 #divannonino{
-width: 200px;
-height: 100px;
+width: 33%;
+min-height: 100px;
 float: left;
-text-align:center;
+text-align: center;
 position: relative;
 }
 #fechasDeNacimientoNinno{
-width: 600px;
-height: 100px;
+width: 100%;
+height: 6em;
 float: left;
 position: relative;
 text-align: center;
@@ -275,9 +274,9 @@ border-radius: 12px;
 padding: 0px;
 }
 #nacido .combobox{
-width: 120px;
+width: 90%;
 height: 40px;
-margin-left: 37px;
+margin-left: 5%;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
@@ -294,22 +293,21 @@ padding: 0px;
 }
 */
 .botones{
-width: 600px;
-height: 80px;
+width: 100%;
+height: 8em;
 float: left;
 text-align: center;
 }
 #enviar{
 /*background:url(../img/btnEnviar.png);*/
-width:225px;
-height:55;
-float:left;
+width: 30%;
+float: left;
 }
 #facebook{
 /*background:url(../img/btnfacebook.png);*/
-width:225px;
-height:55;
-float:left;
+width: 30%;
+
+float: left;
 }
 #infoSolicitadasemanal{
 width: 476px;
