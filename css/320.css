@@ -104,16 +104,19 @@ padding: 0px;
 }
 #objFormulario{
 width: 100%;
-height: 264px;
+height:auto;
 }
 #divtopforminfosemanal{
 width: 100%;
 height: 94px;
+display:block;
+position:relative;
+margin-bottom:6px;
 }
 #divtopforminfosemanal p {
 color: rgb(247, 11, 11);
 font-weight: bolder;
-font-size: 11px!important;
+font-size: 1.059em!important;
 position: relative;
 text-shadow: 0px 0px 3px #FFFFFF;
 }
@@ -128,7 +131,7 @@ margin: 0;
 border-radius: 4px;
 }
 #divCiclo{
-width: 321px;
+width: 100%;
 background: rgba(255, 255, 255, 0.54);
 height: 80px;
 position: relative;
@@ -136,13 +139,13 @@ position: relative;
 #divtopforminfosemanal #divCiclo  p {
 color: #90A83D;
 text-shadow: 0px 0px 3px rgba(255, 255, 255, 0);
-width: 31%;
+width: 50%;
 float: left;
 margin-left: 40px;
 margin-top: 15px;
 }
 #selectsemanas {
-width: 62px;
+width: 25%;
 float: left;
 height: 29px;
 margin-top: 15px;
@@ -197,9 +200,9 @@ position: relative;
 text-align: center;
 }
 #selecDivGen{
-width: 55%;
+width: 80%;
 height: 27px;
-margin-left: 17px;
+margin-left: 10px;
 border: 5px solid #F01414;
 border-radius: 12px;
 padding: 0px;
@@ -214,24 +217,11 @@ height: 26px;
 margin: 0;
 border-radius: 7px;
 }
-#divdianinno{
-width: 90px;
+#divdianinno,#divmesesninno,#divannonino{
+width: 33%;
 height: 52px;
 float: left;
-text-align:center;
-}
-#divmesesninno{
-width: 90px;
-height: 52px;
-float: left;
-text-align:center;
-}
-#divannonino{
-width: 90px;
-height: 52px;
-float: left;
-text-align:center;
-margin-left: 0%;
+text-align: center;
 }
 #fechasDeNacimientoNinno{
 width: 100%;
@@ -251,7 +241,7 @@ margin: 0;
 border-radius: 7px;
 }
 .combobox{
-width: 73px;
+width: 80%;
 height: 24px;
 margin-left: 1px;
 border: 5px solid #90A83D;
@@ -259,11 +249,12 @@ border-radius: 12px;
 padding: 0px;
 }
 .botones{
-width: 320px;
-height: 26px;
-float: left;
+width: 80%;
+height: 27px;
 margin-top: 8px;
 text-align: center;
+margin: 0 auto;
+display: block;
 }
 #enviar{
 /*background:url(../img/btnEnviar.png);*/
@@ -286,12 +277,13 @@ background: rgba(255, 255, 255, 0.63);
 margin-left: 33px;
 }
 #infoSolicitadasemanal{
-width: 209px;
-height: 191px;
+width: 86%;
+height: auto;
 border: 10px solid #002CDB;
 border-radius: 15px;
 background: rgba(255, 255, 255, 0.63);
-margin-left: 33px;
+margin: 0 auto;
+display: block;
 }
 #infoSolicitadasemanal ul{
 border: none;
@@ -398,7 +390,7 @@ height: 151px;
 }
 
 #objcalculo #divdianinno,#objcalculo #divmesesninno,#objcalculo #divannonino{
-width: 89px;
+width: 33%;
 height: 50px;
 float: left;
 text-align: center;
@@ -430,16 +422,23 @@ margin: 0;
 border-radius: 7px;
 }
 #imagenNacido{
-width: 99px;
-height: 74px;
+width: 100%;
+height: auto;
 float: left;
-margin-left: 29%;
-font-size: 11px;
+margin-left: 0%;
+font-size: 1em;
+position: relative;
 }
 #imagenNacido img{
-width: 100%;
+width: 34%;
 float: left;
-height: 69%;
+height: 100%;
+margin-right: 0;
+}
+#resultadoPar{
+margin: 0 auto;
+margin-top: 32px;
+display: block;
 }
 #divBtncalcular{
 margin-left: 0px;
@@ -462,7 +461,7 @@ border: 10px solid rgb(118, 216, 52);
 float: left;
 border-radius: 11px;
 background: rgba(255, 255, 255, 0.71);
-width: 269px;
+width: 94%;
 }
 .ejer p{
 color:#000!important;
@@ -579,17 +578,18 @@ float: left;
 margin-left: 16%;
 }
 #conteDescuentos{
-width: 80%;
+width: 95%;
 overflow: hidden;
 height: 203px;
-margin-left: 10%;
 border: 9px solid rgb(46, 52, 192);
 border-radius: 17px;
 background: rgba(255, 255, 255, 0.75);
 font-family: Arial;
 font-weight: bold;
 color: #fff;
-position:relative;
+position: relative;
+display: block;
+margin: 0 auto;
 }
 .listaDescuentos{
 width: 100%!important;
@@ -674,7 +674,7 @@ margin-top: 11%;
 }
 #Descuentos .cambioColor{
 width: 97%;
-height: 80px;
+height: 140px;
 border-radius: 8px;
 margin-left: 2%;
 margin-top: 5%;
@@ -684,7 +684,7 @@ float: left;
 }
 #Descuentos .colorNormal{
 width: 97%;
-height: 80px;
+height: 140px;
 border-radius: 8px;
 margin-left: 2%;
 margin-top: 5%;
@@ -693,11 +693,11 @@ position: relative;
 float: left;
 }
 .listaDescuentos .imgPromo{
-width: 30%;
+width: 5.4em;
 margin-left: 4%;
-margin-top: 2%;
+margin-top: 5%;
 float: left;
-height: 85%;
+height: 7em;
 }
 .listaDescuentos .textoDesc{
 float: left;
@@ -711,6 +711,6 @@ height: 100%;
 .listaDescuentos h3 ,.listaDescuentos p{
 width: 90%;
 max-height: 44px;
-font-size: 8px;
+font-size: 0.69em;
 margin-left: 5%;
 }

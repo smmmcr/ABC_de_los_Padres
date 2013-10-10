@@ -94,8 +94,8 @@ function sincronizar(){
     }
 $(document).on('pagecreate', function(){
 	sincronizar();
-	alert($(window).width());
-	alert($(window).height());
+	/*alert($(window).width());
+	alert($(window).height());*/
 	
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
@@ -302,6 +302,34 @@ $("#listaDeNombreBB1 ul").html("");
 	
 generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1",'headerinter1','wr','scrolle1');
 
+});
+$("#listaDeNombreBB1").on('pagebeforeshow', function(){
+footer=$(".footer").height();
+ventana=$(window).height();
+console.log(footer+":"+ventana/2.5);
+
+$("#listaDeNombreBB1 #contenidoNombreNinno").css("height",(ventana)-(footer+(ventana/2.5)+30));
+});
+$("#listaDeNombreBB2").on('pagebeforeshow', function(){
+footer=$(".footer").height();
+ventana=$(window).height();
+console.log(footer+":"+ventana/2.5);
+
+$("#listaDeNombreBB2 #contenidoNombresNina").css("height",(ventana)-(footer+(ventana/2.5)+30));
+});
+$("#Descuentos").on('pagebeforeshow', function(){
+footer=$(".footer").height();
+ventana=$(window).height();
+console.log(footer+":"+ventana/2.5);
+
+$("#Descuentos #conteDescuentos").css("height",(ventana)-(footer+(ventana/2.5)+30));
+});
+$("#TemasSemanales").on('pagebeforeshow', function(){
+footer=$(".footer").height();
+ventana=$(window).height();
+console.log(footer+":"+ventana/2.5);
+
+$("#TemasSemanales #contenidoTemaSemana").css("height",(ventana)-(footer+(ventana/2)+30));
 });
 $("#listaDeNombreBB2").on('pagecreate', function(){
  $.fn.disableSelection = function() {
