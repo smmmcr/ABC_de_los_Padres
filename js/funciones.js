@@ -94,6 +94,9 @@ function sincronizar(){
     }
 $(document).on('pagecreate', function(){
 	sincronizar();
+	alert($(window).width());
+	alert($(window).height());
+	
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
 		$.mobile.defaultDialogTransition = 'none';
