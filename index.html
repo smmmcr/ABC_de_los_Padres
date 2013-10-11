@@ -19,8 +19,9 @@
 	<link rel="stylesheet" media="screen and (min-width: 760px)"href="css/760.css">
 	<script type="text/javascript" src="phonegap.js"></script>
 	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script src="js/funciones.js"></script>
 	<script type="text/javascript" src="js/iscroll.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
 	
 	<!--<script type="text/javascript" charset="utf-8" src="js/phonegap-1.0.0.js"></script> -->
 </head>  
@@ -30,15 +31,13 @@
 	<div id="contenedorCarga">
 	<img src="abclogo.png" />
 	</div>
-	<!--<div id="contenedorgeneral" data-role="page">-->
-		<!--<div class="contenidoGeneral">-->
-			<!--menu de inicio-->
 			<div id="pagInicio" data-role="page">
 			<div class="header" data-role="header">
 				<img src="img/hederPrincipal.png" />
 			</div>
 			<div id="contenidoPrincipal" data-role="content">
 			<ul class="menuPrincipal" >
+				<li><a href="javascript:mostrarloader();"  ><img src="img/btnInfoSemanal.png" /></a></li>	
 				<li><a href="#pagInfoSemanal"  ><img src="img/btnInfoSemanal.png" /></a></li>	
 				<li><a href="#TemasSemanales"><img src="img/btnTemasSemanales.png" /></a></li>	
 				<li><a href="#TemasEmbarazo"><img src="img/btnTemasDeEmbarazo.png" /></a></li>	
@@ -57,12 +56,17 @@
 					<img src="img/headerInfoSemanall.png" />
 				</div>
 				<div id="contenidoGeneralnfo" data-role="content">	
-					<div id="objFormulario">
-						<div id="divtopforminfosemanal">
-							<p>Si estoy Embarazada:</p>
+				<div data-role="navbar" id="tabinfo">
+					<li>
+					<a href="javascript:cambioDeCondicion(1);" id="u" class="ui-btn-active">En el Embarazo</a>
+					</li>
+					<li>	
+					<a href="javascript:cambioDeCondicion(2);" id="d">Ya nació</a>
+					</li>
+					</div >
+					<div id="objFormulario">					
+						<div id="divtopforminfosemanal">							
 							<div id="divCiclo">
-					<div class="mask"></div>			
-						
 								<div id="selectsemanas">
 									<select name="cicloEm" id="cicloEm"><option value=""></option><option value="1">1</option><option value="2">2</option>
 									<option value="3">3</option><option value="4">4</option><option value="5">5</option>
@@ -83,10 +87,8 @@
 								<p> Semana del ciclo de embarazo</p>			
 							</div>
 						</div>
-						<div id="objninno">
-							<p>Si mi niño ya nació:</p>
-						<div id="nacido">
-								<div class="mask"></div>
+						<div id="objninno">						
+						<div id="nacido">										
 							<div id="divnombreNinno">
 								<div id="divinputnom">
 									<p id="nombrep">Nombre del niño:</p>
@@ -142,6 +144,7 @@
 							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
 								<p>Para poder brindar la información solicida debe ingresar el nombre del niño(a) o las semanas de Embarazon, según sea el caso. </p>
 							</div>
+						</div>
 							<div class="botones">
 								<!--<input type="button" name="enviar" id="enviar" onclick="volver()"  />	-->
 								<input type="image" src="img/btnEnviar.png" onclick="infonino();" name="enviar" id="enviar" />	
@@ -149,7 +152,6 @@
 								<div class="contVolver"><a href="" onclick="javascript:top.location='index.html';"><img  src="img/btnVolver.png" class="volver" /></a></div>	
 								<!--<input type="button" name="volver" onclick="volver()" class="volver" />	-->
 							</div>
-						</div>
 					</div>
 				</div>
 				<div class="footer" data-role="footer">
@@ -343,11 +345,11 @@
 				</div>
 				<div id="contenidoNombreGenero" data-role="content">
 					<div id="ninno">
-					<a href="#listaDeNombreBB1"><img src="img/caritaDeNinno.png" alt="carita_de_nino" />
+					<a href="#listaDeNombreBB1" class="show-page-loading-msg" data-gen="2"><img src="img/caritaDeNinno.png" alt="carita_de_nino" />
 						<span> Nombres de Niño </span></a>
 					</div>
 					<div id="ninna">
-					<a href="#listaDeNombreBB2"><img src="img/caritaDeNinna.png" alt="carita_de_nina" />
+					<a href="#listaDeNombreBB2" class="show-page-loading-msg" data-gen="1"><img src="img/caritaDeNinna.png" alt="carita_de_nina" />
 						<span> Nombres de Niña </span></a>
 					</div>
 				</div>
@@ -607,8 +609,5 @@
 				<a href="javascript:window.open('https://www.facebook.com/elabcdelospadres?fref=ts', '_blank', 'location=yes'); "  >	<img src="img/logoabc.png" /></a>
 				</div>	
 			</div>
-		<!--</div>-->
-	<!--</div>-->	
-<script src="js/funciones.js"></script>
 </body> 
 </html> 

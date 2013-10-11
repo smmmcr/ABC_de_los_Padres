@@ -5,13 +5,11 @@ var a = 0;
 var db = openDatabase('seguimiento', '1.0', 'seguimiento del bebe', 100 * 1024);
 document.addEventListener("deviceready", onDeviceReady, false);
  function onDeviceReady() {
-//Inicializamos las BD
+ //Inicializamos las BD
 //checkConnection();
     }
-
- function checkConnection() {
+ function checkConnection(){
             var networkState = navigator.connection.type;
-
             var states = {};
             states[Connection.UNKNOWN]  = 0;
             states[Connection.ETHERNET] = 1;
@@ -27,7 +25,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 			alert("Para utilizar esta aplicación necesita conexión a internet");
 			 navigator.app.exitApp();
 			}
-        }
+   }
 function sincronizar(){
 	db.transaction(function(tx) {
 	//tx.executeSql('DROP TABLE descuentos ');
@@ -92,11 +90,10 @@ function sincronizar(){
  function goToNext() {
     window.open('https://www.facebook.com/elabcdelospadres?fref=ts', '_blank', 'location=yes');  
     }
-$(document).on('pagecreate', function(){
+$(document).on('mobileinit', function(){
 	sincronizar();
 	/*alert($(window).width());
 	alert($(window).height());*/
-	
 	$("#contenedorCarga").hide();
 	 $.mobile.pushStateEnabled = true;
 		$.mobile.defaultDialogTransition = 'none';
@@ -109,6 +106,23 @@ $(document).on('pagecreate', function(){
                  .on('selectstart', false);
     };
 });
+function cambioDeCondicion(id){
+			switch(id){
+				case 1:
+					$("#objninno").css("display","none");
+					$("#divtopforminfosemanal").css("display","block");
+						$("#tabinfo #d").removeClass("ui-btn-active");
+						$("#tabinfo #u").addClass("ui-btn-active");
+				break;
+				case 2:
+					$("#divtopforminfosemanal").css("display","none");
+					$("#objninno").css("display","block");
+						$("#tabinfo #u").removeClass("ui-btn-active");
+						$("#tabinfo #d").addClass("ui-btn-active");
+				break;
+			}
+		
+}
 $('.link').on('tap', function() {
     url = $(this).attr("rel");   
 	alert(url);
@@ -118,15 +132,14 @@ function loadURL(url){
     navigator.app.loadUrl(url, { openExternal:true });
     return false;
 } 
-function calculoedadregistrado(tipo,dato){
-		
+function calculoedadregistrado(tipo,dato){		
 fecha = dato;
 hoy = new Date();
 ed = ((hoy -fecha)/12/30.5/24/60/60/1000)*12;
 ed = String(ed).split('.');
 edadNacido1=ed[0];
 return edadNacido1;
-	}
+}
 $("#infosolicitada").on('pagecreate', function(){
  $.fn.disableSelection = function() {
         return this
@@ -290,7 +303,21 @@ function volverF(){
 		top.location="#pagInfoSemanal";
 	}
 }
-$("#listaDeNombreBB1").on('pagecreate', function(){
+var toPage;
+$(document).on( "click", ".show-page-loading-msg", function(event) {
+	toPage = $(this).attr('href');
+	id = $(this).attr('data-gen');
+	event.preventDefault();
+	$.mobile.loading( 'show', {
+		text: 'Cargando',
+		textVisible: true,
+		theme: 'z',
+		html: ""
+	});
+	generoN(id,finSincro);
+});
+
+$("#listaDeNombreBB1").on('pagebeforecreate', function(event){
  $.fn.disableSelection = function() {
         return this
                  .attr('unselectable', 'on')
@@ -301,19 +328,17 @@ $("#listaDeNombreBB1 ul").disableSelection();
 $("#listaDeNombreBB1 ul").html("");
 	
 generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1",'headerinter1','wr','scrolle1');
-
 });
 $("#listaDeNombreBB1").on('pagebeforeshow', function(){
+
 footer=$(".footer").height();
 ventana=$(window).height();
-console.log(footer+":"+ventana/2.5);
-
 $("#listaDeNombreBB1 #contenidoNombreNinno").css("height",(ventana)-(footer+(ventana/2.5)+30));
 });
 $("#listaDeNombreBB2").on('pagebeforeshow', function(){
 footer=$(".footer").height();
 ventana=$(window).height();
-console.log(footer+":"+ventana/2.5);
+
 
 $("#listaDeNombreBB2 #contenidoNombresNina").css("height",(ventana)-(footer+(ventana/2.5)+30));
 });
@@ -341,7 +366,6 @@ $("#listaDeNombreBB2").on('pagecreate', function(){
 $("#listaDeNombreBB2 ul").disableSelection();
 $("#listaDeNombreBB2 ul").html("");
 
-generoN(1,$("#listaDeNombreBB2 ul"),"footerinter2",'headerinter2','wr2','scrolle2');
 /*$("#listaDeNombreBB2").on('vclick',function(){loadedscroll('headerinter2','footerinter2','wr2','scrolle2');});*/
 });
 $("#Descuentos").on('pagecreate', function(){
@@ -351,8 +375,7 @@ $("#eventoEmba2").on('pagebeforecreate', function(){
 		//loadedscroll('headerinterEjer','footerinterEjer','wrEjer','scrolleEjer');
 			myScroll3 = new iScroll('divEjer');
 			setTimeout(function(){
-				myScroll3.refresh();
-			
+				myScroll3.refresh();			
 			
 			},500);
 		
@@ -383,13 +406,11 @@ function calcular(){
 	});	
 }
 var block;
-function generoN(id,objetos,footerinter,headerinter,wr,scrolle){		
-
+function generoN(id,finSincro){		
 
 db.transaction(function(tx) {
 			tx.executeSql('create table if not exists bloqueos(id)');						
 			tx.executeSql('SELECT * FROM generoNinnos where genero="'+id+'" and estado="1"', [], function (tx, results) {
-
 				if(results.rows.length>0){
 					for(var i = 0; i < results.rows.length; i++) {
 					var idingreso=results.rows.item(i).id;
@@ -401,23 +422,25 @@ db.transaction(function(tx) {
 								if((i%2)!=0){
 								sombra="sombraNombreT"
 								}
-								objetos.append("<li class='"+sombra+"' id='"+results.rows.item(i).id+"'>"+results.rows.item(i).nombre+"<a href='javascript:eliminarlista("+results.rows.item(i).id+")' class='remov' >Remover</a></li>");	
+								$("#"+conte+" ul").append("<li class='"+sombra+"' id='"+results.rows.item(i).id+"'>"+results.rows.item(i).nombre+"<a href='javascript:eliminarlista("+results.rows.item(i).id+")' class='remov' >Remover</a></li>");	
 								if(i==(results.rows.length-1)){
 								
 									myScroll3 = new iScroll(conte);
 									setTimeout(function(){
 									myScroll3.refresh();
 
-
 									},900);
 											
 								}
 						
 					}
+					finSincro();
 				}				
-			}, null);
-		});
-return true;
+			});
+		})
+}
+function finSincro(){
+$.mobile.changePage(toPage);
 }
 function descuentos(){
 		db.transaction(function(tx) {
