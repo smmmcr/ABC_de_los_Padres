@@ -737,6 +737,16 @@ $("#eventoEmba2").on('pagebeforecreate', function(){
 $("#eventoEmba1").on('pagecreate', function(){
 	$("#eventoEmba1 #imagenNacido").hide();
 });
+$("#listaDeNombreBB1").on('pagebeforeshow', function(){
+footer=$(".footer").height();
+ventana=$(window).height();
+$("#listaDeNombreBB1 #contenidoNombreNinno").css("height",(ventana)-(footer+(ventana/2.5)+30));
+});
+$("#listaDeNombreBB2").on('pagebeforeshow', function(){
+footer=$(".footer").height();
+ventana=$(window).height();
+$("#listaDeNombreBB2 #contenidoNombresNina").css("height",(ventana)-(footer+(ventana/2.5)+30));
+});
 </script>					
 </body> 
 </html> 

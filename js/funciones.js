@@ -13,8 +13,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 $(document).on('mobileinit', function(){
 descuentos();
 sincronizar();
-alert($(window).width());
-alert($(window).height());
+/*alert($(window).width());
+alert($(window).height());*/
 $("#contenedorCarga").hide();
 $.mobile.pushStateEnabled = true;
 $.mobile.defaultDialogTransition = 'none';
@@ -221,17 +221,6 @@ $("#listaDeNombreBB1 ul").disableSelection();
 $("#listaDeNombreBB1 ul").html("");
 	
 //generoN(2,$("#listaDeNombreBB1 ul"),"footerinter1",'headerinter1','wr','scrolle1');
-});
-$("#listaDeNombreBB1").on('pagebeforeshow', function(){
-
-footer=$(".footer").height();
-ventana=$(window).height();
-$("#listaDeNombreBB1 #contenidoNombreNinno").css("height",(ventana)-(footer+(ventana/2.5)+30));
-});
-$("#listaDeNombreBB2").on('pagebeforeshow', function(){
-footer=$(".footer").height();
-ventana=$(window).height();
-$("#listaDeNombreBB2 #contenidoNombresNina").css("height",(ventana)-(footer+(ventana/2.5)+30));
 });
 $("#TemasSemanales").on('pagebeforeshow', function(){
 footer=$(".footer").height();
