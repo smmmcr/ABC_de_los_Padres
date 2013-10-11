@@ -520,12 +520,6 @@ margin-left: 3%;
 margin-top: 12%;
 
 }
-#ninno span, #ninna span{
-margin-left: 23%;
-
-font-size: 1.1em;
-
-}
 #ninno img, #ninna img{
 width: 44%;
 float: left;
@@ -739,4 +733,10 @@ width: 90%;
 max-height: 44px;
 margin-left: 5%;
 font-size: 0.9em;
+}
+#ninno span,#ninna span{
+display: block;
+margin: 0 auto;
+width: 61%;
+font-size: 1.4em;
 }

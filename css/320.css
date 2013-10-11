@@ -513,11 +513,6 @@ margin-left: 3%;
 margin-top: 12%;
 
 }
-#ninno span, #ninna span{
-margin-left: 11%;
-font-size: 12px;
-
-}
 #ninno img, #ninna img{
 width: 44%;
 float: left;
@@ -719,7 +714,7 @@ height: 7em;
 }
 .listaDescuentos .textoDesc{
 float: left;
-width: 65%;
+width: 58%;
 position: relative;
 }
 .listaDescuentos img{
@@ -731,4 +726,10 @@ width: 90%;
 max-height: 44px;
 font-size: 0.69em;
 margin-left: 5%;
+}
+#ninno span,#ninna span{
+display: block;
+margin: 0 auto;
+width: 76%;
+font-size: 0.65em;
 }

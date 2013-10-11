@@ -19,12 +19,7 @@ overflow: hidden;
 color: rgb(255, 255, 255);
 border: 10px solid rgba(32, 125, 243, 0.58);
 }
-#ninno span, #ninna span{
-margin-left: 23%;
 
-font-size: 1.5em;
-
-}
 #conteDescuentos {
 width: 80%;
 overflow: hidden;
