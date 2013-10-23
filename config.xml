@@ -1,16 +1,13 @@
 ﻿<?xml version="2.0" encoding="UTF-8"?>
 <widget  xmlns     = 'http://www.w3.org/ns/widgets'
         xmlns:gap = 'http://phonegap.com/ns/1.0'
-		id="movil.ABC" version="3.0">
+		id="ABCdelosPadres" version="3.0">
 
 	<name>abc</name>
 	<description>abc</description>
 	<author>SMMM</author>	<gap:platforms>
 		<gap:platform name="ios" />
 		<gap:platform name="android" />
-		<gap:platform name="webos" />
-		<gap:platform name="symbian.wrt" />
-		<gap:platform name="blackberry" project="widgets"/>
 	</gap:platforms>	
 
 	<icon src="abclogo.png" width="128" height="128" gap:role="default" />	
