@@ -110,10 +110,11 @@ function sincronizar(){
 	id=json_data[index].id;
 	var titulo=String(json_data[index].titulo);
 	var texto=json_data[index].texto;
-	var versionIN=json_data[index].version;		
-	if(json_data[index].version!=version1){
-	tx.executeSql('insert into temaSeman(id,titulo,texto) values ("'+id+'","'+titulo+'","'+texto+'")');
-	}		  			
+	//var versionIN=json_data[index].version;		
+//	alert(titulo);
+	//if(json_data[index].version!=version1){
+	tx.executeSql('insert into temaSeman(id,titulo,texto) values (?,?,?)',[id,titulo,texto]);
+//	}		  			
 	}
 	});	
 	});
@@ -178,9 +179,7 @@ edadNacido1=ed[0];
 if(edadNacido1>21||edadNacido1<0){
 $( "#errorEdad" ).popup( "open" );
 	setTimeout(function(){
-location.reload();
-		
-			
+location.reload();		
 			
 			},7000);
 }
