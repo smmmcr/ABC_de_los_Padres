@@ -455,7 +455,7 @@ height: 69%;
 margin-left: 0px;
 }
 #calcular{
-width: 37%;
+width: 42%;
 margin-left: 29%;
 }
 #divEjer{
@@ -725,4 +725,10 @@ display: block;
 margin: 0 auto;
 width: 61%;
 font-size: 0.78em;
+}
+#eventoEmba1 #divBtncalcular .contVolver {
+width: 21%!important;
+display: block!important;
+margin: 7px auto!important;
+float: none;
 }

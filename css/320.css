@@ -463,6 +463,9 @@ display: block;
 }
 #divBtncalcular{
 margin-left: 0px;
+width: 90%;
+display: block;
+margin: 0 auto;
 }
 #eventoEmba2 .ui-content{
 border-width: 0;
@@ -471,8 +474,9 @@ overflow-x: hidden;
 padding: 7px;
 }
 #calcular{
-width: 50%;
-margin-left: 23%;
+width: 36%;
+display: block;
+margin: 0 auto;
 }
 #divEjer{
 overflow: hidden;
@@ -743,4 +747,10 @@ display: block;
 margin: 0 auto;
 width: 76%;
 font-size: 0.65em;
+}
+#eventoEmba1 #divBtncalcular .contVolver {
+width: 21%!important;
+display: block!important;
+margin: 7px auto!important;
+float: none;
 }

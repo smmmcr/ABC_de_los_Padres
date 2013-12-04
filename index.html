@@ -298,11 +298,12 @@
 						<p id="resultadoPar"></p>
 						</div>
 					</div>
-						<div id="divBtncalcular">
-						<input type="image" name="calcular" src="img/calcular.png" id="calcular" onclick="calcular()"/>
-						</div>
+						
 				</div>
+				<div id="divBtncalcular">
+						<input type="image" name="calcular" src="img/calcular.png" id="calcular" onclick="calcular()"/>
 				<div class="contVolver"><a href="#TemasEmbarazo"><img  src="img/btnVolver.png" class="volver" /></a></div>	
+						</div>
 				<div class="footer" data-role="footer">
 				<a href="javascript:window.open('https://www.facebook.com/juguetoncr?fref=ts', '_blank', 'location=yes'); "  ><img src="img/logoJugueton.png" /></a>
 				<a href="javascript:window.open('https://www.facebook.com/bebemundocr?ref=ts&fref=ts', '_blank', 'location=yes'); "  >	<img src="img/logoBebe.png" /></a>
@@ -703,6 +704,13 @@ $("#pagInfoSemanal").on('pagecreate', function(){
 		 }  
 	 }, null);
    });
+});
+$("#eventoEmba1").on('pagebeforeshow', function(){	
+footer=$(".footer").height();
+ventana=$(window).height();
+$("#contenidoDiaNacimiento").css("height",(ventana)-(footer+(ventana/1.9)+30));
+	
+	//myScroll3 = new iScroll('yoga', {hScrollbar: false});
 });
 $("#caminar").on('pagebeforeshow', function(){	
 footer=$(".footer").height();

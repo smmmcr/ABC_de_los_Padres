@@ -39,3 +39,14 @@ max-height: 44px;
 margin-left: 5%;
 font-size: 1em;
 }
+#eventoEmba1 #divBtncalcular .contVolver {
+width: 21%!important;
+display: block!important;
+margin: 7px auto!important;
+float: none;
+}
+#imagenNacido p {
+margin: 7% auto;
+width: 46%;
+padding-left: 11%;
+}

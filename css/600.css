@@ -456,11 +456,9 @@ font-size: 1em;
 position: relative;
 }
 #imagenNacido img{
-width: 28%;
+width: 22%;
 float: left;
 height: 100%;
-margin-left: 33%;
-margin-right: 33%;
 }
 #imagenNacido p{
 margin: 0 auto;
@@ -739,4 +737,10 @@ display: block;
 margin: 0 auto;
 width: 61%;
 font-size: 1.4em;
+}
+#eventoEmba1 #divBtncalcular .contVolver {
+width: 21%!important;
+display: block!important;
+margin: 7px auto!important;
+float: none;
 }
