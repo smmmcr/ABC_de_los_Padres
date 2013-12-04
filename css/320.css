@@ -387,7 +387,7 @@ width: 100%;
 }
 #listaAcTemasEmba{
 width: 94%;
-height: 212px;
+min-height: 186px;
 border: 9px solid rgba(238, 74, 218, 0.95);
 border-radius: 12px;
 padding-left: 6px;
@@ -401,6 +401,9 @@ width: 100%;
 border: 9px solid #EB5656;
 background: rgba(255, 255, 255, 0.33);
 border-radius: 12px;
+overflow: hidden;
+max-height: 175px;
+padding-top: 2px;
 }
 #objcalculo{
 width: 100%;
@@ -440,7 +443,7 @@ margin: 0;
 border-radius: 7px;
 }
 #imagenNacido{
-width: 100%;
+width: 86%;
 height: auto;
 float: left;
 margin-left: 0%;
@@ -461,6 +464,12 @@ display: block;
 #divBtncalcular{
 margin-left: 0px;
 }
+#eventoEmba2 .ui-content{
+border-width: 0;
+overflow: visible;
+overflow-x: hidden;
+padding: 7px;
+}
 #calcular{
 width: 50%;
 margin-left: 23%;
@@ -471,7 +480,7 @@ width: 93%;
 border: 12px solid rgba(30, 115, 223, 0.84);
 border-radius: 12px;
 background: rgba(255, 255, 255, 0.47);
-height: 218px;
+height: 188px;
 position: relative;
 }
 .ejer{
@@ -480,6 +489,8 @@ float: left;
 border-radius: 11px;
 background: rgba(255, 255, 255, 0.71);
 width: 94%;
+height: 150px;
+position: relative;
 }
 .ejer p{
 color:#000!important;
