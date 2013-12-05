@@ -712,8 +712,20 @@ $("#contenidoDiaNacimiento").css("height",(ventana)-(footer+(ventana/1.9)+30));
 $("#caminar").on('pagebeforeshow', function(){	
 footer=$(".footer").height();
 ventana=$(window).height();
-$(".ejer").css("height",(ventana)-(footer+(ventana/1.5)+30));
-$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.5)+30));
+$(".ejer").css("height",(ventana)-(footer+(ventana/1.7)+30));
+$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.7)+30));
+	myScroll3 = new iScroll('scrollerEjer');
+			setTimeout(function(){
+				myScroll3.refresh();			
+			
+			},800);
+	//myScroll3 = new iScroll('yoga', {hScrollbar: false});
+});
+$("#natacion").on('pagebeforeshow', function(){	
+footer=$(".footer").height();
+ventana=$(window).height();
+$(".ejer").css("height",(ventana)-(footer+(ventana/1.7)+30));
+$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.7)+30));
 	myScroll3 = new iScroll('scrollerEjer');
 			setTimeout(function(){
 				myScroll3.refresh();			
