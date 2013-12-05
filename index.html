@@ -28,9 +28,6 @@
 <body> 
 	<!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
     This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
-	<div id="contenedorCarga">
-	<img src="abclogo.png" />
-	</div>
 			<div id="pagInicio" data-role="page">
 			<div class="header" data-role="header">
 				<img src="img/hederPrincipal.png" />
@@ -715,8 +712,8 @@ $("#contenidoDiaNacimiento").css("height",(ventana)-(footer+(ventana/1.9)+30));
 $("#caminar").on('pagebeforeshow', function(){	
 footer=$(".footer").height();
 ventana=$(window).height();
-$(".ejer").css("height",(ventana)-(footer+(ventana/1.9)+30));
-$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.9)+30));
+$(".ejer").css("height",(ventana)-(footer+(ventana/1.5)+30));
+$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.5)+30));
 	myScroll3 = new iScroll('scrollerEjer');
 			setTimeout(function(){
 				myScroll3.refresh();			
@@ -727,8 +724,8 @@ $(".ejer ul").css("height",(ventana)-(footer+(ventana/1.9)+30));
 $("#yoga").on('pagebeforeshow', function(){	
 footer=$(".footer").height();
 ventana=$(window).height();
-$(".ejer").css("height",(ventana)-(footer+(ventana/1.9)+30));
-$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.9)+30));
+$(".ejer").css("height",(ventana)-(footer+(ventana/1.7)+30));
+$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.7)+30));
 	myScroll3 = new iScroll('scrollYoga');
 			setTimeout(function(){
 				myScroll3.refresh();			
@@ -739,8 +736,8 @@ $(".ejer ul").css("height",(ventana)-(footer+(ventana/1.9)+30));
 $("#aerobicos").on('pagebeforeshow', function(){	
 footer=$(".footer").height();
 ventana=$(window).height();
-$(".ejer").css("height",(ventana)-(footer+(ventana/1.9)+30));
-$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.9)+30));
+$(".ejer").css("height",(ventana)-(footer+(ventana/1.7)+30));
+$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.7)+30));
 	myScroll3 = new iScroll('scrolleraero');
 			setTimeout(function(){
 				myScroll3.refresh();			
@@ -751,8 +748,8 @@ $(".ejer ul").css("height",(ventana)-(footer+(ventana/1.9)+30));
 $("#bicicleta").on('pagebeforeshow', function(){	
 footer=$(".footer").height();
 ventana=$(window).height();
-$(".ejer").css("height",(ventana)-(footer+(ventana/1.9)+30));
-$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.9)+30));
+$(".ejer").css("height",(ventana)-(footer+(ventana/1.7)+30));
+$(".ejer ul").css("height",(ventana)-(footer+(ventana/1.7)+30));
 	myScroll3 = new iScroll('scrollerbici');
 			setTimeout(function(){
 				myScroll3.refresh();			

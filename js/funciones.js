@@ -13,7 +13,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 $(document).on('mobileinit', function(){
 descuentos();
 sincronizar();
-$("#contenedorCarga").hide();
+
 $.mobile.pushStateEnabled = true;
 $.mobile.defaultDialogTransition = 'none';
 $.mobile.defaultPageTransition = 'none';
