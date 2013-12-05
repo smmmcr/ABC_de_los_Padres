@@ -252,7 +252,9 @@ function calcular(){
 	mesde_parto=meses[parseInt(Mes)+9];
 	}
 	fechaNacimiento=(parseInt(Dia)+7)+" de "+mesde_parto+" del "+annoParto;
-	
+	h=$("#eventoEmba1").height();
+	h=h/7;
+	$("#eventoEmba1 #imagenNacido img").css("height",h)
 	$("#eventoEmba1 #imagenNacido").show('slow',function(){
 	
 	$("#eventoEmba1 #resultadoPar").html(fechaNacimiento);
